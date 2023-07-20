@@ -1,0 +1,52 @@
+body {
+    color: rgb(249, 247, 247);
+    background-color: black;
+}
+
+
+.title {
+    text-align: center;
+    font-size: 100px;
+    font-family: "Antipasto Pro Thin";
+    font-style: Italic;
+    font-weight: 100;
+    letter-spacing: 10px;
+    margin-top: 100;
+    margin-bottom: 100;
+}
+
+p {
+    margin: 40px 0px 40px 100px;
+    font-family: "Times New Roman";
+    font-size: 20px;
+    font-weight: 200;
+    margin-right: 30%;
+    line-height: 1.75;
+}
+
+#descrip {
+    white-space: nowrap;
+}
+
+
+
+
+
+#cursor {
+    color: rgb(249, 247, 247);
+    animation: blink 1.5s linear infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0%;
+    }
+
+    50% {
+        opacity: 100%;
+    }
+
+    100% {
+        opacity: 0%;
+    }
+}
