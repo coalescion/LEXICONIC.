@@ -17,8 +17,8 @@ body {
 
 p {
     margin: 40px 0px 40px 100px;
-    font-family: "Times New Roman";
     font-size: 20px;
+    font-family: 'Times New Roman';
     font-weight: 200;
     margin-right: 3%;
     margin-left: 3%;
@@ -29,6 +29,17 @@ p {
     white-space: nowrap;
     font-size: 40px;
 }
+
+pre {
+    margin: 40px 0px 40px 100px;
+    font-size: 20px;
+    font-family: 'Times New Roman';
+    font-weight: 200;
+    margin-right: 3%;
+    margin-left: 3%;
+    line-height: 1.75;
+}
+
 
 
 .sticker {
@@ -41,6 +52,10 @@ p {
 
   .hidden {
     visibility: hidden;
+  }
+
+  .tab {
+    tab-size: 8;
   }
 
 
