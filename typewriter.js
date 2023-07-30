@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const getText = async () => {
     const paragraphsToType = [];
-    for (let i = 1; i < 17; i++) {
+    for (let i = 1; i < 21; i++) {
       paragraphsToType.push("descrip" + i);
     }
     return paragraphsToType;
@@ -32,10 +32,10 @@ document.addEventListener("DOMContentLoaded", function() {
       paragraph.classList.remove("hidden");
       console.log("paragraphID: " + paragraphID)
       await typewriterEffect(paragraphID, sleeptime);
-      if (paragraphID == "descrip2" || paragraphID == "descrip13") {
+      if (paragraphID == "descrip2" || paragraphID == "descrip8") {
         console.log("delaying 6000")
         await delay(6000)
-      } else if (paragraphID == "descrip1" || paragraphID == "descrip17") {
+      } else if (paragraphID == "descrip1" || paragraphID == "descrip12") {
         console.log("delaying 2000")
         await delay(2000)
       }
