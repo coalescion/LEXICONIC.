@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const getText = async () => {
     const paragraphsToType = [];
-    for (let i = 1; i < 21; i++) {
+    for (let i = 1; i < 22; i++) {
       paragraphsToType.push("descrip" + i);
     }
     return paragraphsToType;
