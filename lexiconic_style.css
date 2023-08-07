@@ -33,7 +33,7 @@ span {
 
 a {
     display: block;
-    margin: 40px 0px 40px 0px;
+    margin: 40px 0px 40px 10px;
     font-family: "Menlo";
     font-style: Italic;
     font-size: 20px;
