@@ -1,6 +1,7 @@
 body {
     color: rgb(249, 247, 247);
     background-color: black;
+    width: 80vh;
 }
 
 
@@ -12,7 +13,7 @@ h1 {
     font-weight: 100;
     letter-spacing: 0px;
     letter-spacing: 5px;
-    margin-bottom:0px;
+    margin: 0px 50px 0px 50px;
 }
 
 @font-face {
@@ -48,6 +49,7 @@ a:hover, a:active, a:focus, a:visited {
     font-weight: 1000;
   }
 
+
 p {
     margin: 40px 0px 40px 10px;
     font-family: "Menlo";
@@ -55,11 +57,5 @@ p {
     letter-spacing: 2px;
     font-size: 20px;
     font-weight: 100;
-    
-}
-
-.title {
-    font-size: calc(10vw + 10vh); /* Adjust the values as needed */
-    text-align: center; /* Center the text horizontally */
-    margin: 0; /* Remove default margin to prevent unwanted spacing */
+    width: 70vh
 }
