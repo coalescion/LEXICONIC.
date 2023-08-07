@@ -57,3 +57,9 @@ p {
     font-weight: 100;
     
 }
+
+.title {
+    font-size: calc(10vw + 10vh); /* Adjust the values as needed */
+    text-align: center; /* Center the text horizontally */
+    margin: 0; /* Remove default margin to prevent unwanted spacing */
+}
