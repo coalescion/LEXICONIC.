@@ -1,51 +1,46 @@
-document.addEventListener("DOMContentLoaded", function() {
-  function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+const typewriterEffect = async (paragraphID, sleeptime) => {
+  const paragraph = document.getElementById(paragraphID);
+  const text = paragraph.textContent;
+
+  for (let i = 0; i < text.length + 1; i++) {
+    paragraph.innerHTML = text.substring(0, i);
+    await delay(sleeptime);
   }
+};
 
-  const typewriterEffect = async (paragraphID, sleeptime) => {
+const getText = async () => {
+  const paragraphsToType = [];
+  for (let i = 1; i < 5; i++) {
+    paragraphsToType.push("descrip" + i);
+  }
+  return paragraphsToType;
+};
+
+const sleeptime = 40; // Adjust the typing speed as desired
+
+const startTypewriterEffect = async () => {
+  const paragraphsToType = await getText();
+
+  for (const paragraphID of paragraphsToType) {
     const paragraph = document.getElementById(paragraphID);
-    const text = paragraph.textContent;
+    paragraph.classList.remove("hidden");
+    await typewriterEffect(paragraphID, sleeptime);
+    await delay(1000);
 
-
-    for (let i = 0; i < text.length + 1; i++) {
-      paragraph.innerHTML = text.substring(0, i);
-      await delay(sleeptime);
+    if (paragraphID == "descrip1") {
+      await delay(2000);
+    } else if (paragraphID == "descrip3") {
+      await delay(3000);
     }
-  };
+  }
+};
 
 
-  const getText = async () => {
-    const paragraphsToType = [];
-    for (let i = 1; i < 5; i++) {
-      paragraphsToType.push("descrip" + i);
-    }
-    console.log(paragraphsToType)
-    return paragraphsToType;
-  };
-
-  const sleeptime = 40; // Adjust the typing speed as desired
-
-  const runTypewriterForParagraphs = async () => {
-    const paragraphsToType = await getText();
-    console.log("paragraphs to type: " + paragraphsToType);
-
-    for (const paragraphID of paragraphsToType) {
-      const paragraph = document.getElementById(paragraphID);
-      paragraph.classList.remove("hidden");
-      console.log(paragraph)
-      await typewriterEffect(paragraphID, sleeptime);
-      await delay(1000)
-      if (paragraphID == "descrip1") {
-        await delay(2000)
-      } else if (paragraphID == "descrip3") {
-        await delay(4000)
-      }
-      }
-    }
-
-  runTypewriterForParagraphs();
-});
+startTypewriterEffect();
 
 
 

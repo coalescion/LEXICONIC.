@@ -3,27 +3,35 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>unzip reality.</title>
+    <title>smile.</title>
     <link rel="stylesheet" href="descriptions.css"/>
     <link rel="stylesheet" href="rolling_circle.css"/>
+    <script src="typewriter_smile.js"></script> 
 </head>
-
 <body>
-    <!-- <img src="unzip_reality_online.png" height="100"
-    alt="examine the question." class="sticker"> -->
     <a href="index.html" class="circle"></a>
-    <p>
-        <span id="typewriter"></span>
-    </p>
     <pre>
 
     </pre>
-    <p id="descrip1" class="hidden">
-        <!-- just tryna sow confusion into this world;;; people should be confused more—it is a natural state of being. 
-        it is an accurate reflection of the human condition, of our place in the universe. There is only one song that captures any and every possible moment:
-        Marvin Gaye's "What's Going On?". -->
-        smile.
+    <img src="smile_online.png" height="100" alt="smile image." class="sticker" style="display: none;">
+    <p>
+        <span id="typewriter"></span>
     </p>
-    <script src="typewriter_copy.js"></script>
+    <p id="descrip1" class="hidden">many of us are acutely aware—and at least somewhat self-conscious—about our appearance.</p>
+    <p id="descrip2" class="hidden">the more we smile, the more we enjoy our lives and appreciate the world around us.</p>
+    <p id="descrip3" class="hidden">complimenting someone on their smile goes a long way in causing them to smile more, even if the effect is largely subconscious.</p>
+    <p id="descrip4" class="hidden">you have the power to spread this energy to those around you. compliment their smiles. contibute to their joy.</p>
+    <script>
+        // Delay image display
+        setTimeout(function() {
+            document.querySelector('.sticker').style.display = 'block';
+        }, 2000); // 3000 milliseconds = 3 seconds
+
+        // Delay typewriter effect
+        setTimeout(function() {
+            // Call your typewriter effect function from the linked script
+            startTypewriterEffect();
+        }, 4000);
+    </script>
 </body>
 </html>
