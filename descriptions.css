@@ -5,14 +5,10 @@ body {
 
 
 .title {
-    text-align: center;
-    font-size: 100px;
     font-family: "Antipasto Pro Thin";
     font-style: Italic;
-    font-weight: 100;
-    letter-spacing: 10px;
-    margin-top: 100;
-    margin-bottom: 100;
+    font-weight: 300px;
+    letter-spacing: 2px;
 }
 
 p {
@@ -84,3 +80,14 @@ pre {
         opacity: 0%;
     }
 }
+
+a {
+    color:rgb(249, 247, 247);
+    text-decoration: none;
+}
+
+a:hover, a:active, a:focus, a:visited {
+    text-shadow: 5px 5px 20px rgb(100, 247, 247);
+    font-style: Bold Italic;
+    font-weight: 1000;
+  }

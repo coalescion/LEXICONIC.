@@ -5,15 +5,17 @@ body {
 }
 
 
-h1 {
+.logo {
     text-align: center;
-    font-size: 100px;
+    font-size: 80px;
     font-family: 'Avenir Next';
     font-style: Italic;
     font-weight: 100;
-    letter-spacing: 0px;
     letter-spacing: 5px;
     margin: 0px 50px 0px 40px;
+
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @font-face {
@@ -59,3 +61,72 @@ p {
     font-weight: 100;
     width: 70vh
 }
+
+
+/* styles for the menu icon and menu */
+
+
+/* New styles for the navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10vh 0 0; /* Add padding to the right */
+    position: relative;
+}
+
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    margin-left: 5vw; /* Add spacing between logo and menu icon */
+}
+
+/* Visually hide the checkbox */
+#menu-toggle {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+.menu {
+    list-style: none;
+    position: absolute;
+    top: 100%; /* Adjust positioning with some spacing */
+    right: 0;
+    left: 0; /* Make the menu span the entire width */
+    background-color: black;
+    padding: 10px;
+    border: 1px solid white;
+    display: none;
+    z-index: 1; /* Ensure menu is on top of other content */
+    text-align: center; /* Align menu items to the center */
+    margin: 0; /* Remove default margin */
+}
+
+.menu.active {
+    display: block;
+}
+
+.content {
+    margin-top: 0; /* Default margin */
+    transition: margin-top 0.3s ease; /* Add transition for smooth effect */
+    position: relative; /* Add this line to establish stacking context */
+}
+
+
+/* Apply the margin only when the menu is active */
+.content.menu-active {
+    margin-top: 150px;
+}
+
+
+
+.menu li {
+    font-size: 30px;
+    letter-spacing: 20px;
+
+}
+
