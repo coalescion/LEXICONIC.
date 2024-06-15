@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
     return paragraphsToType;
   };
 
-  const sleeptime = 10; // Adjust the typing speed as desired
+  const sleeptime = 5; // Adjust the typing speed as desired
 
   const runTypewriterForParagraphs = async () => {
     const paragraphsToType = await getText();
