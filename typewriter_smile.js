@@ -20,7 +20,7 @@ const getText = async () => {
   return paragraphsToType;
 };
 
-const sleeptime = 10; // Adjust the typing speed as desired
+const sleeptime = 80; // Adjust the typing speed as desired
 
 const startTypewriterEffect = async () => {
   const paragraphsToType = await getText();
@@ -29,12 +29,12 @@ const startTypewriterEffect = async () => {
     const paragraph = document.getElementById(paragraphID);
     paragraph.classList.remove("hidden");
     await typewriterEffect(paragraphID, sleeptime);
-    await delay(1000);
+    await delay(0); // was 1000
 
     if (paragraphID == "descrip1") {
-      await delay(1000);
+      await delay(0); // was 1000
     } else if (paragraphID == "descrip2") {
-      await delay(2500);
+      await delay(0); // was 2500
     }
   }
 };
