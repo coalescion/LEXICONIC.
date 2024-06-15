@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>smile.</title>
+    <link rel="stylesheet" href="descriptions.css"/>
+    <link rel="stylesheet" href="rolling_circle.css"/>
+    <script src="typewriter_smile.js"></script> 
+</head>
+<body>
+    <a href="index.html" class="circle"></a>
+    <pre>
+
+    </pre>
+    <img src="smile_online.png" height="100" alt="smile image." class="sticker" style="display: none;">
+    <p>
+        <span id="typewriter"></span>
+    </p>
+    <p id="descrip1" class="hidden">we all seek confidence in our appearance. </p>
+    <p id="descrip2" class="hidden">the more we smile, the more we enjoy our lives and appreciate the world around us.</p>
+    <p id="descrip3" class="hidden">complimenting someone on their smile goes a long way in causing them to smile more, even if the effect is largely subconscious.</p>
+    <p id="descrip4" class="hidden">you have the power to spread this energy to those around you. compliment their smiles. contibute to their joy.</p>
+    <script>
+        // Delay image display
+        setTimeout(function() {
+            document.querySelector('.sticker').style.display = 'block';
+        }, 2000); // 3000 milliseconds = 3 seconds
+
+        // Delay typewriter effect
+        setTimeout(function() {
+            // Call the typewriter effect function from the linked script
+            startTypewriterEffect();
+        }, 4000);
+    </script>
+</body>
+</html>

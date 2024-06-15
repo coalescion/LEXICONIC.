@@ -17,24 +17,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const getText = async () => {
     const paragraphsToType = [];
-    for (let i = 1; i < 39; i++) {
+    for (let i = 1; i < 22; i++) {
       paragraphsToType.push("descrip" + i);
     }
-    console.log(paragraphsToType)
     return paragraphsToType;
   };
 
-  const sleeptime = 25; // Adjust the typing speed as desired
+  const sleeptime = 35; // Adjust the typing speed as desired
 
   const runTypewriterForParagraphs = async () => {
     const paragraphsToType = await getText();
-    console.log("paragraphs to type: " + paragraphsToType);
-
     for (const paragraphID of paragraphsToType) {
       const paragraph = document.getElementById(paragraphID);
       paragraph.classList.remove("hidden");
-      console.log(paragraph)
+      console.log("paragraphID: " + paragraphID)
       await typewriterEffect(paragraphID, sleeptime);
+      if (paragraphID == "descrip2" || paragraphID == "descrip8") {
+        console.log("delaying 6000")
+        await delay(6000)
+      } else if (paragraphID == "descrip1" || paragraphID == "descrip12") {
+        console.log("delaying 2000")
+        await delay(2000)
+      }
     }
   };
 
