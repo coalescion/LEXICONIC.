@@ -20,7 +20,7 @@ const getText = async () => {
   return paragraphsToType;
 };
 
-const sleeptime = 80; // Adjust the typing speed as desired
+const sleeptime = 20; // Adjust the typing speed as desired
 
 const startTypewriterEffect = async () => {
   const paragraphsToType = await getText();
