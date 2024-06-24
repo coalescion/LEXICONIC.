@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
     return paragraphsToType;
   };
 
-  const sleeptime = 5; // Adjust the typing speed as desired
+  const sleeptime = 20; // Adjust the typing speed as desired
 
   const runTypewriterForParagraphs = async () => {
     const paragraphsToType = await getText();
@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", function() {
       await typewriterEffect(paragraphID, sleeptime);
       if (paragraphID == "descrip2" || paragraphID == "descrip8") {
         console.log("delaying 6000")
-        await delay(0) // was 6000
+        await delay(6000) // was 6000
       } else if (paragraphID == "descrip1" || paragraphID == "descrip12") {
         console.log("delaying 2000")
-        await delay(0) // was 2000
+        await delay(2000) // was 2000
       }
     }
   };
