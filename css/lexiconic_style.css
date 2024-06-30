@@ -20,12 +20,12 @@ body {
 
 @font-face {
     font-family: 'Antipasto Pro Thin';
-    src: url('AntipastoProThin.ttf') format('truetype'),
+    src: url('../fonts/AntipastoProThin.ttf') format('truetype'),
 }
 
 @font-face {
     font-family: 'Klartext Mono';
-    src: url('KlartextMonoRegularItalic.ttf') format('truetype'),
+    src: url('../fonts/KlartextMonoRegularItalic.ttf') format('truetype'),
 }
 
 
