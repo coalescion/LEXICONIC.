@@ -67,25 +67,25 @@
 @-moz-keyframes replaceImage {
   0%   { /* No change */ }
   100% {
-      background-image: url("torus.png"); /* Replace with "torus.png" */
+      background-image: url("lexiconic torus.png"); /
   }
 }
 @-ms-keyframes replaceImage {
   0%   { /* No change */ }
   100% {
-      background-image: url("torus.png"); /* Replace with "torus.png" */
+      background-image: url("lexiconic torus.png"); 
   }
 }
 @keyframes replaceImage {
   0%   { /* No change */ }
   100% {
-      background-image: url("torus.png"); /* Replace with "torus.png" */
+      background-image: url("lexiconic torus.png"); 
   }
 }
 @-webkit-keyframes replaceImage {
   0%   { /* No change */ }
   100% {
-      background-image: url("torus.png"); /* Replace with "torus.png" */
+      background-image: url("lexiconic torus.png"); 
   }
 }
 
