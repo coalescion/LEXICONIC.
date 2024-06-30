@@ -3,11 +3,18 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>confusion.</title>
-    <link rel="stylesheet" href="descriptions.css"/>
+    <title>smile.</title>
+    <link rel="stylesheet" href="../css/descriptions.css"/>
+    <link rel="stylesheet" href="../css/rolling_circle.css"/>
+    <script src="../js/typewriter_copy.js"></script> 
 </head>
-
 <body>
+    <a href="index.html" class="circle"></a>
+    <pre>
+
+    </pre>
+    <img src="../images/unzip_web.png" height="100"
+    alt="unzip reality image." class="sticker" style="display: none;">
     <p>
         <span id="typewriter"></span>
     </p>
@@ -26,6 +33,20 @@
     <p id="descrip4" class="hidden">
         and exposing the beyond.
     </p>
-    <script src="typewriter_copy.js"></script>
+    <script>
+        // Delay image display
+        setTimeout(function() {
+            document.querySelector('.sticker').style.display = 'block';
+        }, 2000); // 3000 milliseconds = 3 seconds
+
+        // Delay typewriter effect
+        setTimeout(function() {
+            // Call your typewriter effect function from the linked script
+            startTypewriterEffect();
+        }, 4000);
+    </script>
 </body>
 </html>
+
+
+
