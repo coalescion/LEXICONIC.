@@ -5,7 +5,7 @@
   display: block;
   width: 100px;
   height: 100px;
-  background-image: url("images/circle.png");
+  background-image: url("../images/circle.png");
   background-size: cover;
   border-radius: 50%;
   
@@ -67,25 +67,25 @@
 @-moz-keyframes replaceImage {
   0%   { /* No change */ }
   100% {
-      background-image: url("images/lexiconic torus.png"); /
+      background-image: url("../images/lexiconic torus.png"); /
   }
 }
 @-ms-keyframes replaceImage {
   0%   { /* No change */ }
   100% {
-      background-image: url("images/lexiconic torus.png"); 
+      background-image: url("../images/lexiconic torus.png"); 
   }
 }
 @keyframes replaceImage {
   0%   { /* No change */ }
   100% {
-      background-image: url("images/lexiconic torus.png"); 
+      background-image: url("../images/lexiconic torus.png"); 
   }
 }
 @-webkit-keyframes replaceImage {
   0%   { /* No change */ }
   100% {
-      background-image: url("images/lexiconic torus.png"); 
+      background-image: url("../images/lexiconic torus.png"); 
   }
 }
 
