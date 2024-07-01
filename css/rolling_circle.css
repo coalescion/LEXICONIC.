@@ -10,10 +10,10 @@
   border-radius: 50%;
   
   /* Animation to spin and freeze the circle */
-  -webkit-animation: spin 1.5s linear, freeze .75s linear 1s forwards, replaceImage 1s linear 3s forwards;
-  -moz-animation: spin 1.5s linear, freeze .75s linear 1s forwards, replaceImage 1s linear 3s forwards;
-  -ms-animation: spin 1.5s linear, freeze .75s linear 1s forwards, replaceImage 1s linear 3s forwards;
-  animation: spin 1.5s linear, freeze .75s linear 1s forwards, replaceImage 1s linear 3s forwards;
+  -webkit-animation: spin 1s linear, freeze .5s linear .75s forwards, replaceImage 1s linear 3s forwards;
+  -moz-animation: spin 1s linear, freeze .5s linear .75s forwards, replaceImage 1s linear 3s forwards;
+  -ms-animation: spin 1s linear, freeze .5s linear .75s forwards, replaceImage 1s linear 3s forwards;
+  animation: spin 1s linear, freeze .5s linear .75s forwards, replaceImage 1s linear 3s forwards;
   
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
