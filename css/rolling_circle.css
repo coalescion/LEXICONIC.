@@ -26,19 +26,19 @@
 /* Spinning the torus using keyframes */
 @-ms-keyframes spin {
   from { -ms-transform: rotate(0deg); }
-  to { -ms-transform: rotate(240deg); }
+  to { -ms-transform: rotate(300deg); }
 }
 @-moz-keyframes spin {
   from { -moz-transform: rotate(0deg); }
-  to { -moz-transform: rotate(240deg); }
+  to { -moz-transform: rotate(300deg); }
 }
 @keyframes spin {
   from { transform: rotate(0deg); }
-  to { transform: rotate(240deg); }
+  to { transform: rotate(300deg); }
 }
 @-webkit-keyframes spin {
   from { -webkit-transform: rotate(0deg); }
-  to { -webkit-transform: rotate(240deg); }
+  to { -webkit-transform: rotate(300deg); }
 }
 
 /* Freeze the circle in place after 2 seconds */
