@@ -31,11 +31,11 @@ const startTypewriterEffect = async () => {
     await typewriterEffect(paragraphID, sleeptime);
     await delay(1000);
 
-    if (paragraphID == "descrip1") {
-      await delay(2000);
-    } else if (paragraphID == "descrip3") {
-      await delay(3000);
-    }
+    // if (paragraphID == "descrip1") {
+    //   await delay(2000);
+    // } else if (paragraphID == "descrip3") {
+    //   await delay(3000);
+    // }
   }
 };
 
