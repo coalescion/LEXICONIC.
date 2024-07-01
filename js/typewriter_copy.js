@@ -14,7 +14,7 @@ const typewriterEffect = async (paragraphID, sleeptime) => {
 
 const getText = async () => {
   const paragraphsToType = [];
-  for (let i = 1; i < 10; i++) {
+  for (let i = 1; i < 5; i++) {
     paragraphsToType.push("descrip" + i);
   }
   return paragraphsToType;
@@ -33,12 +33,8 @@ const startTypewriterEffect = async () => {
 
     if (paragraphID == "descrip1") {
       await delay(2000);
-    } 
-    else if (paragraphID == "descrip3") {
+    } else if (paragraphID == "descrip3") {
       await delay(3000);
-    }
-    else if (paragraphID == "descrip4") {
-      await delay(1000);
     }
   }
 };
