@@ -13,11 +13,8 @@ const typewriterEffect = async (paragraphID, sleeptime) => {
 };
 
 const getText = async () => {
-  const paragraphsToType = [];
-  for (let i = 1; i < 5; i++) {
-    paragraphsToType.push("descrip" + i);
-  }
-  return paragraphsToType;
+  const paragraphs = document.querySelectorAll('.typewriter');
+  return Array.from(paragraphs).map(paragraph => paragraph.id);
 };
 
 const sleeptime = 40; // Adjust the typing speed as desired
