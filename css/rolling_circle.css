@@ -10,10 +10,10 @@
   border-radius: 50%;
   
   /* Animation to spin and freeze the circle */
-  -webkit-animation: spin 1.5s linear, freeze .75s linear 1s forwards, replaceImage 1s linear 2s forwards;
-  -moz-animation: spin 1.5s linear, freeze .75s linear 1s forwards, replaceImage 1s linear 2s forwards;
-  -ms-animation: spin 1.5s linear, freeze .75s linear 1s forwards, replaceImage 1s linear 2s forwards;
-  animation: spin 1.5s linear, freeze .75s linear 1s forwards, replaceImage 1s linear 2s forwards;
+  -webkit-animation: spin 1s linear, freeze .5s linear 1s forwards, replaceImage 1s linear 1.5s forwards;
+  -moz-animation: spin 1s linear, freeze .5s linear 1s forwards, replaceImage 1s linear 1.5s forwards;
+  -ms-animation: spin 1s linear, freeze .5s linear 1s forwards, replaceImage 1s linear 1.5s forwards;
+  animation: spin 1s linear, freeze .5s linear 1s forwards, replaceImage 1s linear 1.5s forwards;
   
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
@@ -26,19 +26,19 @@
 /* Spinning the torus using keyframes */
 @-ms-keyframes spin {
   from { -ms-transform: rotate(0deg); }
-  to { -ms-transform: rotate(360deg); }
+  to { -ms-transform: rotate(240deg); }
 }
 @-moz-keyframes spin {
   from { -moz-transform: rotate(0deg); }
-  to { -moz-transform: rotate(360deg); }
+  to { -moz-transform: rotate(240deg); }
 }
 @keyframes spin {
   from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  to { transform: rotate(240deg); }
 }
 @-webkit-keyframes spin {
   from { -webkit-transform: rotate(0deg); }
-  to { -webkit-transform: rotate(360deg); }
+  to { -webkit-transform: rotate(240deg); }
 }
 
 /* Freeze the circle in place after 2 seconds */
