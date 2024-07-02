@@ -98,8 +98,7 @@ p {
     right: 0;
     left: 0; /* Make the menu span the entire width */
     background-color: black;
-    /* padding: 10px;
-    border: 1px solid white; */
+    padding: 0px;
     display: none;
     z-index: 1; /* Ensure menu is on top of other content */
     text-align: center; /* Align menu items to the center */
