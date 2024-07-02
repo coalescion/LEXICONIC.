@@ -98,8 +98,8 @@ p {
     right: 0;
     left: 0; /* Make the menu span the entire width */
     background-color: black;
-    padding: 10px;
-    border: 1px solid white;
+    /* padding: 10px;
+    border: 1px solid white; */
     display: none;
     z-index: 1; /* Ensure menu is on top of other content */
     text-align: center; /* Align menu items to the center */
@@ -119,14 +119,17 @@ p {
 
 /* Apply the margin only when the menu is active */
 .content.menu-active {
-    margin-top: 150px;
+    margin-top: 500px;
 }
 
 
 
 .menu li {
     font-size: 30px;
-    letter-spacing: 20px;
+    letter-spacing: 10px;
+    padding: 0px; /* Add padding inside each menu item */
+    border: 1px solid white; /* Add border around each menu item */
+    margin: 0; /* Add spacing between menu items */
 
 }
 
