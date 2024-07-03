@@ -154,3 +154,8 @@ button:hover {
     margin-top: 20px;
     color: green;
 }
+
+.small {
+    font-size: 20px;
+    text-align: center;
+}
