@@ -95,7 +95,7 @@ p {
     list-style: none;
     position: absolute;
     top: 100%; /* Adjust positioning with some spacing */
-    right: 0;
+    right: 10px;
     left: 0; /* Make the menu span the entire width */
     background-color: black;
     padding: 0px;
