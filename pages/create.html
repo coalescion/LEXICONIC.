@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>about.</title>
+    <title>create.</title>
     <link rel="stylesheet" href="../css/descriptions.css"/>
 </head>
 <body>
@@ -14,5 +14,17 @@
         of the movement, enter your phrase with a description below. from there, we can begin the process of adding your wisdom
         to the website, and even create stickers for you and others to embed in the real world.
     </p>
+
+    <div class="container">
+        <form id="responseForm">
+            <textarea class="box1" id="box1" placeholder="phrase"></textarea>
+            <textarea class="box2" id="box2" placeholder="description"></textarea>
+            <textarea class="box3" id="box3" placeholder="contact info"></textarea>
+            <button type="submit">submit.</button>
+        </form>
+        <div id="confirmation" style="display: none;">Thank you for your message!</div>
+    </div>
+    <script src="../js/form.js"></script>
+
 </body>
 </html>
