@@ -1,0 +1,95 @@
+/* IMPORTANT COMMENT!!!!!
+/* have circle roll across screen after loading, bounce off wall, and settle to middle top of page?  */
+
+.circle {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-image: url("../images/circle.png");
+  background-size: cover;
+  border-radius: 50%;
+  
+  /* Animation to spin and freeze the circle */
+  -webkit-animation: spin 0s linear, freeze 0s linear 0s forwards, replaceImage 0s linear 0s forwards;
+  -moz-animation: spin 0s linear, freeze 0s linear 0s forwards, replaceImage 0s linear 0s forwards;
+  -ms-animation: spin 0s linear, freeze 0s linear 0s forwards, replaceImage 0s linear 0s forwards;
+  animation: sspin 0s linear, freeze 0s linear 0s forwards, replaceImage 0s linear 0s forwards;
+  
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  
+  position: absolute;
+  left: 38%;
+  transform: translate(0%, 0%);
+}
+
+/* Spinning the torus using keyframes */
+@-ms-keyframes spin {
+  from { -ms-transform: rotate(0deg); }
+  to { -ms-transform: rotate(300deg); }
+}
+@-moz-keyframes spin {
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(300deg); }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(300deg); }
+}
+@-webkit-keyframes spin {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(300deg); }
+}
+
+/* Freeze the circle in place after 2 seconds */
+@-moz-keyframes freeze {
+  0%   { /* Initial state */ }
+  100% { /* Stay in place */ }
+}
+@-ms-keyframes freeze {
+  0%   { /* Initial state */ }
+  100% { /* Stay in place */ }
+}
+@keyframes freeze {
+  0%   { /* Initial state */ }
+  100% { /* Stay in place */ }
+}
+@-webkit-keyframes freeze {
+  0%   { /* Initial state */ }
+  100% { /* Stay in place */ }
+}
+
+
+
+
+
+/* Replace the image after 3 seconds */
+@-moz-keyframes replaceImage {
+  0%   { /* No change */ }
+  100% {
+      background-image: url("../images/lexiconic torus.png"); /
+  }
+}
+@-ms-keyframes replaceImage {
+  0%   { /* No change */ }
+  100% {
+      background-image: url("../images/lexiconic torus.png"); 
+  }
+}
+@keyframes replaceImage {
+  0%   { /* No change */ }
+  100% {
+      background-image: url("../images/lexiconic torus.png"); 
+  }
+}
+@-webkit-keyframes replaceImage {
+  0%   { /* No change */ }
+  100% {
+      background-image: url("../images/lexiconic torus.png"); 
+  }
+}
+
+
+
+
+
