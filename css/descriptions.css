@@ -152,10 +152,15 @@ button:hover {
 
 #confirmation {
     margin-top: 20px;
-    color: green;
+    color: white;
 }
 
 .small {
-    font-size: 17px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.tiny {
+    font-size: 12px;
     text-align: center;
 }

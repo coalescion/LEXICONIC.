@@ -16,13 +16,13 @@
     </p>
 
     <div class="container">
-        <form id="responseForm">
+        <form id="responseForm" action="/.netlify/functions/saveform.js" method="POST">
             <textarea class="box1" id="box1" placeholder="phrase"></textarea>
             <textarea class="box2" id="box2" placeholder="description"></textarea>
             <textarea class="box3" id="box3" placeholder="contact info"></textarea>
             <button type="submit">submit.</button>
         </form>
-        <div id="confirmation" style="display: none;">Thank you for your message!</div>
+        <div id="confirmation" style="display: none;">we will get back to you soon.</div>
     </div>
     <script src="../js/form.js"></script>
 

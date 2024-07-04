@@ -76,9 +76,9 @@ p {
 }
 
 .menu-icon {
-    font-size: 30px;
+    font-size: 40px;
     cursor: pointer;
-    margin-left: 5vw; /* Add spacing between logo and menu icon */
+    margin-left: 0vw; /* Add spacing between logo and menu icon */
 }
 
 /* Visually hide the checkbox */
