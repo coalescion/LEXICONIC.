@@ -5,18 +5,33 @@
     <meta charset="UTF-8">
     <title>shop.</title>
     <link rel="stylesheet" href="../css/descriptions.css"/>
+    <link rel="stylesheet" href="../css/static_circle.css"/>
 </head>
 
 <body>
+    <a href="../index.html" class="circle"></a>
+    <pre>
+
+    </pre>
     <p>
-        the most critical aspect of &thinsp;<a href="../index.html" class="title"> lexiconic.</a> is the process of physically embedding wisdom in the real world.
+        the process of physically embedding wisdom in the real world is the most critical aspect of &thinsp;<a href="../index.html" class="title"> lexiconic.</a>
         for this, we rely upon people from all across the globe to play a part in putting up stickers in their own cities,
         in their own communities. we all have spots in the world that are special to us—putting up a sticker that is
         meaningful to you allows others to be impacted positively by both the place and the message as well.
         to truly catalyze a global movement, we all have to participate. help us spread wisdom and become a part of something greater.
     </p>
     <p>
-        get stickers (free just pay shipping):
+        express interest in preordering stickers (free just pay shipping):
     </p>
+    <div class="container">
+        <form id="responseForm" action="/.netlify/functions/saveform.js" method="POST">
+            <textarea class="box1" id="box1" placeholder="design you are interested in"></textarea>
+            <textarea class="box3" id="box3" placeholder="contact info"></textarea>
+            <button type="submit">submit.</button>
+        </form>
+        <div id="confirmation" style="display: none;">we will get back to you soon.</div>
+    </div>
+    <script src="../js/form.js"></script>
+
 </body>
 </html>

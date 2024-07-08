@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 confirmationMessage.style.display = 'block';
                 form.reset();
             } else {
-                alert('There was an error sending your message. Please try again.');
+                alert('form is currently broken. please text directly to 402-906-7528.');
             }
         })
         .catch(error => {
-            alert('There was an error sending your message. Please try again.');
+            alert('form is currently broken. please text directly to 402-906-7528.');
             console.error('Error:', error);
         });
     });
