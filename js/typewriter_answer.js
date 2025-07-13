@@ -1,0 +1,73 @@
+// cache original html for all "descrip"s
+const originals = {};
+document
+  .querySelectorAll('[id^="descrip"]')
+  .forEach(el => {
+    originals[el.id] = el.innerHTML;
+    el.classList.add('hidden');
+  });
+
+// ms between each character typed, ADJUST AS NEEDED
+const sleeptime = 40;
+
+
+// helper function that returns a Promise that resolves after 'ms' milliseconds
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+const sentencePauseTime = 300;            // delay after a sentence or m-dash,
+const wordPauseMap = {                    // map of phrase for additional delay; case-insensitive
+  // "process of cultivating yourself,": 1000,
+};
+
+// function that simulates typing effect on a paragraph with given ID
+const typewriterEffect = async (paragraphID, sleeptime) => {
+  const paragraph = document.getElementById(paragraphID);          // get the paragraph element by its ID
+  const raw = paragraph.textContent;                              // store the original text content of the paragraph
+  const text = raw.replace(/\s+/g, " ").trim();
+
+  for (let i = 0; i < text.length + 1; i++) {
+    paragraph.innerHTML = text.substring(0, i);                    // update visible text
+    await delay(sleeptime);                                        // delay between characters    
+
+    // 1. sentence / colon pause
+    const lastChar = text.charAt(i - 1);
+    if (/[—.!?]/.test(lastChar)) {
+      await delay(sentencePauseTime);
+    }
+
+    // 2. word-pause check
+    // look back over the text we’ve printed so far for each key in wordPauseMap
+    const soFar = text.substring(0, i).toLowerCase();
+    for (const [phrase, pauseDuration] of Object.entries(wordPauseMap)) {
+      if (soFar.endsWith(phrase)) {
+        await delay(pauseDuration);
+      }
+    }
+  }
+  // RESTORE ORIGINAL HTML (with <a> tags & class="link")
+  paragraph.innerHTML = originals[paragraphID];
+};
+
+// function that generates a list of paragraph IDs to apply typewriter effect to
+const getText = async () => {
+  // find every <p> whose id begins with "descrip", then return an array of their IDs in document order
+  return Array.from(
+    document.querySelectorAll('[id^="descrip"]')
+  ).map(el => el.id);
+}; 
+
+
+// main function to start the typewriter effect on all paragraphs
+const startTypewriterEffect = async () => {
+  for (const id of await getText()) {
+    const el = document.getElementById(id);
+    el.classList.remove('hidden');
+    await typewriterEffect(id, sleeptime);
+    await delay(1000);
+  }
+};
+
+startTypewriterEffect();
+
