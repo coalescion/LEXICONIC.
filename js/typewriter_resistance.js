@@ -1,27 +1,24 @@
-// base functionality for typewriter effect; copy and paste this code for individual pages, changing as needed
-
-// cache original html for all "descrip"s
+// cache original html
 const originals = {};
-document
-  .querySelectorAll('p[id^="descrip"]')
-  .forEach(p => {
-    originals[p.id] = p.innerHTML;
-    // optional: p.classList.add("hidden");
-  });
+["descrip1","descrip2","descrip3","descrip4"].forEach(id => {
+  const p = document.getElementById(id);
+  originals[id] = p.innerHTML;
+  // (optional) hide them until you type
+  p.classList.add("hidden");
+});
 
-// ms between each character typed, ADJUST AS NEEDED
-const sleeptime = 40;
 
 // helper function that returns a Promise that resolves after 'ms' milliseconds
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const sentencePauseTime = 300;            // delay after a sentence or m-dash,
+const sentencePauseTime = 600;            // delay after a sentence or m-dash,
 const wordPauseMap = {                    // map of phrase for additional delay; case-insensitive
-  "process of cultivating yourself,": 1000,
-  "learn and grow": 500,
-  "about yourself": 500,
+  "is easiest.": 1000,
+  "it is easy to follow the path of least resistance.": 1500,
+  "the ability to": 1000,
+  "the ability to change": 1000,
 };
 
 // function that simulates typing effect on a paragraph with given ID
@@ -34,9 +31,9 @@ const typewriterEffect = async (paragraphID, sleeptime) => {
     paragraph.innerHTML = text.substring(0, i);                    // update visible text
     await delay(sleeptime);                                        // delay between characters    
 
-    // 1. sentence / colon pause
+    // 1. sentence / m-dash pause
     const lastChar = text.charAt(i - 1);
-    if (/[:.!?]/.test(lastChar)) {
+    if (/[—.!?]/.test(lastChar)) {
       await delay(sentencePauseTime);
     }
 
@@ -55,11 +52,14 @@ const typewriterEffect = async (paragraphID, sleeptime) => {
 
 // function that generates a list of paragraph IDs to apply typewriter effect to
 const getText = async () => {
-  // find every <p> whose id begins with "descrip", then return an array of their IDs in document order
-  return Array.from(
-    document.querySelectorAll('p[id^="descrip"]')
-  ).map(p => p.id);
+  const paragraphsToType = [];
+  for (let i = 1; i < 5; i++) {
+    paragraphsToType.push("descrip" + i);
+  }
+  return paragraphsToType;
 };
+
+const sleeptime = 40; // ms between each character typed, ADJUST AS NEEDED
 
 
 // main function to start the typewriter effect on all paragraphs
@@ -73,11 +73,14 @@ const startTypewriterEffect = async () => {
     await typewriterEffect(paragraphID, sleeptime);
     await delay(1000); 
 
-    // additional delay after specific paragraphs
-    if (paragraphID == "descrip3") {
-      await delay(750); 
-    } else if (paragraphID == "descrip4") {
-      await delay(1250); 
+    // additional delay between specific paragraphs 
+    if (paragraphID == "descrip4") {
+      await delay(3000); // was 1000
+    } else if (paragraphID == "descrip2") {
+      await delay(0); // was 2500
     }
   }
 };
+
+
+// startTypewriterEffect();
