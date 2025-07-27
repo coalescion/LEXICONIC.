@@ -7,16 +7,20 @@
     <base target="_blank">           
     <title>examine the question.</title>
     <link rel="stylesheet" href="../css/descriptions.css"/>
+    <link rel="stylesheet" href="../css/rolling_circle.css"/>
     <script src="../js/typewriter_answer.js" defer></script>
 </head>
 
 <body>
+    <a href="../index.html" class="circle"></a>
+    <pre>
+
+    </pre>
     <img src="../images/answer_web.png" height="100"
-     alt="examine the question." class="sticker">
+    alt="examine the question." class="sticker" style="display: none;">
     <p>
         <span id="typewriter"></span>
     </p>
-        
     <p id="descrip1" class="hidden">our modern society is built on
     answer finding.</p>
     
@@ -24,18 +28,16 @@
     frameworks—like logic, mathematics, and the scientific method—have allowed
     humans to accomplish great feats of science and engineering. however, the
     method of answer finding is not an approach to life.
-    it is not an approach to happiness. it is not an approach to wisdom. and it is
-    not an approach to a true, deep, intimate understanding of reality itself.</p>
+    it is not an approach to wisdom. and it is not an approach to a deep, intimate understanding of and connection with reality itself.</p>
     
-    <pre id="descrip3" class="hidden">some questions feel fundamental to the 
-human condition. these include:
+    <pre id="descrip3" class="hidden">some questions feel fundamental to the human condition. these include:
         - what is the meaning of life?
         - is there a god? if so, what is god?
         - what should I do with my life?
         - why am I here? what is my purpose?
         - what is reality?</pre>
 
-    <p id="descrip4" class="hidden">to the wisdom-seeker, these
+    <p id="descrip4" class="hidden">to many, these
     questions hold a sacred importance. often, when approaching these questions, we
     use the same methods that have worked so well in the rest of society: we try to
     answer them. </p>
@@ -93,9 +95,9 @@ human condition. these include:
     question the meaning of life. immerse yourself in life. feel life. investigate
     what makes you feel most human.</p>
     
-    <p id="descrip19" class="hidden">to truly understand reality, don't
-    question it. become aware of it. interact with it. play with it. and the
-    deepest truths of all will penetrate your very being.</p>
+    <p id="descrip19" class="hidden">to pursue a deeper understanding of reality, don't
+    question it. become aware of it. connect with it. play with it. and a deep intimacy 
+    with nature will penetrate your very being.</p>
     
     <p id="descrip20" class="hidden">much love,</p>
 
@@ -107,7 +109,16 @@ human condition. these include:
         for the riverbank is to us as the fly bottle is to the fly and the hurdle is to the philosopher. -->
 
     <script>
-        startTypewriterEffect();
+        // Delay image display
+        setTimeout(function() {
+            document.querySelector('.sticker').style.display = 'block';
+        }, 2750); // 3000 milliseconds = 3 seconds
+
+        // Delay typewriter effect
+        setTimeout(function() {
+            // Call your typewriter effect function from the linked script
+            startTypewriterEffect();
+        }, 3700);
     </script>
 </body>
 
