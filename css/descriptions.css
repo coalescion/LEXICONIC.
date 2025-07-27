@@ -36,6 +36,21 @@ ul {
     margin-left: 3%;
     line-height: 1.25;
     padding-left: 4vw;  
+    list-style: none;
+}
+
+/* custom bullet points */
+ul > li::before {
+  content: "* ";
+  margin-left: -1.2em;
+  padding-right: 0.5em;
+  display: inline-block;
+}
+ul ul > li::before {
+  content: "- ";
+  margin-left: -1.2em;
+  padding-right: 0.5em;
+  display: inline-block;
 }
 
 ul ul {
