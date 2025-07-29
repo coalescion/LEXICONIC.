@@ -1,35 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <title>create.</title>
-    <link rel="stylesheet" href="../css/descriptions.css"/>
-    <link rel="stylesheet" href="../css/static_circle.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>create.</title>
+  <link rel="stylesheet" href="../css/descriptions.css"/>
+  <link rel="stylesheet" href="../css/static_circle.css"/>
 </head>
 <body>
-    <a href="../index.html" class="circle"></a>
-    <pre>
+  <a href="../index.html" class="circle"></a>
+  <pre></pre>
+  <p>
+    the end goal of &thinsp;<a href="../index.html" class="title"> lexiconic.</a> is to create a medium that allows anyone to 
+    impact the collective consciousness in a way that promotes universal understanding. we want to provide people from all walks of life
+    with a way to share their own personal bits of wisdom with the world. if you’re interested in becoming part
+    of the movement, enter your phrase with a description below. from there, we can begin the process of adding your wisdom
+    to the website, and even create stickers for you and others to embed in the real world.
+  </p>
 
-    </pre>
-    <p>
-        the end goal of &thinsp;<a href="../index.html" class="title"> lexiconic.</a> is to create a medium that allows anyone to 
-        impact the collective consciousness in a way that promotes universal understanding. we want to provide people from all walks of life
-        with a way to share their own personal bits of wisdom with the world. if you’re interested in becoming part
-        of the movement, enter your phrase with a description below. from there, we can begin the process of adding your wisdom
-        to the website, and even create stickers for you and others to embed in the real world.
-    </p>
+  <div class="container">
+    <form
+      id="responseForm"
+      name="create.form"
+      method="POST"
+      data-netlify="true"
+    >
+      <!-- Netlify form name -->
+      <input type="hidden" name="create.form" value="create.form" />
 
-    <div class="container">
-        <form id="responseForm" action="/.netlify/functions/saveform.js" method="POST">
-            <textarea class="box1" id="box1" placeholder="phrase"></textarea>
-            <textarea class="box2" id="box2" placeholder="description"></textarea>
-            <textarea class="box3" id="box3" placeholder="contact info"></textarea>
-            <button type="submit">submit.</button>
-        </form>
-        <div id="confirmation" style="display: none;">we will get back to you soon.</div>
+      <!-- User fields must have name attributes -->
+      <textarea
+        class="box1"
+        id="box1"
+        name="phrase"
+        placeholder="phrase"
+      ></textarea>
+
+      <textarea
+        class="box2"
+        id="box2"
+        name="description"
+        placeholder="description"
+      ></textarea>
+
+      <textarea
+        class="box3"
+        id="box3"
+        name="contactInfo"
+        placeholder="contact info"
+      ></textarea>
+
+      <button type="submit">submit.</button>
+    </form>
+
+    <div id="confirmation" style="display: none;">
+      we will get back to you soon.
     </div>
-    <script src="../js/form.js"></script>
+  </div>
 
+  <script src="../js/form.js"></script>
 </body>
 </html>
