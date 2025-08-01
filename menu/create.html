@@ -26,7 +26,6 @@
       name="shopForm"
       method="POST"
       data-netlify="true"
-      action="/thanks.html"
     >
       <!-- Hidden field matching the form’s name -->
       <input type="hidden" name="form-name" value="shopForm" />
@@ -54,6 +53,43 @@
     </div>
   </div>
 
+  <script>
+    // Handle form submission with proper error handling
+    document.getElementById('responseForm').addEventListener('submit', function(e) {
+      const form = e.target;
+      const formData = new FormData(form);
+
+      // Show loading state (optional)
+      const submitButton = form.querySelector('button[type="submit"]');
+      const originalText = submitButton.textContent;
+      submitButton.textContent = 'submitting...';
+      submitButton.disabled = true;
+
+      fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(response => {
+        if (response.ok) {
+          // Hide form and show confirmation
+          form.style.display = 'none';
+          document.getElementById('confirmation').style.display = 'block';
+        } else {
+          throw new Error('Form submission failed');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert("we're sorry, unfortunately the form is temporarily broken. we so appreciate the support tho fr!!! please send your submission directly via email or text (see the contact page). ¡thanks!");
+        // Reset button state
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+      });
+
+      e.preventDefault();
+    });
+  </script>
   <!-- <script src="../js/form.js"></script> -->
 </body>
 </html>
