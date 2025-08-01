@@ -23,26 +23,20 @@
   <div class="container">
     <form
       id="responseForm"
-      name="createForm"
+      name="shopForm"
       method="POST"
       data-netlify="true"
+      action="/thanks.html"
     >
-      <!-- Netlify form name -->
-      <input type="hidden" name="form-name" value="createForm" />
+      <!-- Hidden field matching the form’s name -->
+      <input type="hidden" name="form-name" value="shopForm" />
 
-      <!-- User fields must have name attributes -->
+      <!-- Field names must match what you want captured -->
       <textarea
         class="box1"
         id="box1"
-        name="phrase"
-        placeholder="phrase"
-      ></textarea>
-
-      <textarea
-        class="box2"
-        id="box2"
-        name="description"
-        placeholder="description"
+        name="design"
+        placeholder="design you are interested in"
       ></textarea>
 
       <textarea
@@ -56,7 +50,7 @@
     </form>
 
     <div id="confirmation" style="display: none;">
-      we will get back to you soon.
+      thank you for your support, we will get back to you soon; until the next life...
     </div>
   </div>
 
