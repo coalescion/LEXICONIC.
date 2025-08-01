@@ -13,29 +13,34 @@
   <a href="../index.html" class="circle" ></a>
   <div style="height: 70px;"></div>  <!-- blank space -->
   <p>
-    the end goal of &thinsp;<a href="../index.html" class="title"> lexiconic.</a> is to create a medium that allows anyone to 
-    impact the collective consciousness in a way that promotes universal understanding. we want to provide people from all walks of life
-    with a way to share their own personal bits of wisdom with the world. if you’re interested in becoming part
-    of the movement, enter your phrase with a description below. from there, we can begin the process of adding your wisdom
-    to the website, and even create stickers for you and others to embed in the real world.
+    with&thinsp;<a href="../index.html" class="title"> lexiconic.</a>, we aim to construct a medium in which anyone can express themselves while simulatenously making a postive impact
+    on the global consciousness. we would love for you to contribute your unique life understanding to our movement. if you're interested, enter a personal bit of wisdom
+    with a description below. from there, we will add your phrase to the website, and even create stickers for you and others to embed in the real world.
   </p>
 
   <div class="container">
     <form
       id="responseForm"
-      name="shopForm"
+      name="createForm"
       method="POST"
       data-netlify="true"
     >
-      <!-- Hidden field matching the form’s name -->
-      <input type="hidden" name="form-name" value="shopForm" />
+      <!-- Netlify form name -->
+      <input type="hidden" name="form-name" value="createForm" />
 
-      <!-- Field names must match what you want captured -->
+      <!-- User fields must have name attributes -->
       <textarea
         class="box1"
         id="box1"
-        name="design"
-        placeholder="design you are interested in"
+        name="phrase"
+        placeholder="phrase"
+      ></textarea>
+
+      <textarea
+        class="box2"
+        id="box2"
+        name="description"
+        placeholder="description"
       ></textarea>
 
       <textarea
@@ -49,9 +54,12 @@
     </form>
 
     <div id="confirmation" style="display: none;">
-      thank you for your support, we will get back to you soon; until the next life...
+      we will get back to you soon.
     </div>
   </div>
+
+  <!-- <script src="../js/form.js"></script> -->
+
 
   <script>
     // Handle form submission with proper error handling
@@ -90,6 +98,5 @@
       e.preventDefault();
     });
   </script>
-  <!-- <script src="../js/form.js"></script> -->
 </body>
 </html>
