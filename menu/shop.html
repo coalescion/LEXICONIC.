@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,21 +29,19 @@
   </p>
 
   <div class="container">
+    <!-- Basic Netlify form - NO JavaScript interference -->
     <form
-      id="responseForm"
       name="shopForm"
       method="POST"
-      action="/shop.html"
+      action="/success.html"
       data-netlify="true"
-      netlify
     >
-      <!-- Hidden field matching the form's name -->
+      <!-- Hidden field for form identification -->
       <input type="hidden" name="form-name" value="shopForm" />
 
-      <!-- Field names must match what you want captured -->
+      <!-- Form fields -->
       <textarea
         class="box1"
-        id="box1"
         name="design"
         placeholder="design you are interested in"
         required
@@ -52,7 +49,6 @@
 
       <textarea
         class="box3"
-        id="box3"
         name="contactInfo"
         placeholder="contact info"
         required
@@ -66,42 +62,6 @@
     </div>
   </div>
 
-  <script>
-    // Handle form submission with proper error handling
-    document.getElementById('responseForm').addEventListener('submit', function(e) {
-      const form = e.target;
-      const formData = new FormData(form);
-
-      // Show loading state (optional)
-      const submitButton = form.querySelector('button[type="submit"]');
-      const originalText = submitButton.textContent;
-      submitButton.textContent = 'submitting...';
-      submitButton.disabled = true;
-
-      fetch('/', {
-        method: 'POST',
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-      })
-      .then(response => {
-        if (response.ok) {
-          // Hide form and show confirmation
-          form.style.display = 'none';
-          document.getElementById('confirmation').style.display = 'block';
-        } else {
-          throw new Error('Form submission failed');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('There was an error submitting the form. Please try again.');
-        // Reset button state
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
-      });
-
-      e.preventDefault();
-    });
-  </script>
+  <!-- NO JavaScript - let Netlify handle everything -->
 </body>
 </html>
