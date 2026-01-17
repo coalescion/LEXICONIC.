@@ -75,11 +75,11 @@ const startTypewriterEffect = async () => {
 
     // additional delay after specific paragraphs
     if (paragraphID == "descrip1") {
-      await delay(4000);
+      await delay(2000);
     } else if (paragraphID == "descrip2") {
-      await delay(3000);
+      await delay(1500);
     } else if (paragraphID == "descrip3") {
-      await delay(4000);
+      await delay(5000);
     }
   }
 };

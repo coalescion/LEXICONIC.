@@ -1,10 +1,20 @@
 /* IMPORTANT COMMENT!!!!!
 /* have circle roll across screen after loading, bounce off wall, and settle to middle top of page?  */
 
+:root {
+  --circle-size: 100px;
+}
+
+@media (min-width: 376px) and (max-width: 899px) {
+  :root {
+    --circle-size: clamp(100px, 31.25vw, 135px);
+  }
+}
+
 .circle {
   display: block;
-  width: 100px;
-  height: 100px;
+  width: var(--circle-size);
+  height: var(--circle-size);
   background-image: url("../images/circle.png");
   background-size: cover;
   border-radius: 50%;
@@ -21,6 +31,9 @@
   position: absolute;
   left: 38%;
   transform: translate(0%, 0%);
+  top: 16px;
+  left: 50%;
+  margin-left: calc(var(--circle-size) / -2);
 }
 
 /* Spinning the torus using keyframes */
@@ -88,8 +101,5 @@
       background-image: url("../images/lexiconic torus.png"); 
   }
 }
-
-
-
 
 

@@ -7,11 +7,9 @@
   <link rel="stylesheet" href="../css/descriptions.css"/>
   <link rel="stylesheet" href="../css/static_circle.css"/>
 </head>
-<body>
-   <div style="height: 30px;"></div>  <!-- blank space -->
-
+<body class="logo-adjusted">
   <a href="../index.html" class="circle" ></a>
-  <div style="height: 70px;"></div>  <!-- blank space -->
+  <div class="logo-spacer"></div>
   <p>
     with&thinsp;<a href="../index.html" class="title"> lexiconic.</a>, we aim to construct a medium in which anyone can express themselves while simulatenously making a postive impact
     on the global consciousness. we would love for you to contribute your unique life understanding to our movement. if you're interested, enter a personal bit of wisdom
@@ -19,13 +17,12 @@
   </p>
 
   <div class="container">
-    <form
-      id="responseForm"
-      name="createForm"
-      method="POST"
-      data-netlify="true"
+  <form
+    id="responseForm"
+    action="https://formspree.io/f/xgooegan"
+    method="POST"
     >
-      <!-- Netlify form name -->
+      <!-- form name -->
       <input type="hidden" name="form-name" value="createForm" />
 
       <!-- User fields must have name attributes -->
@@ -46,12 +43,23 @@
       <textarea
         class="box3"
         id="box3"
-        name="contactInfo"
-        placeholder="contact info"
+        name="email"
+        placeholder="email"
+      ></textarea>
+
+      <textarea
+        class="box3"
+        id="box4"
+        name="phone"
+        placeholder="phone # (optional)"
       ></textarea>
 
       <button type="submit">submit.</button>
     </form>
+
+    <div id="form-error" class="form-error" style="display: none;">
+      missing required info
+    </div>
 
     <div id="confirmation" style="display: none;">
       we will get back to you soon.
@@ -62,9 +70,94 @@
 
 
   <script>
+    (function() {
+      var expandAreas = document.querySelectorAll('.box1, .box2');
+      var singleLineAreas = document.querySelectorAll('.box3');
+      var minFontPx = 12;
+
+      var resize = function(el) {
+        var baseHeight = parseFloat(el.dataset.baseHeight) || el.offsetHeight;
+        var baseScrollHeight = parseFloat(el.dataset.baseScrollHeight) || el.scrollHeight;
+
+        el.style.height = baseHeight + 'px';
+        var nextScrollHeight = el.scrollHeight;
+
+        if (nextScrollHeight <= baseScrollHeight + 1) {
+          return;
+        }
+
+        el.style.height = 'auto';
+        el.style.height = el.scrollHeight + 'px';
+      };
+
+      var fitSingleLine = function(el) {
+        var baseSize = parseFloat(el.dataset.baseFontSize);
+        if (!baseSize) {
+          var placeholderStyle = window.getComputedStyle(el, '::placeholder');
+          baseSize = parseFloat(placeholderStyle.fontSize) || parseFloat(window.getComputedStyle(el).fontSize);
+          el.dataset.baseFontSize = baseSize;
+        }
+
+        el.value = el.value.replace(/\n/g, ' ');
+        el.style.fontSize = baseSize + 'px';
+
+        var minSize = Math.max(minFontPx, Math.floor(baseSize * 0.7));
+        var safety = 0;
+        while (el.scrollWidth > el.clientWidth && parseFloat(el.style.fontSize) > minSize && safety < 20) {
+          el.style.fontSize = (parseFloat(el.style.fontSize) - 1) + 'px';
+          safety += 1;
+        }
+      };
+
+      expandAreas.forEach(function(el) {
+        var baseHeight = el.offsetHeight;
+        el.dataset.baseHeight = baseHeight;
+        el.style.height = baseHeight + 'px';
+        el.dataset.baseScrollHeight = el.scrollHeight;
+        el.addEventListener('input', function() {
+          resize(el);
+        });
+      });
+
+      singleLineAreas.forEach(function(el) {
+        el.setAttribute('wrap', 'off');
+        el.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+          }
+        });
+        el.addEventListener('input', function() {
+          fitSingleLine(el);
+        });
+        fitSingleLine(el);
+      });
+
+      window.addEventListener('resize', function() {
+        expandAreas.forEach(function(el) {
+          resize(el);
+        });
+        singleLineAreas.forEach(function(el) {
+          fitSingleLine(el);
+        });
+      });
+    })();
+
     // Handle form submission with proper error handling
     document.getElementById('responseForm').addEventListener('submit', function(e) {
       const form = e.target;
+      const error = document.getElementById('form-error');
+      const phrase = form.querySelector('[name="phrase"]').value.trim();
+      const description = form.querySelector('[name="description"]').value.trim();
+      const email = form.querySelector('[name="email"]').value.trim();
+      const phone = form.querySelector('[name="phone"]').value.trim();
+
+      if (!phrase || !description || (!email && !phone)) {
+        e.preventDefault();
+        error.style.display = 'block';
+        return;
+      }
+
+      error.style.display = 'none';
       const formData = new FormData(form);
 
       // Show loading state (optional)

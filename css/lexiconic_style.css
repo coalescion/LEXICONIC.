@@ -1,18 +1,53 @@
+:root {
+    --space-10: 10px;
+    --space-40: 40px;
+    --space-50: 50px;
+    --menu-offset: 565px;
+    --fs-base: 20px;
+    --fs-logo: 80px;
+    --fs-menu-icon: 40px;
+    --fs-menu-item: 30px;
+    --ls-base: 2px;
+    --ls-wide: 5px;
+}
+
+@media (min-width: 376px) and (max-width: 899px) {
+    :root {
+        --space-10: clamp(10px, 3.125vw, 13.5px);
+        --space-40: clamp(40px, 12.5vw, 54px);
+        --space-50: clamp(50px, 15.625vw, 67.5px);
+        --menu-offset: clamp(565px, 176.5625vw, 762.75px);
+        --fs-base: clamp(20px, 6.25vw, 27px);
+        --fs-logo: clamp(80px, 25vw, 108px);
+        --fs-menu-icon: clamp(40px, 12.5vw, 54px);
+        --fs-menu-item: clamp(30px, 9.375vw, 40.5px);
+        --ls-base: clamp(2px, 0.625vw, 2.7px);
+        --ls-wide: clamp(5px, 1.5625vw, 6.75px);
+    }
+}
+
 body {
     color: rgb(249, 247, 247);
     background-color: black;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
     width: 80vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-10);
+    padding-right: var(--space-10);
+    box-sizing: border-box;
 }
 
 
 .logo {
     text-align: center;
-    font-size: 80px;
+    font-size: var(--fs-logo);
     font-family: 'Avenir Next';
     font-style: Italic;
     font-weight: 100;
-    letter-spacing: 5px;
-    margin: 0px 50px 0px 40px;
+    letter-spacing: var(--ls-wide);
+    margin: 0px var(--space-50) 0px var(--space-40);
 
     margin-left: auto;
     margin-right: auto;
@@ -36,10 +71,10 @@ span {
 
 a {
     display: block;
-    margin: 40px 0px 40px 10px;
+    margin: var(--space-40) 0px var(--space-40) var(--space-10);
     font-family: "Menlo";
     font-style: Italic;
-    font-size: 20px;
+    font-size: var(--fs-base);
     font-weight: 100;
     color:rgb(249, 247, 247);
     text-decoration: none;
@@ -53,11 +88,11 @@ a:hover, a:active, a:focus, a:visited {
 
 
 p {
-    margin: 40px 0px 40px 10px;
+    margin: var(--space-40) 0px var(--space-40) var(--space-10);
     font-family: "Menlo";
     font-style: Italic;
-    letter-spacing: 2px;
-    font-size: 20px;
+    letter-spacing: var(--ls-base);
+    font-size: var(--fs-base);
     font-weight: 100;
     width: 70vh
 }
@@ -71,12 +106,12 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10vh 0 0; /* Add padding to the right */
+    padding: 0 6vh 0 0; /* Add padding to the right */
     position: relative;
 }
 
 .menu-icon {
-    font-size: 40px;
+    font-size: var(--fs-menu-icon);
     cursor: pointer;
     margin-left: 0vw; /* Add spacing between logo and menu icon */
 }
@@ -95,7 +130,7 @@ p {
     list-style: none;
     position: absolute;
     top: 100%; /* Adjust positioning with some spacing */
-    right: 10px;
+    right: var(--space-10);
     left: 0; /* Make the menu span the entire width */
     background-color: black;
     padding: 0px;
@@ -118,13 +153,13 @@ p {
 
 /* Apply the margin only when the menu is active */
 .content.menu-active {
-    margin-top: 565px;
+    margin-top: var(--menu-offset);
 }
 
 
 .menu li {
-    font-size: 30px;
-    letter-spacing: 5px;
+    font-size: var(--fs-menu-item);
+    letter-spacing: var(--ls-wide);
     padding: 0px; /* Add padding inside each menu item */
     border: 1px solid white; /* Add border around each menu item */
     margin: 0; /* Add spacing between menu items */
@@ -132,6 +167,20 @@ p {
 }
 
 .small {
-    font-size: 20px;
+    font-size: var(--fs-base);
 }
 
+@media (min-width: 900px) {
+    body {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .navbar {
+        padding: 0 2vw;
+    }
+
+    .menu {
+        right: 0;
+    }
+}

@@ -9,12 +9,12 @@
   <link rel="stylesheet" href="../css/static_circle.css"/>
 </head>
 
-<body>
-  <div style="height: 30px;"></div>  <!-- blank space -->
+
+<body class="logo-adjusted">
 
   <a href="../index.html" class="circle"></a>
 
-  <div style="height: 70px;"></div>  <!-- blank space -->
+  <div class="logo-spacer"></div>
 
   <p>
     the process of physically embedding wisdom in the real world is one of the most critical aspects of&thinsp;
@@ -56,9 +56,16 @@
       <textarea
         class="box3"
         id="box3"
-        name="contactInfo"
-        placeholder="contact info"
+        name="email"
+        placeholder="email"
         required
+      ></textarea>
+
+      <textarea
+        class="box3"
+        id="box4"
+        name="phone"
+        placeholder="phone # (optional)"
       ></textarea>
 
       <button type="submit">submit.</button>
@@ -70,6 +77,78 @@
   </div>
 
   <script>
+    (function() {
+      var expandAreas = document.querySelectorAll('.box1, .box2');
+      var singleLineAreas = document.querySelectorAll('.box3');
+      var minFontPx = 12;
+
+      var resize = function(el) {
+        var baseHeight = parseFloat(el.dataset.baseHeight) || el.offsetHeight;
+        var baseScrollHeight = parseFloat(el.dataset.baseScrollHeight) || el.scrollHeight;
+
+        el.style.height = baseHeight + 'px';
+        var nextScrollHeight = el.scrollHeight;
+
+        if (nextScrollHeight <= baseScrollHeight + 1) {
+          return;
+        }
+
+        el.style.height = 'auto';
+        el.style.height = el.scrollHeight + 'px';
+      };
+
+      var fitSingleLine = function(el) {
+        var computed = window.getComputedStyle(el);
+        var baseSize = parseFloat(el.dataset.baseFontSize);
+        if (!baseSize) {
+          baseSize = parseFloat(computed.fontSize);
+          el.dataset.baseFontSize = baseSize;
+        }
+
+        el.value = el.value.replace(/\n/g, ' ');
+        el.style.fontSize = baseSize + 'px';
+
+        var minSize = Math.max(minFontPx, Math.floor(baseSize * 0.7));
+        var safety = 0;
+        while (el.scrollWidth > el.clientWidth && parseFloat(el.style.fontSize) > minSize && safety < 20) {
+          el.style.fontSize = (parseFloat(el.style.fontSize) - 1) + 'px';
+          safety += 1;
+        }
+      };
+
+      expandAreas.forEach(function(el) {
+        var baseHeight = el.offsetHeight;
+        el.dataset.baseHeight = baseHeight;
+        el.style.height = baseHeight + 'px';
+        el.dataset.baseScrollHeight = el.scrollHeight;
+        el.addEventListener('input', function() {
+          resize(el);
+        });
+      });
+
+      singleLineAreas.forEach(function(el) {
+        el.setAttribute('wrap', 'off');
+        el.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+          }
+        });
+        el.addEventListener('input', function() {
+          fitSingleLine(el);
+        });
+        fitSingleLine(el);
+      });
+
+      window.addEventListener('resize', function() {
+        expandAreas.forEach(function(el) {
+          resize(el);
+        });
+        singleLineAreas.forEach(function(el) {
+          fitSingleLine(el);
+        });
+      });
+    })();
+
     // Handle form submission with proper error handling
     document.getElementById('responseForm').addEventListener('submit', function(e) {
       const form = e.target;

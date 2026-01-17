@@ -1,6 +1,64 @@
+:root {
+    --space-10: 10px;
+    --space-12: 12px;
+    --space-20: 20px;
+    --space-40: 40px;
+    --space-100: 100px;
+    --space-150: 150px;
+    --fs-body: 20px;
+    --fs-title: 40px;
+    --fs-input: 18px;
+    --fs-input-field: calc(var(--fs-body) - 2px);
+    --input-pad-x: 8px;
+    --input-pad-y: 8px;
+    --fs-small: 15px;
+    --fs-tiny: 12px;
+    --container-width: 300px;
+    --radius-xs: 3px;
+    --radius-sm: 5px;
+    --radius-md: 10px;
+}
+
+@media (min-width: 376px) and (max-width: 899px) {
+    :root {
+        --space-10: clamp(10px, 3.125vw, 13.5px);
+        --space-12: clamp(12px, 3.75vw, 16.2px);
+        --space-20: clamp(20px, 6.25vw, 27px);
+        --space-40: clamp(40px, 12.5vw, 54px);
+        --space-100: clamp(100px, 31.25vw, 135px);
+        --space-150: clamp(150px, 46.875vw, 202.5px);
+        --fs-body: clamp(20px, 6.25vw, 27px);
+        --fs-title: clamp(40px, 12.5vw, 54px);
+        --fs-input: clamp(18px, 5.625vw, 24.3px);
+        --fs-input-field: calc(var(--fs-body) - 2px);
+        --input-pad-x: clamp(8px, 2.2vw, 12px);
+        --input-pad-y: clamp(8px, 2.2vw, 12px);
+        --fs-small: clamp(15px, 4.6875vw, 20.25px);
+        --fs-tiny: clamp(12px, 3.75vw, 16.2px);
+        --container-width: clamp(300px, 93.75vw, 405px);
+        --radius-xs: clamp(3px, 0.9375vw, 4.05px);
+        --radius-sm: clamp(5px, 1.5625vw, 6.75px);
+        --radius-md: clamp(10px, 3.125vw, 13.5px);
+    }
+}
+
 body {
     color: rgb(249, 247, 247);
     background-color: black;
+    margin-top: 1cm;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-10);
+    padding-right: var(--space-10);
+    box-sizing: border-box;
+}
+
+body.logo-adjusted .circle {
+    top: calc(var(--space-20) + 8px);
+}
+
+.logo-spacer {
+    height: calc(var(--space-40) + var(--space-40) + var(--space-10));
 }
 
 
@@ -19,8 +77,8 @@ body {
 }
 
 p {
-    margin: 40px 0px 40px 100px;
-    font-size: 20px;
+    margin: var(--space-40) 0px var(--space-40) var(--space-100);
+    font-size: var(--fs-body);
     font-family: 'Times New Roman';
     font-weight: 200;
     margin-right: 3%;
@@ -29,7 +87,7 @@ p {
 }
 
 ul {
-    font-size: 20px;
+    font-size: var(--fs-body);
     font-family: 'Times New Roman';
     font-weight: 200;
     margin-right: 3%;
@@ -59,7 +117,7 @@ ul ul {
 
 
 li {
-    font-size: 20px;
+    font-size: var(--fs-body);
     font-family: 'Times New Roman';
     font-weight: 200;
     margin-right: 3%;
@@ -71,15 +129,29 @@ li {
 
 #descrip {
     white-space: nowrap;
-    font-size: 40px;
+    font-size: var(--fs-title);
 }
 
-/* #in_prog {
-} */
+#in_prog {
+    line-height: 1.25;
+}
+
+li#in_prog {
+    line-height: 1.25;
+    margin-bottom: 0.2em;
+}
+
+li#in_prog > ul#in_prog {
+    margin-top: 0.35em;
+}
+
+ul#in_prog > li#in_prog + li#in_prog {
+    margin-top: 1.5em;
+}
 
 pre {
-    margin: 40px 0px 40px 100px;
-    font-size: 20px;
+    margin: var(--space-40) 0px var(--space-40) var(--space-100);
+    font-size: var(--fs-body);
     font-family: 'Times New Roman';
     font-weight: 200;
     margin-right: 3%;
@@ -145,56 +217,94 @@ a:hover, a:active, a:focus, a:visited {
 
   .container {
     background-color: #000000;
-    padding: 20px;
+    padding: var(--space-20);
     border-color: #ffffff;
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: var(--container-width);
     text-align: center;
     margin: 0 auto; /* Center the container */
+    box-sizing: border-box;
+}
+
+@media (max-width: 899px) {
+    .container {
+        width: calc(100% - 6%);
+        margin-left: 3%;
+        margin-right: 3%;
+    }
 }
 
 
 textarea {
     background-color: #000000;
     border: 1px solid #ffffff;
-    border-radius: 3px;
+    border-radius: var(--radius-xs);
     color: #ffffff;
-    font-size: 18px;
-    font-family: 'Times New Roman';
-    font-weight: 200;
+    font-size: var(--fs-input-field);
+    font-family: 'Avenir Next', 'Times New Roman', serif;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.25;
     width: 100%; /* Make the button take the full width */
+    padding: var(--input-pad-y) var(--input-pad-x);
+    box-sizing: border-box;
+    overflow: hidden;
+    resize: none;
+}
+
+textarea::placeholder {
+    font-size: var(--fs-input-field);
+    line-height: 1.25;
+    font-family: 'Avenir Next', 'Times New Roman', serif;
+    font-weight: 300;
+    font-style: italic;
 }
 
 .box1 {
     width: 100%;
-    height: 20px;
-    margin-bottom: 10px;
+    height: calc(var(--fs-input-field) + var(--input-pad-y) + var(--input-pad-y) + 8px);
+    margin-bottom: var(--space-10);
 }
 
 .box2 {
     width: 100%;
-    height: 150px;
-    margin-bottom: 10px;
+    height: calc(var(--space-150) + var(--input-pad-y) + var(--input-pad-y));
+    margin-bottom: var(--space-10);
 }
 
 .box3 {
     width: 100%;
-    height: 20px;
-    margin-bottom: 10px;
+    height: calc(var(--fs-input-field) + var(--input-pad-y) + var(--input-pad-y) + 8px);
+    margin-bottom: var(--space-10);
+    white-space: nowrap;
 }
 
 button {
-    padding: 12px;
+    padding: var(--space-12);
     border: none;
     background-color: #000000;
     color: #ffffff;
     border: 1px solid #ffffff; 
-    border-radius: 10px;
+    border-radius: var(--radius-md);
     cursor: pointer;
-    font-size: 18px;
+    font-size: var(--fs-input);
     font-family: 'Times New Roman';
     font-weight: 200;
+}
+
+@media (min-width: 900px) {
+    body {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 80vh;
+    }
+
+    .container {
+        width: calc(100% - 6%);
+        margin-left: 3%;
+        margin-right: 3%;
+    }
 }
 
 button:hover {
@@ -202,16 +312,22 @@ button:hover {
 }
 
 #confirmation {
-    margin-top: 20px;
+    margin-top: var(--space-20);
     color: white;
 }
 
+.form-error {
+    margin-top: var(--space-10);
+    color: rgb(255, 160, 120);
+    text-align: center;
+}
+
 .small {
-    font-size: 15px;
+    font-size: var(--fs-small);
     text-align: center;
 }
 
 .tiny {
-    font-size: 12px;
+    font-size: var(--fs-tiny);
     text-align: center;
 }
