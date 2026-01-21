@@ -114,6 +114,7 @@ p {
     font-size: var(--fs-menu-icon);
     cursor: pointer;
     margin-left: 0vw; /* Add spacing between logo and menu icon */
+    font-family: "Arial", "Helvetica", sans-serif;
 }
 
 /* Visually hide the checkbox */
@@ -130,8 +131,8 @@ p {
     list-style: none;
     position: absolute;
     top: 100%; /* Adjust positioning with some spacing */
-    right: var(--space-10);
-    left: 0; /* Make the menu span the entire width */
+    right: calc(var(--space-10) / 2);
+    left: calc(var(--space-10) / 2);  /* Keep equal horizontal margin on both sides */
     background-color: black;
     padding: 0px;
     display: none;
@@ -181,6 +182,7 @@ p {
     }
 
     .menu {
-        right: 0;
+        right: var(--space-10);
+        left: var(--space-10);
     }
 }

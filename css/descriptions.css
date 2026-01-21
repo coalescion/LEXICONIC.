@@ -19,6 +19,12 @@
     --radius-md: 10px;
 }
 
+@media (max-width: 375px) {
+    :root {
+        --fs-body: 20px;
+    }
+}
+
 @media (min-width: 376px) and (max-width: 899px) {
     :root {
         --space-10: clamp(10px, 3.125vw, 13.5px);
@@ -27,7 +33,7 @@
         --space-40: clamp(40px, 12.5vw, 54px);
         --space-100: clamp(100px, 31.25vw, 135px);
         --space-150: clamp(150px, 46.875vw, 202.5px);
-        --fs-body: clamp(20px, 6.25vw, 27px);
+        --fs-body: clamp(17px, 4.8vw, 20px);
         --fs-title: clamp(40px, 12.5vw, 54px);
         --fs-input: clamp(18px, 5.625vw, 24.3px);
         --fs-input-field: calc(var(--fs-body) - 2px);
@@ -289,8 +295,9 @@ button {
     border-radius: var(--radius-md);
     cursor: pointer;
     font-size: var(--fs-input);
-    font-family: 'Times New Roman';
-    font-weight: 200;
+    font-family: 'Avenir Next', 'Avenir', 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 250;
 }
 
 @media (min-width: 900px) {
@@ -324,6 +331,11 @@ button:hover {
 
 .small {
     font-size: var(--fs-small);
+    text-align: center;
+}
+
+.contact-page .small {
+    font-size: clamp(var(--fs-small), 2.2vw, var(--fs-body));
     text-align: center;
 }
 
