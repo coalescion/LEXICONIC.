@@ -4,8 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>smile.</title>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../images/favicon-96x96.png">
     <link rel="stylesheet" href="../css/descriptions.css"/>
     <link rel="stylesheet" href="../css/rolling_circle.css"/>
+    <script src="../js/typewriter_core.js" defer></script>
     <script src="../js/typewriter_unzip.js" defer></script> 
 </head>
 <body>
@@ -36,7 +40,10 @@
     <script>
         // Delay image display
         setTimeout(function() {
-            document.querySelector('.sticker').style.display = 'block';
+            const sticker = document.querySelector('.sticker');
+            if (sticker) {
+                sticker.style.display = 'block';
+            }
         }, 2000); // 3000 milliseconds = 3 seconds
 
         // Delay typewriter effect
@@ -47,6 +54,5 @@
     </script>
 </body>
 </html>
-
 
 

@@ -4,10 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>create.</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../images/favicon-96x96.png">
   <link rel="stylesheet" href="../css/descriptions.css"/>
   <link rel="stylesheet" href="../css/static_circle.css"/>
 </head>
-<body class="logo-adjusted">
+<body class="logo-adjusted create-page">
   <a href="../index.html" class="circle" ></a>
   <div class="logo-spacer"></div>
   <p>
@@ -57,7 +60,7 @@
       <button type="submit">submit.</button>
     </form>
 
-    <div id="form-error" class="form-error" style="display: none;">
+    <div id="form-error" class="form-error" role="alert" aria-live="polite">
       missing required info
     </div>
 
@@ -153,11 +156,11 @@
 
       if (!phrase || !description || (!email && !phone)) {
         e.preventDefault();
-        error.style.display = 'block';
+        error.classList.add('is-visible');
         return;
       }
 
-      error.style.display = 'none';
+      error.classList.remove('is-visible');
       const formData = new FormData(form);
 
       // Show loading state (optional)

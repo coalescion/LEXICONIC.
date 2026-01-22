@@ -6,8 +6,12 @@
     <!--"target" causes links to open in a new tab—it is good to have for pages with typewriter effect so that the wording is preserved ! -->
     <base target="_blank">           
     <title>examine the question.</title>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../images/favicon-96x96.png">
     <link rel="stylesheet" href="../css/descriptions.css"/>
     <link rel="stylesheet" href="../css/rolling_circle.css"/>
+    <script src="../js/typewriter_core.js" defer></script>
     <script src="../js/typewriter_answer.js" defer></script>
 </head>
 
@@ -88,8 +92,8 @@
     them. we should investigate every nuance of what makes that hurdle what it is. </p>
     
     <p id="descrip17" class="hidden">to get closer to god, don't try to
-    comprehend the divine—for it is fundamentaly uncomprehendable. instead,
-    seek interaction with the uncomprehendable.</p>
+    comprehend the divine—for it is fundamentally uncomprehendable. instead,
+    seek the interaction that <em>is</em> divine—the interaction <em>with</em> the uncomprehendable.</p>
     
     <p id="descrip18" class="hidden">to find meaning in life, don't
     question the meaning of life. immerse yourself in life. feel life. investigate
@@ -102,6 +106,7 @@
     <p id="descrip20" class="hidden">much love,</p>
 
     <pre id="descrip21" class="hidden italic">              lexiconic.</pre>
+    <pre id="descrip22" class="hidden italic">                            summer 2023</pre>
     
     
         <!-- We are all in the stream, and we can never truly step out of the stream to get the a good perspective on
@@ -111,13 +116,18 @@
     <script>
         // Delay image display
         setTimeout(function() {
-            document.querySelector('.sticker').style.display = 'block';
+            const sticker = document.querySelector('.sticker');
+            if (sticker) {
+                sticker.style.display = 'block';
+            }
         }, 2750); // 3000 milliseconds = 3 seconds
 
         // Delay typewriter effect
         setTimeout(function() {
             // Call your typewriter effect function from the linked script
-            startTypewriterEffect();
+            if (window.startTypewriterEffect) {
+                window.startTypewriterEffect();
+            }
         }, 3700);
     </script>
 </body>

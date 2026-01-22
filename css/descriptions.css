@@ -221,7 +221,7 @@ a:hover, a:active, a:focus, a:visited {
     font-weight: 1000;
   }
 
-  .container {
+.container {
     background-color: #000000;
     padding: var(--space-20);
     border-color: #ffffff;
@@ -231,6 +231,12 @@ a:hover, a:active, a:focus, a:visited {
     text-align: center;
     margin: 0 auto; /* Center the container */
     box-sizing: border-box;
+}
+
+.shop-page .shop-container {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 @media (max-width: 899px) {
@@ -328,6 +334,33 @@ button:hover {
     color: rgb(255, 160, 120);
     text-align: center;
 }
+
+.shop-page .form-error {
+    display: none;
+    color: #ff3b3b;
+    font-family: 'Avenir Next', 'Avenir', 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 300;
+    text-align: center;
+}
+
+.shop-page .form-error.is-visible {
+    display: block;
+}
+
+.create-page .form-error {
+    display: none;
+    color: #ff3b3b;
+    font-family: 'Avenir Next', 'Avenir', 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 300;
+    text-align: center;
+}
+
+.create-page .form-error.is-visible {
+    display: block;
+}
+
 
 .small {
     font-size: var(--fs-small);

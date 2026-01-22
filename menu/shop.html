@@ -5,12 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>shop.</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../images/favicon-96x96.png">
   <link rel="stylesheet" href="../css/descriptions.css"/>
   <link rel="stylesheet" href="../css/static_circle.css"/>
 </head>
 
 
-<body class="logo-adjusted">
+<body class="logo-adjusted shop-page">
 
   <a href="../index.html" class="circle"></a>
 
@@ -32,7 +35,7 @@
     (completely free, shipping  ~ 2 - 4 weeks)
   </p>
 
-  <div class="container">
+  <div class="container shop-container">
     <form
       id="responseForm"
       name="shopForm"
@@ -40,6 +43,7 @@
       action="/shop.html"
       data-netlify="true"
       netlify
+      novalidate
     >
       <!-- Hidden field matching the form's name -->
       <input type="hidden" name="form-name" value="shopForm" />
@@ -70,6 +74,10 @@
 
       <button type="submit">submit.</button>
     </form>
+
+    <div id="form-error" class="form-error" role="alert" aria-live="polite">
+      missing required info
+    </div>
 
     <div id="confirmation" style="display: none;">
       thank you for your support, we will get back to you soon; until the next life...
@@ -151,7 +159,20 @@
 
     // Handle form submission with proper error handling
     document.getElementById('responseForm').addEventListener('submit', function(e) {
+      e.preventDefault();
       const form = e.target;
+      const error = document.getElementById('form-error');
+
+      if (!form.checkValidity()) {
+        const firstInvalid = form.querySelector(':invalid');
+        if (firstInvalid) {
+          firstInvalid.focus();
+        }
+        error.classList.add('is-visible');
+        return;
+      }
+
+      error.classList.remove('is-visible');
       const formData = new FormData(form);
 
       // Show loading state (optional)
@@ -182,7 +203,13 @@
         submitButton.disabled = false;
       });
 
-      e.preventDefault();
+    });
+
+    document.getElementById('responseForm').addEventListener('input', function(e) {
+      if (e.target.matches('[required]')) {
+        const error = document.getElementById('form-error');
+        error.classList.remove('is-visible');
+      }
     });
   </script>
 </body>
