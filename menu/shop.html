@@ -61,7 +61,7 @@
       id="responseForm"
       name="shopForm"
       method="POST"
-      action="/shop.html"
+      action="https://usebasin.com/f/ac73ebc0d4a8"
       data-netlify="true"
       netlify
       novalidate
@@ -202,7 +202,7 @@
       submitButton.textContent = 'submitting...';
       submitButton.disabled = true;
 
-      fetch('/', {
+      fetch(form.action, {
         method: 'POST',
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString()

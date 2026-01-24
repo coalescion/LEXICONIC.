@@ -43,7 +43,7 @@
   <div class="container">
   <form
     id="responseForm"
-    action="https://formspree.io/f/xgooegan"
+    action="https://usebasin.com/f/fe786a5da868"
     method="POST"
     >
       <!-- form name -->
@@ -190,7 +190,7 @@
       submitButton.textContent = 'submitting...';
       submitButton.disabled = true;
 
-      fetch('/', {
+      fetch(form.action, {
         method: 'POST',
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString()
