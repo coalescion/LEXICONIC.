@@ -165,6 +165,11 @@ pre {
     line-height: 1.75;
 }
 
+pre#descrip3 {
+    white-space: pre-wrap;
+    line-height: 1.25;
+}
+
 
 
 .sticker {
