@@ -319,7 +319,7 @@ button {
     body {
         margin-left: auto;
         margin-right: auto;
-        width: min(80vh, 100vw);
+        max-width: 80vh;
     }
 
     .container {

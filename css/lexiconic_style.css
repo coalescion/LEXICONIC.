@@ -11,6 +11,27 @@
     --ls-wide: 5px;
 }
 
+@media (max-width: 375px) {
+    :root {
+        --fs-logo: clamp(56px, 18vw, 68px);
+        --fs-menu-icon: clamp(28px, 9vw, 34px);
+        --ls-wide: clamp(3px, 1vw, 4px);
+    }
+
+    .navbar {
+        padding: 0 clamp(14px, 5vw, 22px);
+    }
+
+    .logo {
+        margin: 0;
+    }
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
 @media (min-width: 376px) and (max-width: 899px) {
     :root {
         --space-10: clamp(10px, 3.125vw, 13.5px);
@@ -31,12 +52,39 @@ body {
     background-color: black;
     font-family: 'Merriweather', serif;
     font-weight: 300;
-    width: 80vh;
+    width: min(80vh, 100vw);
     margin-left: auto;
     margin-right: auto;
-    padding-left: var(--space-10);
-    padding-right: var(--space-10);
+    padding-left: clamp(14px, 2.8vw, 22px);
+    padding-right: clamp(14px, 2.8vw, 22px);
     box-sizing: border-box;
+}
+
+body.home {
+    --home-indent: clamp(10px, 2.6vw, 18px);
+    --home-gap: clamp(30px, 7vw, 40px);
+    --home-nav-pad-left: clamp(2px, 2vw, 2px);
+    --home-nav-pad-right: clamp(28px, 8vw, 72px);
+    --home-nav-gap: clamp(6px, 2.4vw, 18px);
+    --home-menu-icon-offset: clamp(18px, 6vw, 44px);
+    padding-left: var(--home-indent);
+    padding-right: var(--home-indent);
+}
+
+body.home .navbar {
+    justify-content: center;
+    gap: var(--home-nav-gap);
+    padding: 0 var(--home-nav-pad-right) 0 var(--home-nav-pad-left);
+}
+
+body.home .logo {
+    margin: 0;
+}
+
+body.home .menu-icon {
+    margin-left: 0;
+    position: absolute;
+    right: var(--home-menu-icon-offset);
 }
 
 .sr-only {
@@ -106,7 +154,12 @@ p {
     letter-spacing: var(--ls-base);
     font-size: var(--fs-base);
     font-weight: 100;
-    width: 70vh
+    width: min(70vh, 87.5vw);
+}
+
+body.home .content a,
+body.home .content p {
+    margin: var(--home-gap) 0px var(--home-gap) var(--home-indent);
 }
 
 
@@ -143,8 +196,8 @@ p {
     list-style: none;
     position: absolute;
     top: 100%; /* Adjust positioning with some spacing */
-    right: calc(var(--space-10) / 2);
-    left: calc(var(--space-10) / 2);  /* Keep equal horizontal margin on both sides */
+    right: 0;
+    left: 0;
     background-color: black;
     padding: 0px;
     display: none;
@@ -173,10 +226,22 @@ p {
 .menu li {
     font-size: var(--fs-menu-item);
     letter-spacing: var(--ls-wide);
-    padding: 0px; /* Add padding inside each menu item */
-    border: 1px solid white; /* Add border around each menu item */
+    padding: 0; /* Let the link control vertical height */
+    border-left: 1.25px solid white;
+    border-right: 1.25px solid white;
+    border-bottom: 1.25px solid white;
     margin: 0; /* Add spacing between menu items */
 
+}
+
+.menu li:first-child {
+    border-top: 1.25px solid white;
+}
+
+.menu li a {
+    margin: 0;
+    padding: 6px 0;
+    line-height: 4;
 }
 
 .small {
@@ -194,7 +259,43 @@ p {
     }
 
     .menu {
-        right: var(--space-10);
-        left: var(--space-10);
+        right: 0;
+        left: 0;
+    }
+}
+
+@media (max-width: 520px) {
+    :root {
+        --fs-base: clamp(13px, 3.6vw, 16px);
+        --fs-logo: clamp(56px, 15vw, 72px);
+        --fs-menu-item: clamp(16px, 4.2vw, 20px);
+        --fs-menu-icon: clamp(28px, 8vw, 36px);
+        --ls-wide: clamp(2px, 0.7vw, 3px);
+    }
+
+    body.home {
+        --home-nav-pad-left: clamp(20px, 8vw, 34px);
+        --home-nav-pad-right: clamp(22px, 9vw, 36px);
+        --home-nav-gap: clamp(6px, 3vw, 12px);
+        --home-menu-icon-offset: clamp(12px, 6vw, 24px);
+    }
+
+    body.home .navbar {
+        justify-content: flex-start;
+        padding: 0 var(--home-nav-pad-right) 0 var(--home-nav-pad-left);
+        gap: var(--home-nav-gap);
+    }
+
+    .logo {
+        margin: 0;
+    }
+
+    .menu-icon {
+        margin-left: 0;
+    }
+
+    .menu {
+        right: 0;
+        left: 0;
     }
 }
