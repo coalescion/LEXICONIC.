@@ -170,6 +170,10 @@ pre#descrip3 {
     line-height: 1.25;
 }
 
+pre#descrip3 .bullet-line {
+    line-height: 1.5;
+}
+
 
 
 .sticker {
@@ -315,7 +319,7 @@ button {
     body {
         margin-left: auto;
         margin-right: auto;
-        max-width: 80vh;
+        width: min(80vh, 100vw);
     }
 
     .container {
