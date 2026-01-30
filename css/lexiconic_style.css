@@ -296,6 +296,10 @@ body.home .content p {
 }
 
 @media (min-width: 900px) {
+    :root {
+        --menu-icon-width: calc(var(--fs-menu-icon) * 1);
+    }
+
     body {
         margin-left: auto;
         margin-right: auto;

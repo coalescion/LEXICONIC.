@@ -30,7 +30,6 @@
     <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/lexiconic_style.css"/>
-    <script src="js/fit_viewport.js" defer></script>
 </head>
 <body class="home">
     <h1 class="sr-only">lexiconic.</h1>
@@ -121,35 +120,51 @@
 
     <!-- JavaScript to toggle the menu -->
     <script>
-        // Toggle menu state when the hamburger icon is clicked
-        document.getElementById('menu-toggle').addEventListener('click', function() {
+        var menuToggle = document.getElementById('menu-toggle');
         var menu = document.querySelector('.menu');
         var content = document.querySelector('.content');
-        var isOpen = menu.classList.contains('active');
 
-        if (!isOpen) {
-            // Measure the menu height before showing it.
-            menu.style.display = 'block';
-            menu.style.visibility = 'hidden';
+        function closeMenu() {
+            if (!menuToggle || !menu || !content) {
+                return;
+            }
 
-            var menuHeight = menu.getBoundingClientRect().height;
-            var extraOffset = 27;
-            content.style.setProperty('--menu-offset', (menuHeight + extraOffset) + 'px');
-
-            menu.classList.add('active');
-            content.classList.add('menu-active');
-
-            setTimeout(function() {
-                menu.style.visibility = 'visible';
-            }, 150);
-        } else {
+            menuToggle.checked = false;
             menu.classList.remove('active');
             content.classList.remove('menu-active');
             content.style.removeProperty('--menu-offset');
             menu.style.display = 'none';
             menu.style.visibility = 'hidden';
         }
-    });
+
+        // Ensure a back navigation restores the closed icon state.
+        window.addEventListener('pageshow', function() {
+            closeMenu();
+        });
+
+        // Toggle menu state when the hamburger icon is clicked.
+        menuToggle.addEventListener('click', function() {
+            var isOpen = menu.classList.contains('active');
+
+            if (!isOpen) {
+                // Measure the menu height before showing it.
+                menu.style.display = 'block';
+                menu.style.visibility = 'hidden';
+
+                var menuHeight = menu.getBoundingClientRect().height;
+                var extraOffset = 27;
+                content.style.setProperty('--menu-offset', (menuHeight + extraOffset) + 'px');
+
+                menu.classList.add('active');
+                content.classList.add('menu-active');
+
+                setTimeout(function() {
+                    menu.style.visibility = 'visible';
+                }, 150);
+            } else {
+                closeMenu();
+            }
+        });
     </script>
 </body>
 </html>
