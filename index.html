@@ -25,9 +25,9 @@
             "description": "cultivating a community dedicated to the cultivation of wisdom."
         }
     </script>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/lexiconic_style.css"/>
     <script src="js/fit_viewport.js" defer></script>
@@ -36,8 +36,12 @@
     <h1 class="sr-only">lexiconic.</h1>
     <nav class="navbar">
         <label class="logo" for="menu-toggle">lexiconic.</label>
-        <label class="menu-icon" for="menu-toggle">&#9776;</label>
-        <input type="checkbox" id="menu-toggle">
+        <input type="checkbox" id="menu-toggle" aria-label="Toggle menu">
+        <label class="menu-icon" for="menu-toggle" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
         <ul class="menu">
             <li><a href='menu/about.html'>about.</a></li>
             <li><a href='menu/contribute.html'>contribute.</a></li>
@@ -137,7 +141,7 @@
 
             setTimeout(function() {
                 menu.style.visibility = 'visible';
-            }, 200);
+            }, 150);
         } else {
             menu.classList.remove('active');
             content.classList.remove('menu-active');

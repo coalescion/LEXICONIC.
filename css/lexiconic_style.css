@@ -9,6 +9,12 @@
     --fs-menu-item: 30px;
     --ls-base: 2px;
     --ls-wide: 5px;
+    --menu-icon-width: calc(var(--fs-menu-icon) * 0.68);
+    --menu-icon-bar-height: clamp(1.5px, 0.32vw, 2.5px);
+    --menu-icon-gap: clamp(7px, 1.8vw, 12px);
+    --menu-icon-timing: 200ms ease-in-out;
+    --menu-icon-height: calc((var(--menu-icon-bar-height) * 3) + (var(--menu-icon-gap) * 2));
+    --menu-icon-x-width: calc(var(--menu-icon-height) * 1.41421356237);
 }
 
 @media (max-width: 375px) {
@@ -151,7 +157,7 @@ p {
     margin: var(--space-40) 0px var(--space-40) var(--space-10);
     font-family: "Menlo";
     font-style: Italic;
-    letter-spacing: var(--ls-base);
+    letter-spacing: normal;
     font-size: var(--fs-base);
     font-weight: 100;
     width: min(70vh, 87.5vw);
@@ -176,10 +182,51 @@ body.home .content p {
 }
 
 .menu-icon {
-    font-size: var(--fs-menu-icon);
     cursor: pointer;
     margin-left: 0vw; /* Add spacing between logo and menu icon */
-    font-family: "Arial", "Helvetica", sans-serif;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--menu-icon-gap);
+    width: var(--menu-icon-width);
+    height: var(--menu-icon-height);
+    color: rgb(249, 247, 247);
+}
+
+.menu-icon span {
+    width: 100%;
+    height: var(--menu-icon-bar-height);
+    background-color: currentColor;
+    border-radius: 9999px;
+    transform-origin: left center;
+    transition:
+        opacity var(--menu-icon-timing),
+        transform var(--menu-icon-timing),
+        width var(--menu-icon-timing);
+}
+
+#menu-toggle:focus-visible + .menu-icon {
+    outline: 1px solid currentColor;
+    outline-offset: 6px;
+}
+
+#menu-toggle:checked + .menu-icon span:nth-child(1) {
+    transform: translate(
+        calc(-0.6 * var(--menu-icon-gap)),
+        calc(-0.6 * var(--menu-icon-gap))
+    ) rotate(-12deg);
+}
+
+#menu-toggle:checked + .menu-icon span:nth-child(2) {
+    transform: translate(
+        calc(0.9 * var(--menu-icon-gap)),
+        calc(-0.6 * var(--menu-icon-gap))
+    ) rotate(7deg);
+}
+
+#menu-toggle:checked + .menu-icon span:nth-child(3) {
+    /* transform: rotate(-4deg); */
 }
 
 /* Visually hide the checkbox */
