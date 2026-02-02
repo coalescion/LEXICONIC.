@@ -9,12 +9,14 @@
     --fs-menu-item: 30px;
     --ls-base: 2px;
     --ls-wide: 5px;
+    --ls-sora: 0.5px;
     --menu-icon-width: calc(var(--fs-menu-icon) * 0.68);
-    --menu-icon-bar-height: clamp(1.5px, 0.32vw, 2.5px);
+    --menu-icon-bar-height: clamp(1.5px, 0.26vw, 2.2px);
     --menu-icon-gap: clamp(7px, 1.8vw, 12px);
     --menu-icon-timing: 200ms ease-in-out;
     --menu-icon-height: calc((var(--menu-icon-bar-height) * 3) + (var(--menu-icon-gap) * 2));
     --menu-icon-x-width: calc(var(--menu-icon-height) * 1.41421356237);
+    --menu-gap: clamp(10px, 2.6vw, 18px);
 }
 
 @media (max-width: 375px) {
@@ -69,6 +71,7 @@ body {
 body.home {
     --home-indent: clamp(10px, 2.6vw, 18px);
     --home-gap: clamp(30px, 7vw, 40px);
+    --home-nav-pad-top: clamp(10px, 3vw, 18px);
     --home-nav-pad-left: clamp(2px, 2vw, 2px);
     --home-nav-pad-right: clamp(28px, 8vw, 72px);
     --home-nav-gap: clamp(6px, 2.4vw, 18px);
@@ -80,7 +83,7 @@ body.home {
 body.home .navbar {
     justify-content: center;
     gap: var(--home-nav-gap);
-    padding: 0 var(--home-nav-pad-right) 0 var(--home-nav-pad-left);
+    padding: var(--home-nav-pad-top) var(--home-nav-pad-right) 0 var(--home-nav-pad-left);
 }
 
 body.home .logo {
@@ -108,15 +111,39 @@ body.home .menu-icon {
 
 .logo {
     text-align: center;
-    font-size: var(--fs-logo);
-    font-family: 'Avenir Next';
-    font-style: Italic;
+    font-size: calc(var(--fs-logo) * 0.8);
+    font-family: "Sora";
+    font-style: italic;
     font-weight: 100;
-    letter-spacing: var(--ls-wide);
+    letter-spacing: calc(5px + var(--ls-sora));
     margin: 0px var(--space-50) 0px var(--space-40);
 
     margin-left: auto;
     margin-right: auto;
+}
+
+@font-face {
+    font-family: "Sora";
+    src: url('../fonts/Sora-ThinItalic.woff2') format('woff2');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Sora";
+    src: url('../fonts/Sora-ExtraLightItalic.woff2') format('woff2');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Sora";
+    src: url('../fonts/Sora-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -166,6 +193,31 @@ p {
 body.home .content a,
 body.home .content p {
     margin: var(--home-gap) 0px var(--home-gap) var(--home-indent);
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 200;
+    letter-spacing: calc(.5px + var(--ls-sora));
+}
+
+body.home .content .menu-rectangle {
+    border: 1.25px solid white;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    margin: var(--home-gap) 0;
+    padding: 10px var(--home-indent);
+    line-height: 1.25;
+    letter-spacing: calc(.5px + var(--ls-sora));
+    font-size: var(--fs-base);
+}
+
+body.home .content a:hover,
+body.home .content a:active,
+body.home .content a:focus {
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 400;
 }
 
 
@@ -242,7 +294,7 @@ body.home .content p {
 .menu {
     list-style: none;
     position: absolute;
-    top: 100%; /* Adjust positioning with some spacing */
+    top: calc(100% + var(--menu-gap)); /* Add breathing room under the logo */
     right: 0;
     left: 0;
     background-color: black;
@@ -289,6 +341,18 @@ body.home .content p {
     margin: 0;
     padding: 6px 0;
     line-height: 4;
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 200;
+    letter-spacing: calc(var(--ls-sora) + 3px);
+}
+
+.menu li a:hover,
+.menu li a:active,
+.menu li a:focus {
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 400;
 }
 
 .small {
@@ -325,6 +389,7 @@ body.home .content p {
     }
 
     body.home {
+        --home-nav-pad-top: clamp(8px, 3vw, 12px);
         --home-nav-pad-left: clamp(20px, 8vw, 34px);
         --home-nav-pad-right: clamp(22px, 9vw, 36px);
         --home-nav-gap: clamp(6px, 3vw, 12px);
@@ -333,7 +398,7 @@ body.home .content p {
 
     body.home .navbar {
         justify-content: flex-start;
-        padding: 0 var(--home-nav-pad-right) 0 var(--home-nav-pad-left);
+        padding: var(--home-nav-pad-top) var(--home-nav-pad-right) 0 var(--home-nav-pad-left);
         gap: var(--home-nav-gap);
     }
 

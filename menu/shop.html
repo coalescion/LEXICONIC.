@@ -26,9 +26,9 @@
             "description": "the process of physically embedding wisdom in the real world is one of the most critical aspects of"
         }
     </script>
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48x48.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="../images/favicon-96x96.png">
   <link rel="stylesheet" href="../css/descriptions.css"/>
   <link rel="stylesheet" href="../css/static_circle.css"/>
 </head>
@@ -101,7 +101,8 @@
     </div>
 
     <div id="confirmation" style="display: none;">
-      thank you for your support, we will get back to you soon; until the next life...
+      <span class="confirmation-line1">thanks so much for your submission !</span>
+      <span class="confirmation-line2">we will get back to you soon</span>
     </div>
   </div>
 
@@ -178,6 +179,8 @@
       });
     })();
 
+    var MOCK_SUBMIT = true; // Set to false to enable real Basin submission.
+
     // Handle form submission with proper error handling
     document.getElementById('responseForm').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -201,6 +204,14 @@
       const originalText = submitButton.textContent;
       submitButton.textContent = 'submitting...';
       submitButton.disabled = true;
+
+      if (MOCK_SUBMIT) {
+        window.setTimeout(function() {
+          form.style.display = 'none';
+          document.getElementById('confirmation').style.display = 'block';
+        }, 600);
+        return;
+      }
 
       fetch(form.action, {
         method: 'POST',

@@ -11,12 +11,34 @@
     --fs-input-field: calc(var(--fs-body) - 2px);
     --input-pad-x: 8px;
     --input-pad-y: 8px;
+    --ls-sora: 0.5px;
+    --fs-sora-scale: 0.85em;
     --fs-small: 15px;
     --fs-tiny: 12px;
     --container-width: 300px;
     --radius-xs: 3px;
     --radius-sm: 5px;
     --radius-md: 10px;
+    --circle-size: 100px;
+    --sticker-height: 0px;
+    --logo-gap: var(--space-20);
+    --desc-gap: var(--space-40);
+}
+
+@font-face {
+    font-family: "Sora";
+    src: url('../fonts/Sora-ExtraLightItalic.woff2') format('woff2');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Sora";
+    src: url('../fonts/Sora-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
 }
 
 @media (max-width: 375px) {
@@ -67,19 +89,45 @@ body.logo-adjusted .circle {
     height: calc(var(--space-40) + var(--space-40) + var(--space-10));
 }
 
+.desc-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--desc-gap);
+    padding-top: calc(var(--circle-size) + var(--logo-gap));
+}
+
+.desc-content > p,
+.desc-content > pre,
+.desc-content > ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.desc-content > .sticker {
+    margin: 0 auto;
+}
+
+.desc-content.desc-no-image::before {
+    content: "";
+    display: block;
+    height: var(--sticker-height);
+}
+
 
 .title {
-    font-family: 'Avenir Next';
-    font-style: Italic;
-    font-weight: 100;
-    letter-spacing: 2px;
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 200;
+    font-size: var(--fs-sora-scale);
+    letter-spacing: calc(2px + var(--ls-sora));
 }
 
 .link {
-    font-family: 'Avenir Next';
-    font-style: Italic;
-    font-weight: 225;
-    letter-spacing: 0px;
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 200;
+    font-size: var(--fs-sora-scale);
+    letter-spacing: calc(var(--ls-sora) + .7px);
 }
 
 p {
@@ -226,8 +274,9 @@ a {
 
 a:hover, a:active, a:focus, a:visited {
     text-shadow: 5px 5px 20px rgb(100, 247, 247);
-    font-style: Bold Italic;
-    font-weight: 1000;
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 400;
   }
 
 .container {
@@ -263,7 +312,7 @@ textarea {
     border-radius: var(--radius-xs);
     color: #ffffff;
     font-size: var(--fs-input-field);
-    font-family: 'Avenir Next', 'Times New Roman', serif;
+    font-family: 'Sora', 'Avenir Next', 'Roboto', 'SF Pro', 'Segoe UI', 'Times New Roman', serif;
     font-weight: 300;
     font-style: italic;
     line-height: 1.25;
@@ -277,7 +326,7 @@ textarea {
 textarea::placeholder {
     font-size: var(--fs-input-field);
     line-height: 1.25;
-    font-family: 'Avenir Next', 'Times New Roman', serif;
+    font-family: 'Sora', 'Avenir Next', 'Roboto', 'SF Pro', 'Segoe UI', 'Times New Roman', serif;
     font-weight: 300;
     font-style: italic;
 }
@@ -301,6 +350,12 @@ textarea::placeholder {
     white-space: nowrap;
 }
 
+.box5 {
+    width: 100%;
+    height: calc(var(--fs-input-field*2) + var(--input-pad-y) + var(--input-pad-y));
+    margin-bottom: var(--space-10);
+}
+
 button {
     padding: var(--space-12);
     border: none;
@@ -309,10 +364,10 @@ button {
     border: 1px solid #ffffff; 
     border-radius: var(--radius-md);
     cursor: pointer;
-    font-size: var(--fs-input);
-    font-family: 'Avenir Next', 'Avenir', 'Times New Roman', serif;
+    font-size: var(--fs-input-field);
+    font-family: 'Sora', 'Avenir Next', 'Roboto', 'SF Pro', 'Segoe UI', 'Times New Roman', serif;
     font-style: italic;
-    font-weight: 250;
+    font-weight: 300;
 }
 
 @media (min-width: 900px) {
@@ -327,6 +382,7 @@ button {
         margin-left: 3%;
         margin-right: 3%;
     }
+
 }
 
 button:hover {
@@ -336,6 +392,28 @@ button:hover {
 #confirmation {
     margin-top: var(--space-20);
     color: white;
+    font-size: clamp(12px, 4vw, 48px);
+    font-family: 'Sora', 'Avenir Next', 'Roboto', 'SF Pro', 'Segoe UI', 'Times New Roman', serif;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.25;
+}
+
+@media (min-width: 500px) {
+    #confirmation {
+        font-size: 20px;
+    }
+}
+
+#confirmation .confirmation-line1 {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+}
+
+#confirmation .confirmation-line2 {
+    display: block;
+    margin-top: var(--space-6);
 }
 
 .form-error {
@@ -347,7 +425,7 @@ button:hover {
 .shop-page .form-error {
     display: none;
     color: #ff3b3b;
-    font-family: 'Avenir Next', 'Avenir', 'Times New Roman', serif;
+    font-family: 'Sora', 'Avenir Next', 'Roboto', 'SF Pro', 'Segoe UI', 'Times New Roman', serif;
     font-style: italic;
     font-weight: 300;
     text-align: center;
@@ -360,7 +438,7 @@ button:hover {
 .create-page .form-error {
     display: none;
     color: #ff3b3b;
-    font-family: 'Avenir Next', 'Avenir', 'Times New Roman', serif;
+    font-family: 'Sora', 'Avenir Next', 'Roboto', 'SF Pro', 'Segoe UI', 'Times New Roman', serif;
     font-style: italic;
     font-weight: 300;
     text-align: center;

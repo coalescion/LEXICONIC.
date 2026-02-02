@@ -37,7 +37,8 @@
     let started = false;
 
     for (const node of nodes) {
-      let value = node.nodeValue.replace(/\s+/g, " ");
+      // Preserve thin spaces and other non-ASCII spacing characters while normalizing layout whitespace.
+      let value = node.nodeValue.replace(/[ \t\r\n\f\v]+/g, " ");
 
       if (!started) {
         value = value.replace(/^ +/, "");
