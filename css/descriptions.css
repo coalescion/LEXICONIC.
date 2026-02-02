@@ -8,7 +8,7 @@
     --fs-body: 20px;
     --fs-title: 40px;
     --fs-input: 18px;
-    --fs-input-field: calc(var(--fs-body) - 2px);
+    --fs-input-field: calc(var(--fs-body) - 3px);
     --input-pad-x: 8px;
     --input-pad-y: 8px;
     --ls-sora: 0.5px;
@@ -58,7 +58,7 @@
         --fs-body: clamp(17px, 4.8vw, 20px);
         --fs-title: clamp(40px, 12.5vw, 54px);
         --fs-input: clamp(18px, 5.625vw, 24.3px);
-        --fs-input-field: calc(var(--fs-body) - 2px);
+        --fs-input-field: calc(var(--fs-body) - 3px);
         --input-pad-x: clamp(8px, 2.2vw, 12px);
         --input-pad-y: clamp(8px, 2.2vw, 12px);
         --fs-small: clamp(15px, 4.6875vw, 20.25px);
