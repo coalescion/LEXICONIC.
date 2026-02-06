@@ -7,6 +7,7 @@
     --fs-logo: 80px;
     --fs-menu-icon: 40px;
     --fs-menu-item: 30px;
+    --fs-content: calc(var(--fs-base) * 1.06);
     --ls-base: 2px;
     --ls-wide: 5px;
     --ls-sora: 0.5px;
@@ -197,7 +198,7 @@ body.home .content p {
     font-style: italic;
     font-weight: 200;
     letter-spacing: calc(.5px + var(--ls-sora));
-    font-size: calc(var(--fs-base) * 1.06);
+    font-size: var(--fs-content);
 }
 
 body.home .content .menu-rectangle {
@@ -361,7 +362,7 @@ body.home .content a:focus {
 }
 
 .contribute-link {
-    font-size: calc(var(--fs-base) * 1.06);
+    font-size: calc(var(--fs-content) * 1.05);
 }
 
 @media (min-width: 900px) {
