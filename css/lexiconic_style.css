@@ -172,13 +172,24 @@ a {
     font-weight: 100;
     color:rgb(249, 247, 247);
     text-decoration: none;
+    transition: text-shadow 160ms ease, font-weight 160ms ease;
 }
 
-a:hover, a:active, a:focus, a:visited {
-    text-shadow: 5px 5px 20px rgb(100, 247, 247);
-    font-style: Bold Italic;
-    font-weight: 1000;
-  }
+a:hover, a:focus {
+    text-shadow: 0 0 14px rgba(100, 247, 247, 0.85), 0 0 30px rgba(100, 247, 247, 0.6);
+    font-style: italic;
+    font-weight: 600;
+}
+
+a:active {
+    text-shadow: 0 0 18px rgba(100, 247, 247, 0.95), 0 0 38px rgba(100, 247, 247, 0.75);
+    font-style: italic;
+    font-weight: 700;
+}
+
+a:visited {
+    color: rgb(249, 247, 247);
+}
 
 
 p {
@@ -215,11 +226,18 @@ body.home .content .menu-rectangle {
 }
 
 body.home .content a:hover,
-body.home .content a:active,
 body.home .content a:focus {
     font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
     font-style: italic;
-    font-weight: 400;
+    text-shadow: 0 0 14px rgba(100, 247, 247, 0.85), 0 0 30px rgba(100, 247, 247, 0.6);
+    font-weight: 500;
+}
+
+body.home .content a:active {
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    text-shadow: 0 0 18px rgba(100, 247, 247, 0.95), 0 0 38px rgba(100, 247, 247, 0.75);
+    font-weight: 700;
 }
 
 
@@ -350,11 +368,18 @@ body.home .content a:focus {
 }
 
 .menu li a:hover,
-.menu li a:active,
 .menu li a:focus {
     font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
     font-style: italic;
-    font-weight: 400;
+    text-shadow: 0 0 14px rgba(100, 247, 247, 0.85), 0 0 30px rgba(100, 247, 247, 0.6);
+    font-weight: 500;
+}
+
+.menu li a:active {
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    text-shadow: 0 0 18px rgba(100, 247, 247, 0.95), 0 0 38px rgba(100, 247, 247, 0.75);
+    font-weight: 700;
 }
 
 .small {

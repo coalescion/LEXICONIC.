@@ -270,14 +270,26 @@ pre#descrip3 .bullet-line {
 a {
     color:rgb(249, 247, 247);
     text-decoration: none;
+    transition: text-shadow 160ms ease, font-weight 160ms ease;
 }
 
-a:hover, a:active, a:focus, a:visited {
-    text-shadow: 5px 5px 20px rgb(100, 247, 247);
+a:hover, a:focus {
+    text-shadow: 0 0 14px rgba(100, 247, 247, 0.85), 0 0 30px rgba(100, 247, 247, 0.6);
     font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
     font-style: italic;
-    font-weight: 400;
-  }
+    font-weight: 500;
+}
+
+a:active {
+    text-shadow: 0 0 18px rgba(100, 247, 247, 0.95), 0 0 38px rgba(100, 247, 247, 0.75);
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 700;
+}
+
+a:visited {
+    color: rgb(249, 247, 247);
+}
 
 .container {
     background-color: #000000;
@@ -448,6 +460,10 @@ button:hover {
     display: block;
 }
 
+.create-page #form-error.contact-mailing-field-error {
+    margin-top: var(--space-20);
+}
+
 
 .small {
     font-size: var(--fs-small);
@@ -459,7 +475,652 @@ button:hover {
     text-align: center;
 }
 
+.contact-page {
+    --contact-marquee-height: clamp(22px, 4.2vh, 34px);
+    margin-top: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: calc(var(--contact-marquee-height) + clamp(24px, 7vh, 88px));
+    padding-bottom: var(--space-20);
+}
+
+.contact-marquee {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: var(--contact-marquee-height);
+    background-color: #000;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    z-index: 40;
+}
+
+.contact-marquee::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0.5px;
+    background-color: rgb(249, 247, 247);
+}
+
+.contact-switch-assembly {
+    position: fixed;
+    top: calc(var(--contact-marquee-height) + 10px);
+    right: clamp(8px, 1.5vw, 16px);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    appearance: none;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    z-index: 19;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.contact-switch-assembly:focus-visible {
+    outline: 1px solid rgb(249, 247, 247);
+    outline-offset: 2px;
+}
+
+.contact-switch-line {
+    width: clamp(150px, 20vw, 210px);
+    height: auto;
+    margin-right: -1px;
+    display: block;
+    object-fit: contain;
+}
+
+.contact-switch-indicator {
+    width: clamp(25px, 5vw, 25px);
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.contact-page.marquee-hidden .contact-marquee {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.contact-marquee-track {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: contact-marquee-scroll-ltr 16s linear infinite;
+}
+
+.contact-mailing-trigger {
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.contact-mailing-trigger:focus-visible {
+    outline: 1px solid rgb(249, 247, 247);
+    outline-offset: 3px;
+}
+
+.contact-marquee-text {
+    flex: 0 0 auto;
+    padding-right: 0;
+    white-space: nowrap;
+    color: rgb(249, 247, 247);
+    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 200;
+    letter-spacing: calc(var(--ls-sora) + 1.2px);
+    font-size: clamp(15px, 3vw, 19px);
+    line-height: 1;
+}
+
+@keyframes contact-marquee-scroll-ltr {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.contact-panel {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(8px, 2vw, 16px);
+    margin-top: clamp(30px, 14vh, 60px);
+}
+
+.contact-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.honeypot-field {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.honeypot-field input,
+.honeypot-field textarea {
+    width: 1px;
+    height: 1px;
+    min-height: 1px;
+    padding: 0;
+    border: 0;
+}
+
+.contact-form-title {
+    margin: 0 0 var(--space-20) 0;
+    text-align: left;
+    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    text-align: center;
+    font-weight: 200;
+    letter-spacing: calc(var(--ls-sora) + 1.5px);
+    font-size: clamp(14px, 2.6vw, 20px);
+}
+
+.contact-form-message {
+    width: 100%;
+    min-height: calc(var(--space-100) + var(--space-20));
+    margin-bottom: var(--space-10);
+}
+
+.contact-diamond {
+    --contact-icon-size: clamp(64px, 15vw, 112px);
+    --contact-gap: clamp(40px, 7vw, 58px);
+    --contact-email-shift: clamp(34px, 5.2vw, 50px);
+    --contact-instagram-shift-email: 0px;
+    --contact-instagram-shift-text: 0px;
+    --contact-instagram-shift-y: calc(var(--contact-instagram-shift-email) + var(--contact-instagram-shift-text));
+    --contact-form-shift-email: 0px;
+    --contact-form-shift-text: 0px;
+    --contact-form-shift-y: calc(var(--contact-form-shift-email) + var(--contact-form-shift-text));
+    display: grid;
+    grid-template-columns: var(--contact-icon-size) var(--contact-icon-size) var(--contact-icon-size);
+    grid-template-rows: var(--contact-icon-size) var(--contact-icon-size) var(--contact-icon-size);
+    gap: var(--contact-gap);
+    align-items: center;
+    justify-items: center;
+    position: relative;
+}
+
+.contact-option {
+    --contact-shift-email: 0px;
+    --contact-shift-text: 0px;
+    --contact-shift-y: calc(var(--contact-shift-email) + var(--contact-shift-text));
+    width: var(--contact-icon-size);
+    height: var(--contact-icon-size);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(var(--contact-shift-y));
+    transition: transform 0.3s ease;
+}
+
+.contact-option:hover,
+.contact-option:focus-visible {
+    transform: translateY(var(--contact-shift-y));
+}
+
+.contact-option img {
+    --contact-icon-rotation: 0deg;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transform: rotate(var(--contact-icon-rotation));
+    transition: transform 0.3s ease;
+}
+
+.contact-option-instagram img {
+    width: 82%;
+    height: 82%;
+}
+
+.contact-option-email img {
+    width: 115%;
+    height: 115%;
+}
+
+.contact-option-instagram {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.contact-option-text {
+    grid-column: 1;
+    grid-row: 2;
+    position: relative;
+}
+
+.contact-option-email {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.contact-option-form {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.contact-form-reveal {
+    position: absolute;
+    left: 50%;
+    top: calc((var(--contact-icon-size) * 3) + (var(--contact-gap) * 2));
+    width: min(430px, 92vw);
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, calc(var(--contact-form-shift-y) + 12px));
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form-reveal.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, var(--contact-form-shift-y));
+}
+
+.contact-form-reveal form {
+    margin: 0;
+}
+
+.contact-mailing-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 250;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.72);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.contact-mailing-modal.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.contact-mailing-modal-card {
+    position: relative;
+    width: min(430px, calc(100vw - 32px));
+    border: 1px solid rgb(249, 247, 247);
+    background: #000;
+    color: rgb(249, 247, 247);
+    padding: clamp(18px, 3.6vw, 28px);
+}
+
+.contact-mailing-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: 1px solid rgb(249, 247, 247);
+    color: rgb(249, 247, 247);
+    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 200;
+    letter-spacing: calc(var(--ls-sora) + 0.8px);
+    font-size: 14px;
+    line-height: 1;
+    padding: 4px 7px 5px;
+    cursor: pointer;
+}
+
+.contact-mailing-modal-title {
+    margin: 0 0 12px;
+    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 200;
+    letter-spacing: calc(var(--ls-sora) + 1.4px);
+    font-size: clamp(15px, 2.8vw, 20px);
+}
+
+.contact-mailing-modal-copy {
+    margin: 0 0 16px;
+    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 200;
+    letter-spacing: calc(var(--ls-sora) + 1.2px);
+    font-size: clamp(11px, 2vw, 14px);
+    line-height: 1.5;
+}
+
+.contact-mailing-modal-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.contact-mailing-modal-form input,
+.contact-mailing-modal-form button {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgb(249, 247, 247);
+    background: #000;
+    color: rgb(249, 247, 247);
+    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 200;
+    letter-spacing: calc(var(--ls-sora) + 0.9px);
+    font-size: clamp(13px, 2.2vw, 15px);
+    padding: 10px 12px;
+}
+
+.contact-mailing-modal-form input[aria-invalid="true"] {
+    border-color: rgb(249, 247, 247);
+}
+
+.contact-mailing-modal-form input::placeholder {
+    color: rgba(249, 247, 247, 0.78);
+}
+
+.contact-mailing-modal-form button {
+    cursor: pointer;
+}
+
+.contact-mailing-field-error {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    margin: -2px 0 0;
+    border: 1px solid rgb(249, 247, 247);
+    background: #000;
+    color: rgb(249, 247, 247);
+    padding: 8px 10px;
+    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 200;
+    letter-spacing: calc(var(--ls-sora) + 0.6px);
+    font-size: clamp(12px, 2vw, 13px);
+    line-height: 1.35;
+}
+
+.contact-mailing-field-error.is-visible {
+    display: flex;
+}
+
+.contact-page #contact-popup-form-error.contact-mailing-field-error {
+    margin-top: var(--space-20);
+}
+
+.contact-mailing-field-error-icon {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    border: 1px solid rgb(249, 247, 247);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.contact-mailing-modal-status {
+    margin: 12px 0 0;
+    min-height: 1.4em;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    text-align: center;
+    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 200;
+    letter-spacing: calc(var(--ls-sora) + 1px);
+    font-size: clamp(12px, 2.1vw, 14px);
+    line-height: 1.4;
+}
+
+.contact-mailing-modal-status.is-visible {
+    opacity: 1;
+}
+
+.contact-mailing-modal-form button:focus-visible,
+.contact-mailing-modal-close:focus-visible {
+    outline: 1px solid rgb(249, 247, 247);
+    outline-offset: 2px;
+}
+
+.contact-page.mailing-modal-open {
+    overflow: hidden;
+}
+
+.contact-diamond.email-selected .contact-option:not(.contact-option-email) {
+    --contact-shift-email: var(--contact-email-shift);
+}
+
+.contact-diamond.email-selected {
+    --contact-instagram-shift-email: var(--contact-email-shift);
+    --contact-form-shift-email: var(--contact-email-shift);
+}
+
+.contact-diamond.text-selected .contact-option-instagram,
+.contact-diamond.text-selected .contact-option-form,
+.contact-diamond.instagram-selected .contact-option-instagram,
+.contact-diamond.instagram-selected .contact-option-form {
+    --contact-shift-text: calc(var(--contact-icon-size) * 1.2);
+}
+
+.contact-diamond.instagram-selected .contact-option-instagram img {
+    --contact-icon-rotation: -20deg;
+}
+
+.contact-diamond.text-selected .contact-option-text img {
+    --contact-icon-rotation: -20deg;
+}
+
+.contact-diamond.email-selected .contact-option-email img {
+    --contact-icon-rotation: -20deg;
+}
+
+.contact-diamond.form-selected .contact-option-form img {
+    --contact-icon-rotation: -20deg;
+}
+
+.contact-diamond.text-selected,
+.contact-diamond.instagram-selected {
+    --contact-instagram-shift-text: calc(var(--contact-icon-size) * 1.2);
+    --contact-form-shift-text: calc(var(--contact-icon-size) * 1.2);
+}
+
+.contact-instagram-reveal {
+    position: absolute;
+    left: 0;
+    top: calc((var(--contact-icon-size) * 1.5) + var(--contact-gap));
+    margin: 0;
+    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 200;
+    letter-spacing: calc(var(--ls-sora) + 1.5px);
+    font-size: clamp(13px, 2.5vw, 18px);
+    line-height: 1.5;
+    text-align: left;
+    white-space: nowrap;
+    color: rgb(249, 247, 247);
+    opacity: 0;
+    transform: translateY(calc(-50% + var(--contact-instagram-shift-y) - 8px));
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.contact-instagram-reveal span {
+    display: block;
+}
+
+.contact-instagram-reveal a {
+    display: block;
+    margin: 0;
+    font-family: inherit;
+    font-style: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    transition: text-shadow 160ms ease, font-weight 160ms ease;
+}
+
+.contact-instagram-reveal a:hover,
+.contact-instagram-reveal a:focus,
+.contact-email-reveal a:hover,
+.contact-email-reveal a:focus {
+    text-shadow: 0 0 14px rgba(100, 247, 247, 0.85), 0 0 30px rgba(100, 247, 247, 0.6);
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: 500;
+}
+
+.contact-instagram-reveal a:active,
+.contact-email-reveal a:active {
+    text-shadow: 0 0 18px rgba(100, 247, 247, 0.95), 0 0 38px rgba(100, 247, 247, 0.75);
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: 700;
+}
+
+.contact-instagram-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(calc(-50% + var(--contact-instagram-shift-y)));
+    pointer-events: auto;
+}
+
+.contact-text-reveal {
+    position: absolute;
+    right: calc(-1.93 * (var(--contact-icon-size) + var(--contact-gap)));
+    top: 50%;
+    margin: 0;
+    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 200;
+    letter-spacing: calc(var(--ls-sora) + 1.5px);
+    font-size: clamp(13px, 2.5vw, 18px);
+    white-space: nowrap;
+    line-height: 1.5;
+    text-align: right;
+    color: rgb(249, 247, 247);
+    text-shadow: none;
+    opacity: 0;
+    transform: translateY(calc(-50% - 8px));
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.contact-text-reveal span {
+    display: block;
+}
+
+.contact-text-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(-50%);
+}
+
+.contact-email-reveal {
+    position: absolute;
+    left: 50%;
+    top: calc(var(--contact-icon-size) + (var(--contact-gap) / 2) + clamp(12px, 2.2vw, 22px));
+    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
+    line-height: 1.5;
+    text-align: center;
+    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 200;
+    letter-spacing: calc(var(--ls-sora) + 1.5px);
+    font-size: clamp(13px, 2.5vw, 18px);
+    opacity: 0;
+    transform: translate(-50%, calc(-50% - 8px));
+    max-height: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
+}
+
+.contact-email-reveal span,
+.contact-email-reveal a {
+    display: block;
+}
+
+.contact-email-reveal a {
+    margin: 0;
+    font-family: inherit;
+    font-style: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    transition: text-shadow 160ms ease, font-weight 160ms ease;
+}
+
+.contact-email-reveal.is-visible {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    max-height: 120px;
+    pointer-events: auto;
+}
+
 .tiny {
     font-size: var(--fs-tiny);
     text-align: center;
+}
+
+@media (min-width: 900px) {
+    .contact-diamond {
+        --contact-icon-size: 80px;
+        --contact-gap: 70px;
+        --contact-email-shift: 30px;
+    }
+
+    .contact-instagram-reveal,
+    .contact-text-reveal,
+    .contact-email-reveal {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .contact-email-reveal {
+        top: calc(var(--contact-icon-size) + (var(--contact-gap) / 2));
+    }
+
+    .contact-form-reveal {
+        width: min(500px, 90vw);
+    }
+
+    .contact-form-title {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .contact-form-reveal textarea,
+    .contact-form-reveal textarea::placeholder,
+    .contact-form-reveal button {
+        font-size: 15px;
+    }
 }

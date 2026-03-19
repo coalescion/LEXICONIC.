@@ -43,15 +43,24 @@
       white-space: nowrap;
       border: 0;
     }
+
+    p + .container {
+      margin-top: -25px;
+    }
   </style>
 </head>
 <body class="logo-adjusted create-page">
   <a href="/" class="circle" ></a>
   <div class="logo-spacer"></div>
-  <p>
-    with&thinsp;<a href="/" class="title"> lexiconic.</a>, we aim to construct a medium in which anyone can express themselves while simulatenously making a postive impact
+  <!-- <p>
+    with&thinsp;<a href="/" class="title"> lexiconic.</a>, we aim to construct a medium where anyone can express themselves while simulatenously making a postive impact
     on the global consciousness. we would love for you to contribute your unique life understanding to our movement. if you're interested, enter a personal bit of wisdom
     with a description below. from there, we will add your phrase to the website, and even create stickers for you and others to embed in the real world.
+  </p> -->
+
+    <p>
+    with&thinsp;<a href="/" class="title"> lexiconic.</a>, we aim to simulatenously nourish both the focal and the global — constructing a medium that promotes personal expression while additionally impacting the global consciousness. 
+    we would love for you to contribute your unique life understanding to our movement. simply enter a personal bit of wisdom with a description below, and we will add your phrase to the website. down the road, we can even &#8202;<a href="physicalize.html" class="link">physicalize</a>&#8202; your phrase into stickers or apparel.
   </p>
 
   <div class="container">
@@ -63,6 +72,10 @@
       <!-- form name -->
       <input type="hidden" name="form-name" value="createForm" />
       <input type="hidden" name="apiKey" value="sf_2ggg41k90kkbjfc2bl4ndicm" />
+      <div class="honeypot-field" aria-hidden="true">
+        <label for="create-website">website</label>
+        <input type="text" id="create-website" name="website" tabindex="-1" autocomplete="off" spellcheck="false">
+      </div>
 
       <!-- User fields must have name attributes -->
       <label class="sr-only" for="box1">phrase</label>
@@ -79,6 +92,14 @@
         id="box2"
         name="description"
         placeholder="description"
+      ></textarea>
+
+      <label class="sr-only" for="boxName">name (optional)</label>
+      <textarea
+        class="box3"
+        id="boxName"
+        name="name"
+        placeholder="name (optional)"
       ></textarea>
 
       <label class="sr-only" for="box3">email</label>
@@ -108,8 +129,9 @@
       <button type="submit">submit.</button>
     </form>
 
-    <div id="form-error" class="form-error" role="alert" aria-live="polite">
-      missing required info
+    <div id="form-error" class="contact-mailing-field-error" role="alert" aria-live="polite">
+      <span class="contact-mailing-field-error-icon" aria-hidden="true">!</span>
+      <span id="form-error-message">missing required info</span>
     </div>
 
     <div id="confirmation" style="display: none;">
@@ -123,7 +145,7 @@
 
   <script>
     (function() {
-      var expandAreas = document.querySelectorAll('.box1, .box2');
+      var expandAreas = document.querySelectorAll('.box1, .box2, .box5');
       var singleLineAreas = document.querySelectorAll('.box3');
       var minFontPx = 12;
 
@@ -194,20 +216,50 @@
       });
     })();
 
-    var MOCK_SUBMIT = false; // Set to false to enable real Basin submission.
+    var MOCK_SUBMIT = false; // Set to true to enable mock submission mode.
+
+    var isValidEmail = function(value) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    };
 
     // Handle form submission with proper error handling
     document.getElementById('responseForm').addEventListener('submit', function(e) {
-      e.preventDefault(); // Always prevent Basin's default redirect.
+      e.preventDefault(); // Always prevent Static Forms' default redirect.
       const form = e.target;
       const error = document.getElementById('form-error');
+      const errorMessage = document.getElementById('form-error-message');
+      const honeypot = form.querySelector('[name="website"]');
       const phrase = form.querySelector('[name="phrase"]').value.trim();
       const description = form.querySelector('[name="description"]').value.trim();
       const email = form.querySelector('[name="email"]').value.trim();
       const phone = form.querySelector('[name="phone"]').value.trim();
+      const emailField = form.querySelector('[name="email"]');
+
+      if (honeypot && honeypot.value.trim()) {
+        return;
+      }
+
+      if (errorMessage) {
+        errorMessage.textContent = 'missing required info';
+      }
+      if (emailField) {
+        emailField.setAttribute('aria-invalid', 'false');
+      }
 
       if (!phrase || !description || (!email && !phone)) {
         error.classList.add('is-visible');
+        return;
+      }
+
+      if (email && !isValidEmail(email)) {
+        if (errorMessage) {
+          errorMessage.textContent = 'please enter a valid email address.';
+        }
+        error.classList.add('is-visible');
+        if (emailField) {
+          emailField.setAttribute('aria-invalid', 'true');
+          emailField.focus();
+        }
         return;
       }
 

@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>contact.</title>
-    <meta name="description" content="email,,, lexiconic.global@gmail.com .">
+    <meta name="description" content="instagram,,, text,,, email,,, contact form .">
     <link rel="canonical" href="https://lexiconic.global/menu/contact.html">
     <meta property="og:site_name" content="lexiconic.">
     <meta property="og:title" content="contact.">
-    <meta property="og:description" content="email,,, lexiconic.global@gmail.com .">
+    <meta property="og:description" content="instagram,,, text,,, email,,, contact form .">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lexiconic.global/menu/contact.html">
     <meta property="og:image" content="https://lexiconic.global/images/lexiconic%20torus.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="contact.">
-    <meta name="twitter:description" content="email,,, lexiconic.global@gmail.com .">
+    <meta name="twitter:description" content="instagram,,, text,,, email,,, contact form .">
     <meta name="twitter:image" content="https://lexiconic.global/images/lexiconic%20torus.png">
     <script type="application/ld+json">
         {
@@ -22,7 +22,7 @@
             "@type": "WebPage",
             "name": "contact.",
             "url": "https://lexiconic.global/menu/contact.html",
-            "description": "email,,, lexiconic.global@gmail.com ."
+            "description": "instagram,,, text,,, email,,, contact form ."
         }
     </script>
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
@@ -33,15 +33,499 @@
 </head>
 
 <body class="contact-page">
-    <p class="small">
-        email,,, lexiconic.global@gmail.com .
-    </p>
-    <p class="small">
-        text,,, 1-402-906-7528 .
-    </p>
-    <!-- <p class="small">
-        instagram,,, @lexiconic.global .
-    </p> -->
+    <div class="contact-marquee">
+        <p class="contact-marquee-track contact-mailing-trigger" role="button" tabindex="0" aria-label="join our mailing list">
+            <span class="contact-marquee-text">&ensp;join our email list &ensp; !¡! &ensp; join our email list &ensp;¡!¡&ensp; join our email list&ensp; !¡! &ensp;join our email list &ensp;¡!¡&ensp; join our email list &ensp;!¡! &ensp;join our email list &ensp;¡!¡&ensp;</span>
+            <span class="contact-marquee-text">&ensp;join our email list &ensp; !¡! &ensp; join our email list &ensp;¡!¡&ensp; join our email list&ensp; !¡! &ensp;join our email list &ensp;¡!¡&ensp; join our email list &ensp;!¡! &ensp;join our email list &ensp;¡!¡&ensp;</span>
+        </p>
+    </div>
+    <button class="contact-switch-assembly" type="button" aria-label="toggle mailing list banner" aria-pressed="true">
+        <!-- <img class="contact-switch-line" src="../images/curved_line.png" alt=""> -->
+        <img class="contact-switch-indicator" src="../images/switch_on.png" alt="">
+    </button>
+    <div class="contact-panel">
+        <nav class="contact-diamond" aria-label="contact options">
+            <a class="contact-option contact-option-instagram" href="#instagram-contact" aria-label="instagram" aria-expanded="false">
+                <img src="../images/instagram_icon.png" alt="instagram icon">
+            </a>
+            <a class="contact-option contact-option-text" href="#text-contact" aria-label="text" aria-expanded="false">
+                <img src="../images/text_icon.png" alt="text icon">
+                <span class="contact-text-reveal" id="text-contact">
+                    <span>text</span>
+                    <span>1-402-906-7528</span>
+                </span>
+            </a>
+            <a class="contact-option contact-option-email" href="#email-contact" aria-label="email" aria-expanded="false">
+                <img src="../images/email_icon.png" alt="email icon">
+            </a>
+            <a class="contact-option contact-option-form" href="#contact-form-inline" aria-label="contact form" aria-expanded="false">
+                <img src="../images/contact_form_icon.png" alt="contact form icon">
+            </a>
+            <p class="contact-instagram-reveal" id="instagram-contact">
+                <span>insta</span>
+                <a href="https://www.instagram.com/lexiconic.beta/" target="_blank" rel="noopener noreferrer">@lexiconic.beta</a>
+            </p>
+            <p class="contact-email-reveal" id="email-contact" aria-live="polite">
+                <span>email</span>
+                <a href="mailto:contact@lexiconic.global">contact@lexiconic.global</a>
+            </p>
+            <div class="container contact-form-reveal" id="contact-form-inline" aria-hidden="true">
+                <p class="contact-form-title" id="contact-form-title">contact form</p>
+                <form id="contact-popup-form" action="https://api.staticforms.dev/submit" method="POST">
+                    <input type="hidden" name="form-name" value="contactForm">
+                    <input type="hidden" name="apiKey" value="sf_2ggg41k90kkbjfc2bl4ndicm">
+                    <div class="honeypot-field" aria-hidden="true">
+                        <label for="contact-popup-website">website</label>
+                        <input type="text" id="contact-popup-website" name="website" tabindex="-1" autocomplete="off" spellcheck="false">
+                    </div>
 
+                    <label class="contact-sr-only" for="contact-popup-name">name (optional)</label>
+                    <textarea class="box3" id="contact-popup-name" name="name" placeholder="name (optional)"></textarea>
+
+                    <label class="contact-sr-only" for="contact-popup-contact">email or phone #</label>
+                    <textarea class="box3" id="contact-popup-contact" name="email_or_phone" placeholder="email or phone #"></textarea>
+
+                    <label class="contact-sr-only" for="contact-popup-message">your message</label>
+                    <textarea class="contact-form-message" id="contact-popup-message" name="message" placeholder="your message"></textarea>
+
+                    <button type="submit">submit.</button>
+                </form>
+                <div id="contact-popup-form-error" class="contact-mailing-field-error" role="alert" aria-live="polite">
+                    <span class="contact-mailing-field-error-icon" aria-hidden="true">!</span>
+                    <span id="contact-popup-form-error-message"></span>
+                </div>
+                <p class="contact-mailing-modal-status contact-form-status" id="contact-popup-form-status" aria-live="polite"></p>
+            </div>
+        </nav>
+    </div>
+    <div class="contact-mailing-modal" id="mailing-list-popup" role="dialog" aria-modal="true" aria-labelledby="mailing-list-title" aria-hidden="true">
+        <div class="contact-mailing-modal-card">
+            <button class="contact-mailing-modal-close" type="button" aria-label="close mailing list popup">x</button>
+            <p class="contact-mailing-modal-title" id="mailing-list-title">the <em>lexiconic.</em> email list !</p>
+            <p class="contact-mailing-modal-copy">stay up to date with project developments, featured phrases, drops, and more. expected email frequency around once a month. </p>
+            <form class="contact-mailing-modal-form" action="https://api.staticforms.dev/submit" method="POST" novalidate>
+                <input type="hidden" name="form-name" value="mailingListForm">
+                <input type="hidden" name="apiKey" value="sf_2ggg41k90kkbjfc2bl4ndicm">
+                <div class="honeypot-field" aria-hidden="true">
+                    <label for="mailing-list-website">website</label>
+                    <input type="text" id="mailing-list-website" name="website" tabindex="-1" autocomplete="off" spellcheck="false">
+                </div>
+                <label class="contact-sr-only" for="mailing-list-email">email address</label>
+                <input id="mailing-list-email" name="email" type="email" placeholder="your email" autocomplete="email" required>
+                <p class="contact-mailing-field-error" id="mailing-list-email-error" role="alert" aria-live="polite">
+                    <span class="contact-mailing-field-error-icon" aria-hidden="true">!</span>
+                    <span>please enter a valid email address.</span>
+                </p>
+                <button type="submit">join.</button>
+            </form>
+            <p class="contact-mailing-modal-status" id="mailing-list-status" aria-live="polite"></p>
+        </div>
+    </div>
+    <script>
+        (function () {
+            var diamond = document.querySelector('.contact-diamond');
+            var instagramOption = document.querySelector('.contact-option-instagram');
+            var emailOption = document.querySelector('.contact-option-email');
+            var textOption = document.querySelector('.contact-option-text');
+            var formOption = document.querySelector('.contact-option-form');
+            var instagramReveal = document.querySelector('.contact-instagram-reveal');
+            var emailReveal = document.querySelector('.contact-email-reveal');
+            var textReveal = document.querySelector('.contact-text-reveal');
+            var formReveal = document.querySelector('.contact-form-reveal');
+            var firstFormField = document.getElementById('contact-popup-name');
+            var contactField = document.getElementById('contact-popup-contact');
+            var messageField = document.getElementById('contact-popup-message');
+            var contactForm = document.getElementById('contact-popup-form');
+            var contactFormError = document.getElementById('contact-popup-form-error');
+            var contactFormErrorMessage = document.getElementById('contact-popup-form-error-message');
+            var contactFormStatus = document.getElementById('contact-popup-form-status');
+            var contactFormTestingMode = contactForm && contactForm.getAttribute('data-testing-mode') === 'true';
+            var switchAssembly = document.querySelector('.contact-switch-assembly');
+            var switchIndicator = document.querySelector('.contact-switch-indicator');
+            var switchOnSrc = '../images/switch_on.png';
+            var switchOffSrc = '../images/switch_off.png';
+            var mailingTriggers = document.querySelectorAll('.contact-mailing-trigger');
+            var mailingModal = document.getElementById('mailing-list-popup');
+            var mailingModalClose = document.querySelector('.contact-mailing-modal-close');
+            var mailingEmailField = document.getElementById('mailing-list-email');
+            var mailingForm = document.querySelector('.contact-mailing-modal-form');
+            var mailingStatus = document.getElementById('mailing-list-status');
+            var mailingEmailError = document.getElementById('mailing-list-email-error');
+            var mailingLastFocusedElement = null;
+            var mailingFormTestingMode = mailingForm && mailingForm.getAttribute('data-testing-mode') === 'true';
+            var queryParams = new URLSearchParams(window.location.search);
+            var shouldHideMarquee = queryParams.get('marquee') === 'off';
+
+            if (!diamond || !instagramOption || !emailOption || !textOption || !formOption || !instagramReveal || !emailReveal || !textReveal || !formReveal) {
+                return;
+            }
+
+            var setInstagramSelected = function (isSelected) {
+                diamond.classList.toggle('instagram-selected', isSelected);
+                instagramReveal.classList.toggle('is-visible', isSelected);
+                instagramOption.setAttribute('aria-expanded', isSelected ? 'true' : 'false');
+            };
+
+            var setEmailSelected = function (isSelected) {
+                diamond.classList.toggle('email-selected', isSelected);
+                emailReveal.classList.toggle('is-visible', isSelected);
+                emailOption.setAttribute('aria-expanded', isSelected ? 'true' : 'false');
+            };
+
+            var setTextSelected = function (isSelected) {
+                diamond.classList.toggle('text-selected', isSelected);
+                textReveal.classList.toggle('is-visible', isSelected);
+                textOption.setAttribute('aria-expanded', isSelected ? 'true' : 'false');
+            };
+
+            var setFormSelected = function (isSelected) {
+                diamond.classList.toggle('form-selected', isSelected);
+                formReveal.classList.toggle('is-visible', isSelected);
+                formReveal.setAttribute('aria-hidden', isSelected ? 'false' : 'true');
+                formOption.setAttribute('aria-expanded', isSelected ? 'true' : 'false');
+                if (isSelected && firstFormField) {
+                    window.setTimeout(function () {
+                        firstFormField.focus();
+                    }, 0);
+                }
+            };
+
+            instagramOption.addEventListener('click', function (event) {
+                event.preventDefault();
+                setInstagramSelected(!diamond.classList.contains('instagram-selected'));
+            });
+
+            emailOption.addEventListener('click', function (event) {
+                event.preventDefault();
+                setEmailSelected(!diamond.classList.contains('email-selected'));
+            });
+
+            textOption.addEventListener('click', function (event) {
+                event.preventDefault();
+                setTextSelected(!diamond.classList.contains('text-selected'));
+            });
+
+            formOption.addEventListener('click', function (event) {
+                event.preventDefault();
+                setInstagramSelected(false);
+                setEmailSelected(false);
+                setTextSelected(false);
+                setFormSelected(!diamond.classList.contains('form-selected'));
+            });
+
+            document.addEventListener('click', function (event) {
+                if (!diamond.contains(event.target)) {
+                    setInstagramSelected(false);
+                    setEmailSelected(false);
+                    setTextSelected(false);
+                    setFormSelected(false);
+                }
+            });
+
+            if (messageField) {
+                var resizeMessageField = function () {
+                    var baseHeight = parseFloat(messageField.dataset.baseHeight) || messageField.offsetHeight;
+                    var baseScrollHeight = parseFloat(messageField.dataset.baseScrollHeight) || messageField.scrollHeight;
+
+                    messageField.style.height = baseHeight + 'px';
+                    if (messageField.scrollHeight <= baseScrollHeight + 1) {
+                        return;
+                    }
+
+                    messageField.style.height = 'auto';
+                    messageField.style.height = messageField.scrollHeight + 'px';
+                };
+
+                messageField.dataset.baseHeight = messageField.offsetHeight;
+                messageField.style.height = messageField.offsetHeight + 'px';
+                messageField.dataset.baseScrollHeight = messageField.scrollHeight;
+
+                messageField.addEventListener('input', resizeMessageField);
+                window.addEventListener('resize', resizeMessageField);
+            }
+
+            if (contactForm && contactFormStatus) {
+                contactForm.addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    var honeypotField = contactForm.querySelector('[name="website"]');
+                    if (contactFormError) {
+                        contactFormError.classList.remove('is-visible');
+                    }
+                    if (contactFormErrorMessage) {
+                        contactFormErrorMessage.textContent = '';
+                    }
+                    contactFormStatus.textContent = '';
+                    contactFormStatus.classList.remove('is-visible');
+
+                    if (honeypotField && honeypotField.value.trim()) {
+                        return;
+                    }
+
+                    var hasContactField = contactField && contactField.value.trim().length > 0;
+                    var hasMessageField = messageField && messageField.value.trim().length > 0;
+                    if (contactField) {
+                        contactField.setAttribute('aria-invalid', hasContactField ? 'false' : 'true');
+                    }
+                    if (messageField) {
+                        messageField.setAttribute('aria-invalid', hasMessageField ? 'false' : 'true');
+                    }
+
+                    if (!hasContactField || !hasMessageField) {
+                        if (contactFormError && contactFormErrorMessage) {
+                            contactFormErrorMessage.textContent = 'missing required info.';
+                            contactFormError.classList.add('is-visible');
+                        }
+                        if (!hasContactField && contactField) {
+                            contactField.focus();
+                        } else if (!hasMessageField && messageField) {
+                            messageField.focus();
+                        }
+                        return;
+                    }
+
+                    var submitButton = contactForm.querySelector('button[type="submit"]');
+                    var originalText = submitButton ? submitButton.textContent : '';
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        submitButton.textContent = 'submitting...';
+                    }
+
+                    var showContactConfirmation = function () {
+                        contactForm.style.display = 'none';
+                        contactFormStatus.textContent = 'thanks so much for your submission ! we will get back to you soon !';
+                        contactFormStatus.classList.add('is-visible');
+                    };
+
+                    if (contactFormTestingMode) {
+                        window.setTimeout(function () {
+                            showContactConfirmation();
+                            if (submitButton) {
+                                submitButton.textContent = originalText;
+                                submitButton.disabled = false;
+                            }
+                        }, 500);
+                        return;
+                    }
+
+                    fetch(contactForm.action, {
+                        method: 'POST',
+                        body: new FormData(contactForm),
+                        headers: {
+                            Accept: 'application/json'
+                        }
+                    })
+                        .then(function (response) {
+                            if (!response.ok) {
+                                throw new Error('contact form submission failed');
+                            }
+                            showContactConfirmation();
+                        })
+                        .catch(function () {
+                            contactFormStatus.textContent = 'something went wrong. please try again.';
+                            contactFormStatus.classList.add('is-visible');
+                        })
+                        .finally(function () {
+                            if (submitButton) {
+                                submitButton.disabled = false;
+                                submitButton.textContent = originalText;
+                            }
+                        });
+                });
+            }
+
+            var setMarqueeVisible = function (isVisible) {
+                document.body.classList.toggle('marquee-hidden', !isVisible);
+                if (switchIndicator) {
+                    switchIndicator.setAttribute('src', isVisible ? switchOnSrc : switchOffSrc);
+                }
+                if (switchAssembly) {
+                    switchAssembly.setAttribute('aria-pressed', isVisible ? 'true' : 'false');
+                }
+            };
+
+            if (switchAssembly && switchIndicator) {
+                setMarqueeVisible(!shouldHideMarquee);
+                switchAssembly.addEventListener('click', function () {
+                    var isCurrentlyVisible = !document.body.classList.contains('marquee-hidden');
+                    setMarqueeVisible(!isCurrentlyVisible);
+                });
+            }
+
+            var isMailingModalOpen = function () {
+                return mailingModal && mailingModal.classList.contains('is-visible');
+            };
+
+            var isValidMailingEmail = function (value) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+            };
+
+            var hideMailingEmailError = function () {
+                if (!mailingEmailError) {
+                    return;
+                }
+                mailingEmailError.classList.remove('is-visible');
+                if (mailingEmailField) {
+                    mailingEmailField.setAttribute('aria-invalid', 'false');
+                }
+            };
+
+            var showMailingEmailError = function () {
+                if (!mailingEmailError) {
+                    return;
+                }
+                mailingEmailError.classList.add('is-visible');
+                if (mailingEmailField) {
+                    mailingEmailField.setAttribute('aria-invalid', 'true');
+                }
+            };
+
+            var openMailingModal = function () {
+                if (!mailingModal) {
+                    return;
+                }
+                mailingLastFocusedElement = document.activeElement;
+                if (mailingStatus) {
+                    mailingStatus.textContent = '';
+                    mailingStatus.classList.remove('is-visible');
+                }
+                hideMailingEmailError();
+                mailingModal.classList.add('is-visible');
+                mailingModal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('mailing-modal-open');
+                if (mailingEmailField) {
+                    window.setTimeout(function () {
+                        mailingEmailField.focus();
+                    }, 0);
+                }
+            };
+
+            var closeMailingModal = function () {
+                if (!mailingModal) {
+                    return;
+                }
+                mailingModal.classList.remove('is-visible');
+                mailingModal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('mailing-modal-open');
+                if (mailingLastFocusedElement && typeof mailingLastFocusedElement.focus === 'function') {
+                    mailingLastFocusedElement.focus();
+                }
+            };
+
+            if (mailingEmailField) {
+                mailingEmailField.addEventListener('input', function () {
+                    if (isValidMailingEmail(mailingEmailField.value.trim())) {
+                        hideMailingEmailError();
+                    }
+                });
+            }
+
+            if (mailingTriggers.length && mailingModal) {
+                mailingTriggers.forEach(function (trigger) {
+                    trigger.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        openMailingModal();
+                    });
+
+                    trigger.addEventListener('keydown', function (event) {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault();
+                            openMailingModal();
+                        }
+                    });
+                });
+
+                if (mailingModalClose) {
+                    mailingModalClose.addEventListener('click', closeMailingModal);
+                }
+
+                mailingModal.addEventListener('click', function (event) {
+                    if (event.target === mailingModal) {
+                        closeMailingModal();
+                    }
+                });
+
+                document.addEventListener('keydown', function (event) {
+                    if (event.key === 'Escape' && isMailingModalOpen()) {
+                        closeMailingModal();
+                    }
+                });
+            }
+
+            if (mailingForm && mailingStatus) {
+                mailingForm.addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    var honeypotField = mailingForm.querySelector('[name="website"]');
+                    mailingStatus.textContent = '';
+                    mailingStatus.classList.remove('is-visible');
+                    hideMailingEmailError();
+
+                    if (honeypotField && honeypotField.value.trim()) {
+                        return;
+                    }
+
+                    if (!mailingEmailField || !isValidMailingEmail(mailingEmailField.value.trim())) {
+                        showMailingEmailError();
+                        if (mailingEmailField) {
+                            mailingEmailField.focus();
+                        }
+                        return;
+                    }
+
+                    var submitButton = mailingForm.querySelector('button[type="submit"]');
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        submitButton.textContent = 'joining...';
+                    }
+
+                    if (mailingFormTestingMode) {
+                        window.setTimeout(function () {
+                            mailingForm.reset();
+                            mailingStatus.textContent = 'thanks for joining our email list , your support is greatly appreciated !';
+                            mailingStatus.classList.add('is-visible');
+                            if (submitButton) {
+                                submitButton.disabled = false;
+                                submitButton.textContent = 'join.';
+                            }
+                        }, 500);
+                        return;
+                    }
+
+                    fetch(mailingForm.action, {
+                        method: 'POST',
+                        body: new FormData(mailingForm),
+                        headers: {
+                            Accept: 'application/json'
+                        }
+                    })
+                        .then(function (response) {
+                            if (!response.ok) {
+                                throw new Error('mailing list submission failed');
+                            }
+                            mailingForm.reset();
+                            mailingStatus.textContent = 'thanks for joining our email list! your support is greatly appreciated!';
+                            mailingStatus.classList.add('is-visible');
+                        })
+                        .catch(function () {
+                            mailingStatus.textContent = 'something went wrong. please try again.';
+                            mailingStatus.classList.add('is-visible');
+                        })
+                        .finally(function () {
+                            if (submitButton) {
+                                submitButton.disabled = false;
+                                submitButton.textContent = 'join.';
+                            }
+                        });
+                });
+            }
+
+            var shouldOpenForm = queryParams.get('open') === 'form' || window.location.hash === '#contact-form-inline';
+            if (shouldOpenForm) {
+                setInstagramSelected(false);
+                setEmailSelected(false);
+                setTextSelected(false);
+                setFormSelected(true);
+            }
+        })();
+    </script>
 </body>
 </html>

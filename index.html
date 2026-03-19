@@ -44,9 +44,10 @@
         </label>
         <ul class="menu">
             <li><a href='menu/about.html'>about.</a></li>
-            <li><a href='menu/contribute.html'>contribute.</a></li>
+            <li><a href='menu/create.html'>create.</a></li>
+            <li><a href='menu/shop.html'>shop.</a></li>
             <li><a href='menu/for_artists.html'>for artists.</a></li>
-            <li><a href='menu/in_progress.html'>in progress...</a></li>
+            <!-- <li><a href='menu/in_progress.html'>in progress...</a></li> -->
             <!-- <li><a href='menu/visual_phenomena.html'>visual phenomena.</a></li> -->
             <!-- <li><a href='menu/sonic_phenomena.html'>sonic phenomena</a></li> -->
             <li><a href='menu/contact.html'>contact.</a></li>
@@ -154,7 +155,8 @@
                 menu.style.visibility = 'hidden';
 
                 var menuHeight = menu.getBoundingClientRect().height;
-                var extraOffset = 42;
+                var isDesktop = window.matchMedia('(min-width: 900px)').matches;
+                var extraOffset = isDesktop ? 58 : 42;
                 content.style.setProperty('--menu-offset', (menuHeight + extraOffset) + 'px');
 
                 menu.classList.add('active');

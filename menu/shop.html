@@ -1,249 +1,465 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>shop.</title>
-    <meta name="description" content="the process of physically embedding wisdom in the real world is one of the most critical aspects of">
-    <link rel="canonical" href="https://lexiconic.global/menu/shop.html">
-    <meta property="og:site_name" content="lexiconic.">
-    <meta property="og:title" content="shop.">
-    <meta property="og:description" content="the process of physically embedding wisdom in the real world is one of the most critical aspects of">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://lexiconic.global/menu/shop.html">
-    <meta property="og:image" content="https://lexiconic.global/images/lexiconic%20torus.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="shop.">
-    <meta name="twitter:description" content="the process of physically embedding wisdom in the real world is one of the most critical aspects of">
-    <meta name="twitter:image" content="https://lexiconic.global/images/lexiconic%20torus.png">
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "shop.",
-            "url": "https://lexiconic.global/menu/shop.html",
-            "description": "the process of physically embedding wisdom in the real world is one of the most critical aspects of"
-        }
-    </script>
+  <meta name="description" content="the process of physically embedding wisdom in the real world is one of the most critical aspects of">
+  <link rel="canonical" href="https://lexiconic.global/menu/shop.html">
+  <meta property="og:site_name" content="lexiconic.">
+  <meta property="og:title" content="shop.">
+  <meta property="og:description" content="the process of physically embedding wisdom in the real world is one of the most critical aspects of">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lexiconic.global/menu/shop.html">
+  <meta property="og:image" content="https://lexiconic.global/images/lexiconic%20torus.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="shop.">
+  <meta name="twitter:description" content="the process of physically embedding wisdom in the real world is one of the most critical aspects of">
+  <meta name="twitter:image" content="https://lexiconic.global/images/lexiconic%20torus.png">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "shop.",
+      "url": "https://lexiconic.global/menu/shop.html",
+      "description": "the process of physically embedding wisdom in the real world is one of the most critical aspects of"
+    }
+  </script>
   <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48x48.png">
   <link rel="icon" type="image/png" sizes="96x96" href="../images/favicon-96x96.png">
-  <link rel="stylesheet" href="../css/descriptions.css"/>
-  <link rel="stylesheet" href="../css/static_circle.css"/>
+  <link rel="stylesheet" href="../css/descriptions.css">
+  <link rel="stylesheet" href="../css/static_circle.css">
+  <style>
+    .shop-layout {
+      width: calc(100% - 6%);
+      margin: 0 3% 32px;
+      box-sizing: border-box;
+    }
+
+    .mission-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 15px;
+      margin-bottom: 20px;
+    }
+
+    .mission-toggle {
+      border: none;
+      background: transparent;
+      color: #ffffff;
+      font-size: calc(var(--fs-input-field) - 1px);
+      font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+      padding: 0;
+      cursor: pointer;
+      line-height: 1.2;
+      transition: transform 180ms ease;
+    }
+
+    .mission-toggle:hover {
+      text-shadow: 5px 5px 20px rgb(100, 247, 247);
+    }
+
+    .mission-toggle.is-open {
+      transform: rotate(180deg);
+    }
+
+    .mission-content {
+      width: 100%;
+      margin-top: 12px;
+      border: 1px solid #ffffff;
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      box-sizing: border-box;
+      color: #ffffff;
+      font-size: calc(var(--fs-input-field) - 2px);
+      font-family: "Sora", Times, serif;
+      font-style: normal;
+      font-weight: 200;
+      line-height: 1.3;
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .mission-content.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .category-tabs,
+    .pack-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .category-tabs {
+      margin-top: 25px;
+    }
+
+    .pack-tabs {
+      margin-bottom: 34px;
+    }
+
+    .shop-tab,
+    .pack-tab {
+      width: auto;
+      border-radius: var(--radius-md);
+      font-size: calc(var(--fs-input-field) - 2px);
+    }
+
+    .shop-tab.active,
+    .pack-tab.active {
+      background-color: #ffffff;
+      color: #000000;
+      text-shadow: none;
+      font-weight: 400;
+    }
+
+    .pack-tabs[hidden],
+    .shop-panel[hidden] {
+      display: none;
+    }
+
+    .pack-tabs[hidden] ~ .shop-panel:not([hidden]) {
+      margin-top: 28px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .product-lede {
+      margin: 0 0 12px;
+      text-align: center;
+      color: #ffffff;
+      font-size: calc(var(--fs-input-field) - 3px);
+      font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .product-box {
+      border: 1px solid #ffffff;
+      border-radius: var(--radius-sm);
+      background-color: #000000;
+      aspect-ratio: 1 / 1;
+      display: block;
+      overflow: hidden;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .item-meta {
+      margin: 0;
+      text-align: center;
+      color: #ffffff;
+      font-size: calc(var(--fs-input-field) - 2px);
+      font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.2;
+    }
+
+    .shop-strip {
+      border: 1px solid #ffffff;
+      border-radius: var(--radius-sm);
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      text-align: center;
+      font-size: calc(var(--fs-input-field) - 2px);
+      font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 300;
+      padding: 8px 12px;
+      box-sizing: border-box;
+    }
+
+    .shop-strip-link {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
 </head>
-
-
 <body class="logo-adjusted shop-page">
-
   <a href="/" class="circle"></a>
-
   <div class="logo-spacer"></div>
 
-  <p>
-    the process of physically embedding wisdom in the real world is one of the most critical aspects of&thinsp;
-    <a href="/" class="title">lexiconic.</a> for this, we rely upon people from all across the globe
-    to play a part in putting up stickers in their own cities, in their own communities. we all have spots in the world
-    that are special to us—putting up a sticker that is meaningful to you allows others to be impacted positively by
-    both the place and the message. together, we can catylze a global movement.
-  </p>
+  <p style="text-align: center; margin-bottom: 0px;">all items handmade out of a bedroom in albuquerque, new mexico.</p>
 
-  <p style="text-align: center;">
-    ¡!¡ order your stickers now !¡!
-  </p>
-  
-<p style="margin-top: -30px; text-align: center;">
-    (completely free, shipping  ~ 2 - 4 weeks)
-  </p>
-
-  <div class="container shop-container">
-    <form
-      id="responseForm"
-      name="shopForm"
-      method="POST"
-      action="https://usebasin.com/f/ac73ebc0d4a8"
-      data-netlify="true"
-      netlify
-      novalidate
-    >
-      <!-- Hidden field matching the form's name -->
-      <input type="hidden" name="form-name" value="shopForm" />
-
-      <!-- Field names must match what you want captured -->
-      <textarea
-        class="box1"
-        id="box1"
-        name="design"
-        placeholder="design you are interested in"
-        required
-      ></textarea>
-
-      <textarea
-        class="box3"
-        id="box3"
-        name="email"
-        placeholder="email"
-        required
-      ></textarea>
-
-      <textarea
-        class="box3"
-        id="box4"
-        name="phone"
-        placeholder="phone # (optional)"
-      ></textarea>
-
-      <button type="submit">submit.</button>
-    </form>
-
-    <div id="form-error" class="form-error" role="alert" aria-live="polite">
-      missing required info
+  <div class="shop-layout">
+    <div class="mission-wrap">
+      <button type="button" class="mission-toggle" id="mission-toggle" aria-expanded="false" aria-controls="mission-content">the mission.</button>
+      <div class="mission-content" id="mission-content">
+        the process of physically embedding wisdom in the real world is one of the most critical aspects of&thinsp;
+        <em>lexiconic.</em> for this, we rely upon people from across the globe
+        to rep phrases that are meaningful to them in their own cities. whether buying stickers to post in 
+        an alley near home, or buying a shirt to wear to the next function, any support contributes directly to 
+        the mission of <em>lexiconic.</em> together, we can catalyze a global movement.
+      </div>
     </div>
 
-    <div id="confirmation" style="display: none;">
-      <span class="confirmation-line1">thanks so much for your submission !</span>
-      <span class="confirmation-line2">we will get back to you soon</span>
+    <div class="category-tabs" role="tablist" aria-label="shop category">
+      <button type="button" class="shop-tab active" role="tab" id="tab-stickers" aria-selected="true" data-target="stickers-panel">stickers.</button>
+      <button type="button" class="shop-tab" role="tab" id="tab-apparel" aria-selected="false" data-target="apparel-panel">apparel.</button>
     </div>
+
+    <div class="pack-tabs" id="pack-tabs" role="tablist" aria-label="sticker packs">
+      <!-- <button type="button" class="pack-tab active" role="tab" aria-selected="true" data-pack="one">one</button> -->
+      <button type="button" class="pack-tab active" role="tab" aria-selected="true" data-pack="three">three</button>
+      <button type="button" class="pack-tab" role="tab" aria-selected="false" data-pack="five">five</button>
+      <button type="button" class="pack-tab" role="tab" aria-selected="false" data-pack="ten">ten</button>
+    </div>
+
+    <section class="shop-panel" id="stickers-panel">
+      <p class="product-lede">ALL PURCHASES ARE PREORDERS ,<br>WILL SHIP BY MAY 17.</p>
+      <div class="product-grid" id="stickers-grid" aria-label="stickers products"></div>
+      <a class="shop-strip shop-strip-link" href="physicalize.html">turn your phrase into stickers ?</a>
+    </section>
+
+    <section class="shop-panel" id="apparel-panel" hidden>
+      <p class="product-lede"><b>ALL PURCHASES ARE PREORDERS ,<br>WILL SHIP BY MAY 17.</b></p>
+      <div class="product-grid" id="apparel-grid" aria-label="apparel products">
+        <div class="product-card"><a href="https://buy.stripe.com/test_5kQfZh7ud1jf3Y15Ttg7e03" target="_blank" rel="noopener noreferrer"><div class="product-box"><img class="product-image" src="../images/lexiconic.shop_pics/wandering_shirt.jpg" alt='embroidered "wandering." shirt , $35' loading="lazy"></div></a><p class="item-meta">embroidered "wandering." shirt , $35</p></div>
+        <div class="product-card"><a href="https://buy.stripe.com/test_00w6oHbKt6Dz9ildlVg7e02" target="_blank" rel="noopener noreferrer"><div class="product-box"><img class="product-image" src="../images/lexiconic.shop_pics/question_shirt.jpg" alt='embroidered "question." shirt , $35' loading="lazy"></div></a><p class="item-meta">embroidered "question." shirt , $35</p></div>
+        <div class="product-card"><a href="https://buy.stripe.com/test_9B64gzcOx1jfamp0z9g7e00" target="_blank" rel="noopener noreferrer"><div class="product-box"><img class="product-image" src="../images/lexiconic.shop_pics/torus_shirt.jpg" alt='embroidered "torus." shirt , $35' loading="lazy"></div></a><p class="item-meta">embroidered<br>"torus." shirt , $35</p></div>
+      </div>
+      <a class="shop-strip shop-strip-link" href="physicalize.html">turn your phrase into a shirt ?</a>
+    </section>
   </div>
 
   <script>
     (function() {
-      var expandAreas = document.querySelectorAll('.box1, .box2');
-      var singleLineAreas = document.querySelectorAll('.box3');
-      var minFontPx = 12;
-
-      var resize = function(el) {
-        var baseHeight = parseFloat(el.dataset.baseHeight) || el.offsetHeight;
-        var baseScrollHeight = parseFloat(el.dataset.baseScrollHeight) || el.scrollHeight;
-
-        el.style.height = baseHeight + 'px';
-        var nextScrollHeight = el.scrollHeight;
-
-        if (nextScrollHeight <= baseScrollHeight + 1) {
-          return;
+      var categoryTabs = Array.prototype.slice.call(document.querySelectorAll('.shop-tab'));
+      var panels = Array.prototype.slice.call(document.querySelectorAll('.shop-panel'));
+      var packTabs = document.getElementById('pack-tabs');
+      var missionToggle = document.getElementById('mission-toggle');
+      var missionContent = document.getElementById('mission-content');
+      var stickersGrid = document.getElementById('stickers-grid');
+      var stickerProductsByPack = {
+        // one: [
+        //   'question sticker , $4',
+        //   'cultivate sticker , $4',
+        //   'peace sticker , $4',
+        //   'smile sticker , $4',
+        // ],
+        three: [
+          'question 3pack , $9',
+          'cultivate 3pack , $9',
+          'peace 3pack , $9',
+          'resistance 3pack , $9',
+          'smile 3pack , $9',
+          'torus 3pack , $9',
+          'assorted 3pack "a", $9',
+          'assorted 3pack "b", $9',
+        ],
+        five: [
+          'question 5pack , $14',
+          'cultivate 5pack , $14',
+          'peace 5pack , $14',
+          'resistance 5pack , $14',
+          'smile 5pack , $14',
+          'torus 5pack , $14',
+          'assorted 5pack , $14',
+        ],
+        ten: [
+          'assorted 10pack "a" , $25',
+          'assorted 10pack "b" , $25',
+        ]
+      };
+      var stickerProductLinks = {
+        three: {
+          'question 3pack , $9': 'https://buy.stripe.com/test_7sYaEX15P3rnbqtbdNg7e05',
+          'cultivate 3pack , $9': 'https://buy.stripe.com/test_7sYbJ101L7HDdyBa9Jg7e0e',
+          'peace 3pack , $9': 'https://buy.stripe.com/test_6oU14ng0J3rn6696Xxg7e0c',
+          'resistance 3pack , $9': 'https://buy.stripe.com/test_00w8wP5m51jf3Y1gy7g7e0a',
+          'smile 3pack , $9': 'https://buy.stripe.com/test_00w4gz8yh3rndyBgy7g7e08',
+          'torus 3pack , $9': 'https://buy.stripe.com/test_aFa7sLbKt0fbfGJ0z9g7e06',
+          'assorted 3pack "a", $9': 'https://buy.stripe.com/test_7sY8wPdSBaTP1PT95Fg7e0l',
+          'assorted 3pack "b", $9': 'https://buy.stripe.com/test_cNi6oH3dX9PL0LP4Ppg7e0k'
+        },
+        five: {
+          'question 5pack , $14': 'https://buy.stripe.com/test_7sYfZh5m52njampfu3g7e04',
+          'cultivate 5pack , $14': 'https://buy.stripe.com/test_dRmfZhcOxe615255Ttg7e0f',
+          'peace 5pack , $14': 'https://buy.stripe.com/test_6oU28r5m51jf9ila9Jg7e0d',
+          'resistance 5pack , $14': 'https://buy.stripe.com/test_fZu8wPcOx0fb525a9Jg7e0b',
+          'smile 5pack , $14': 'https://buy.stripe.com/test_14A4gzg0JaTPfGJ95Fg7e09',
+          'torus 5pack , $14': 'https://buy.stripe.com/test_cNi7sLcOxaTP0LP0z9g7e07',
+          'assorted 5pack , $14': 'https://buy.stripe.com/test_6oU4gz29Te613Y1dlVg7e0j',
+        },
+        ten: {
+          'assorted 10pack "a" , $25': 'https://buy.stripe.com/test_fZu9ATdSB3rncux0z9g7e0i',
+          'assorted 10pack "b" , $25': 'https://buy.stripe.com/test_7sYfZheWF1jf525epZg7e0h'
         }
-
-        el.style.height = 'auto';
-        el.style.height = el.scrollHeight + 'px';
+      };
+      var stickerProductImages = {
+        three: {
+          'question 3pack , $9': '../images/lexiconic.shop_pics/question 3pack.jpg',
+          'cultivate 3pack , $9': '../images/lexiconic.shop_pics/cultivate 3pack.jpg',
+          'peace 3pack , $9': '../images/lexiconic.shop_pics/peace 3pack.jpg',
+          'resistance 3pack , $9': '../images/lexiconic.shop_pics/resistance 3pack.jpg',
+          'smile 3pack , $9': '../images/lexiconic.shop_pics/smile 3pack.jpg',
+          'torus 3pack , $9': '../images/lexiconic.shop_pics/torus 3pack.jpg',
+          'assorted 3pack "a", $9': '../images/lexiconic.shop_pics/assorted 3pack a.jpg',
+          'assorted 3pack "b", $9': '../images/lexiconic.shop_pics/assorted 3pack b.jpg'
+        },
+        five: {
+          'question 5pack , $14': '../images/lexiconic.shop_pics/question 5pack.jpg',
+          'cultivate 5pack , $14': '../images/lexiconic.shop_pics/cultivate 5pack.jpg',
+          'peace 5pack , $14': '../images/lexiconic.shop_pics/peace 5pack.jpg',
+          'resistance 5pack , $14': '../images/lexiconic.shop_pics/resistance 5pack.jpg',
+          'smile 5pack , $14': '../images/lexiconic.shop_pics/smile 5pack.jpg',
+          'torus 5pack , $14': '../images/lexiconic.shop_pics/torus 5pack.jpg',
+          'assorted 5pack , $14': '../images/lexiconic.shop_pics/assorted 5pack.jpg'
+        },
+        ten: {
+          'assorted 10pack "a" , $25': '../images/lexiconic.shop_pics/assorted 10pack a.jpg',
+          'assorted 10pack "b" , $25': '../images/lexiconic.shop_pics/assorted 10pack b.jpg'
+        }
       };
 
-      var fitSingleLine = function(el) {
-        var computed = window.getComputedStyle(el);
-        var baseSize = parseFloat(el.dataset.baseFontSize);
-        if (!baseSize) {
-          baseSize = parseFloat(computed.fontSize);
-          el.dataset.baseFontSize = baseSize;
-        }
+      function renderStickerProducts(packKey) {
+        var labels = stickerProductsByPack[packKey] || stickerProductsByPack.three;
+        var linksByLabel = stickerProductLinks[packKey] || {};
+        var imagesByLabel = stickerProductImages[packKey] || {};
+        stickersGrid.innerHTML = '';
 
-        el.value = el.value.replace(/\n/g, ' ');
-        el.style.fontSize = baseSize + 'px';
+        labels.forEach(function(label) {
+          var card = document.createElement('div');
+          card.className = 'product-card';
 
-        var minSize = Math.max(minFontPx, Math.floor(baseSize * 0.7));
-        var safety = 0;
-        while (el.scrollWidth > el.clientWidth && parseFloat(el.style.fontSize) > minSize && safety < 20) {
-          el.style.fontSize = (parseFloat(el.style.fontSize) - 1) + 'px';
-          safety += 1;
-        }
-      };
+          var box = document.createElement('div');
+          box.className = 'product-box';
+          var link = linksByLabel[label];
+          var imagePath = imagesByLabel[label];
 
-      expandAreas.forEach(function(el) {
-        var baseHeight = el.offsetHeight;
-        el.dataset.baseHeight = baseHeight;
-        el.style.height = baseHeight + 'px';
-        el.dataset.baseScrollHeight = el.scrollHeight;
-        el.addEventListener('input', function() {
-          resize(el);
-        });
-      });
-
-      singleLineAreas.forEach(function(el) {
-        el.setAttribute('wrap', 'off');
-        el.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter') {
-            e.preventDefault();
+          if (imagePath) {
+            var image = document.createElement('img');
+            image.className = 'product-image';
+            image.src = imagePath;
+            image.alt = label;
+            image.loading = 'lazy';
+            box.appendChild(image);
           }
-        });
-        el.addEventListener('input', function() {
-          fitSingleLine(el);
-        });
-        fitSingleLine(el);
-      });
 
-      window.addEventListener('resize', function() {
-        expandAreas.forEach(function(el) {
-          resize(el);
+          var meta = document.createElement('p');
+          meta.className = 'item-meta';
+          meta.textContent = label;
+
+          if (typeof link === 'string' && /^https?:\/\//.test(link)) {
+            var anchor = document.createElement('a');
+            anchor.href = link;
+            anchor.target = '_blank';
+            anchor.rel = 'noopener noreferrer';
+            anchor.appendChild(box);
+            card.appendChild(anchor);
+          } else {
+            card.appendChild(box);
+          }
+          card.appendChild(meta);
+          stickersGrid.appendChild(card);
         });
-        singleLineAreas.forEach(function(el) {
-          fitSingleLine(el);
-        });
-      });
-    })();
-
-    var MOCK_SUBMIT = false; // Set to false to enable real Basin submission.
-
-    // Handle form submission with proper error handling
-    document.getElementById('responseForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = e.target;
-      const error = document.getElementById('form-error');
-
-      if (!form.checkValidity()) {
-        const firstInvalid = form.querySelector(':invalid');
-        if (firstInvalid) {
-          firstInvalid.focus();
-        }
-        error.classList.add('is-visible');
-        return;
       }
 
-      error.classList.remove('is-visible');
-      const formData = new FormData(form);
+      function openMission() {
+        missionContent.style.display = 'block';
+        missionContent.style.visibility = 'hidden';
 
-      // Show loading state (optional)
-      const submitButton = form.querySelector('button[type="submit"]');
-      const originalText = submitButton.textContent;
-      submitButton.textContent = 'submitting...';
-      submitButton.disabled = true;
+        requestAnimationFrame(function() {
+          missionContent.style.visibility = 'visible';
+          missionContent.classList.add('is-visible');
+          missionToggle.classList.add('is-open');
+          missionToggle.setAttribute('aria-expanded', 'true');
+        });
+      }
 
-      if (MOCK_SUBMIT) {
+      function closeMission() {
+        missionContent.classList.remove('is-visible');
+        missionToggle.classList.remove('is-open');
+        missionToggle.setAttribute('aria-expanded', 'false');
+
         window.setTimeout(function() {
-          form.style.display = 'none';
-          document.getElementById('confirmation').style.display = 'block';
-        }, 600);
-        return;
+          if (missionContent.classList.contains('is-visible')) {
+            return;
+          }
+          missionContent.style.visibility = 'hidden';
+          missionContent.style.display = 'none';
+        }, 180);
       }
 
-      fetch(form.action, {
-        method: 'POST',
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-      })
-      .then(response => {
-        if (response.ok) {
-          // Hide form and show confirmation
-          form.style.display = 'none';
-          document.getElementById('confirmation').style.display = 'block';
-        } else {
-          throw new Error('Form submission failed');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert("we're sorry, unfortunately the form is temporarily broken. we so appreciate the support tho fr!!! please send your submission directly via email or text (see the contact page). ¡thanks!");
-        // Reset button state
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
+      function setCategory(targetId) {
+        categoryTabs.forEach(function(tab) {
+          var isActive = tab.getAttribute('data-target') === targetId;
+          tab.classList.toggle('active', isActive);
+          tab.setAttribute('aria-selected', String(isActive));
+        });
+
+        panels.forEach(function(panel) {
+          panel.hidden = panel.id !== targetId;
+        });
+
+        packTabs.hidden = targetId !== 'stickers-panel';
+      }
+
+      categoryTabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          setCategory(tab.getAttribute('data-target'));
+        });
       });
 
-    });
+      Array.prototype.slice.call(document.querySelectorAll('.pack-tab')).forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          Array.prototype.slice.call(document.querySelectorAll('.pack-tab')).forEach(function(otherTab) {
+            var isActive = otherTab === tab;
+            otherTab.classList.toggle('active', isActive);
+            otherTab.setAttribute('aria-selected', String(isActive));
+          });
+          renderStickerProducts(tab.getAttribute('data-pack'));
+        });
+      });
 
-    document.getElementById('responseForm').addEventListener('input', function(e) {
-      if (e.target.matches('[required]')) {
-        const error = document.getElementById('form-error');
-        error.classList.remove('is-visible');
-      }
-    });
+      missionToggle.addEventListener('click', function() {
+        var isOpen = missionContent.classList.contains('is-visible');
+        if (isOpen) {
+          closeMission();
+        } else {
+          openMission();
+        }
+      });
+
+      setCategory('stickers-panel');
+      var activePackTab = document.querySelector('.pack-tab.active');
+      renderStickerProducts(activePackTab ? activePackTab.getAttribute('data-pack') : 'three');
+    })();
   </script>
 </body>
 </html>
