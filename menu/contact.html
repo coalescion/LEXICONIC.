@@ -519,7 +519,13 @@
                 });
             }
 
-            var shouldOpenForm = queryParams.get('open') === 'form' || window.location.hash === '#contact-form-inline';
+            var openTarget = queryParams.get('open');
+            var shouldOpenMailingModal = openTarget === 'mailing' || openTarget === 'mailing-list' || window.location.hash === '#mailing-list-popup';
+            if (shouldOpenMailingModal) {
+                openMailingModal();
+            }
+
+            var shouldOpenForm = openTarget === 'form' || window.location.hash === '#contact-form-inline';
             if (shouldOpenForm) {
                 setInstagramSelected(false);
                 setEmailSelected(false);
