@@ -575,7 +575,7 @@ button:hover {
     padding-right: 0;
     white-space: nowrap;
     color: rgb(249, 247, 247);
-    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
     font-style: italic;
     font-weight: 200;
     letter-spacing: calc(var(--ls-sora) + 1.2px);
@@ -638,7 +638,7 @@ button:hover {
 .contact-form-title {
     margin: 0 0 var(--space-20) 0;
     text-align: left;
-    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
     font-style: italic;
     text-align: center;
     font-weight: 200;
@@ -787,7 +787,7 @@ button:hover {
     background: transparent;
     border: 1px solid rgb(249, 247, 247);
     color: rgb(249, 247, 247);
-    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
     font-style: italic;
     font-weight: 200;
     letter-spacing: calc(var(--ls-sora) + 0.8px);
@@ -799,7 +799,7 @@ button:hover {
 
 .contact-mailing-modal-title {
     margin: 0 0 12px;
-    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
     font-style: italic;
     font-weight: 200;
     letter-spacing: calc(var(--ls-sora) + 1.4px);
@@ -808,7 +808,7 @@ button:hover {
 
 .contact-mailing-modal-copy {
     margin: 0 0 16px;
-    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
     font-style: italic;
     font-weight: 200;
     letter-spacing: calc(var(--ls-sora) + 1.2px);
@@ -829,7 +829,7 @@ button:hover {
     border: 1px solid rgb(249, 247, 247);
     background: #000;
     color: rgb(249, 247, 247);
-    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
     font-style: italic;
     font-weight: 200;
     letter-spacing: calc(var(--ls-sora) + 0.9px);
@@ -858,7 +858,7 @@ button:hover {
     background: #000;
     color: rgb(249, 247, 247);
     padding: 8px 10px;
-    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
     font-style: italic;
     font-weight: 200;
     letter-spacing: calc(var(--ls-sora) + 0.6px);
@@ -894,7 +894,7 @@ button:hover {
     opacity: 0;
     transition: opacity 0.2s ease;
     text-align: center;
-    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
     font-style: italic;
     font-weight: 200;
     letter-spacing: calc(var(--ls-sora) + 1px);
@@ -959,7 +959,7 @@ button:hover {
     left: 0;
     top: calc((var(--contact-icon-size) * 1.5) + var(--contact-gap));
     margin: 0;
-    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
     font-style: italic;
     font-weight: 200;
     letter-spacing: calc(var(--ls-sora) + 1.5px);
@@ -1017,7 +1017,7 @@ button:hover {
     right: calc(-1.93 * (var(--contact-icon-size) + var(--contact-gap)));
     top: 50%;
     margin: 0;
-    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
     font-style: italic;
     font-weight: 200;
     letter-spacing: calc(var(--ls-sora) + 1.5px);
@@ -1051,7 +1051,7 @@ button:hover {
     margin-right: 0;
     line-height: 1.5;
     text-align: center;
-    font-family: "Sora ExtraLight", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
+    font-family: "Sora", "Avenir Next", "Roboto", "SF Pro", "Segoe UI", 'Times New Roman', serif;
     font-style: italic;
     font-weight: 200;
     letter-spacing: calc(var(--ls-sora) + 1.5px);
