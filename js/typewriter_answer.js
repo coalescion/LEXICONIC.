@@ -1,5 +1,5 @@
 // ms between each character typed, ADJUST AS NEEDED
-const sleeptime = 35;
+const sleeptime = 38;
 
 
 const sentencePauseTime = 300;            // delay after a sentence or m-dash,
@@ -9,11 +9,11 @@ const wordPauseMap = {                    // map of phrase for additional delay;
   // "about yourself": 500,
 };
 
-const paragraphPauseDefault = 1000;
+const paragraphPauseDefault = 1200;
 const paragraphPauseMap = {
   // descrip1: 200, // delay after descrip1, before descrip2
   // descrip3: 300,
-  descrip8: 3000,
+  // descrip8: 3000,
 };
 
 let typewriterInstance;
