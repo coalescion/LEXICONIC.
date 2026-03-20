@@ -366,15 +366,14 @@
           e.preventDefault();
           var honeypot = physicalizeForm.querySelector('[name="website"]');
           var phraseToPhysicalize = document.getElementById('box0').value.trim();
+          var name = physicalizeForm.querySelector('[name="name"]').value.trim();
           var email = physicalizeForm.querySelector('[name="email"]').value.trim();
-          var phone = physicalizeForm.querySelector('[name="phone"]').value.trim();
-          var additionalInfo = physicalizeForm.querySelector('[name="additional instructions"]').value.trim();
 
           if (honeypot && honeypot.value.trim()) {
             return;
           }
 
-          if (!phraseToPhysicalize || !physicalizeFormat.value || !additionalInfo || (!email && !phone)) {
+          if (!phraseToPhysicalize || !physicalizeFormat.value || !name || !email) {
             formError.classList.add('is-visible');
             return;
           }
