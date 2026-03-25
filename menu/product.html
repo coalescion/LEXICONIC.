@@ -35,7 +35,7 @@
   <style>
     .product-detail-layout {
       width: calc(100% - 6%);
-      margin: 10px 3% 32px;
+      margin: 50px 3% 32px;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
@@ -61,6 +61,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      text-decoration: none;
     }
 
     .detail-image {
@@ -83,25 +84,11 @@
       line-height: 1.3;
     }
 
-    .detail-back-icon {
-      align-self: flex-start;
-      display: inline-flex;
-      width: 35px;
-      height: 35px;
-      margin-bottom: 2px;
-    }
-
-    .detail-back-icon img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: contain;
-    }
-
     .detail-checkout {
       width: 100%;
       max-width: 320px;
       min-height: 44px;
+      margin-top: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -147,12 +134,9 @@
 
   <div class="product-detail-layout">
     <div class="detail-card detail-hidden" id="detail-card">
-      <a class="detail-back-icon" id="detail-back" href="shop.html" aria-label="back to shop">
-        <img src="../images/left_arrow.png" alt="" aria-hidden="true">
-      </a>
-      <div class="detail-box">
+      <a class="detail-box" id="detail-image-link" href="">
         <img class="detail-image" id="detail-image" src="" alt="" loading="eager">
-      </div>
+      </a>
       <p class="detail-meta" id="detail-meta"></p>
       <a class="detail-checkout" id="detail-checkout" href="">begin checkout.</a>
     </div>
@@ -169,28 +153,27 @@
       var catalog = window.LEXICONIC_SHOP_CATALOG;
       var detailCard = document.getElementById('detail-card');
       var detailImage = document.getElementById('detail-image');
+      var detailImageLink = document.getElementById('detail-image-link');
       var detailMeta = document.getElementById('detail-meta');
       var detailCheckout = document.getElementById('detail-checkout');
-      var detailBack = document.getElementById('detail-back');
       var detailFallback = document.getElementById('detail-fallback');
+      var fallbackLink = detailFallback.querySelector('a');
       var params = new URLSearchParams(window.location.search);
       var productId = params.get('id');
       var category = params.get('category');
       var pack = params.get('pack');
       var product = catalog && productId ? catalog.getProductById(productId) : null;
-      var resolvedCategory = product ? product.category : category;
-      var resolvedPack = product && product.category === 'stickers' ? product.pack : pack;
-      var backParams = new URLSearchParams();
+      var returnParams = new URLSearchParams();
 
-      if (resolvedCategory === 'stickers' || resolvedCategory === 'apparel') {
-        backParams.set('category', resolvedCategory);
+      if (category === 'apparel' || category === 'stickers') {
+        returnParams.set('category', category);
       }
 
-      if (resolvedCategory === 'stickers' && (resolvedPack === 'three' || resolvedPack === 'five' || resolvedPack === 'ten')) {
-        backParams.set('pack', resolvedPack);
+      if (category === 'stickers' && (pack === 'three' || pack === 'five' || pack === 'ten')) {
+        returnParams.set('pack', pack);
       }
 
-      detailBack.href = backParams.toString() ? 'shop.html?' + backParams.toString() : 'shop.html';
+      fallbackLink.href = 'shop.html' + (returnParams.toString() ? '?' + returnParams.toString() : '');
 
       if (!product) {
         detailFallback.classList.remove('detail-hidden');
@@ -199,6 +182,8 @@
 
       detailImage.src = product.imageSrc;
       detailImage.alt = product.label;
+      detailImageLink.href = product.stripeUrl;
+      detailImageLink.setAttribute('aria-label', product.label + ' checkout');
       detailMeta.textContent = product.label;
       detailCheckout.href = product.stripeUrl;
       detailCard.classList.remove('detail-hidden');
