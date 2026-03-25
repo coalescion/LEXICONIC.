@@ -31,6 +31,8 @@
     <link rel="icon" type="image/png" sizes="96x96" href="../images/favicon-96x96.png">
     <link rel="stylesheet" href="../css/descriptions.css"/>
     <script src="../js/tap_glow.js" defer></script>
+    <script src="../js/typewriter_core.js" defer></script>
+    <script src="../js/typewriter_copy.js" defer></script>
 </head>
 
 <body>
@@ -49,6 +51,21 @@
     <p id="descrip4" class="hidden">
         and exposing the beyond.
     </p>
-    <script src="../js/typewriter_copy.js"></script>
+    <script>
+        (function startTypewriterWhenReady(attemptsRemaining) {
+            if (window.startTypewriterEffect) {
+                window.startTypewriterEffect();
+                return;
+            }
+
+            if (attemptsRemaining <= 0) {
+                return;
+            }
+
+            window.setTimeout(function() {
+                startTypewriterWhenReady(attemptsRemaining - 1);
+            }, 50);
+        })(40);
+    </script>
 </body>
 </html>

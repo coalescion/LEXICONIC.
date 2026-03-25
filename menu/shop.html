@@ -177,6 +177,10 @@
       object-position: center;
     }
 
+    .product-link {
+      display: block;
+    }
+
     .item-meta {
       margin: 0;
       text-align: center;
@@ -249,145 +253,92 @@
 
     <section class="shop-panel" id="apparel-panel" hidden>
       <p class="product-lede"><b>ALL PURCHASES ARE PREORDERS ,<br>WILL SHIP BY MAY 17.</b></p>
-      <div class="product-grid" id="apparel-grid" aria-label="apparel products">
-        <div class="product-card"><a href="https://buy.stripe.com/3cIdR902mccUbKah0h5Ne02" target="_blank" rel="noopener noreferrer"><div class="product-box"><img class="product-image" src="../images/lexiconic.shop_pics/wandering_shirt.jpg" alt='embroidered "wandering." shirt , $35' loading="lazy"></div></a><p class="item-meta">embroidered "wandering." shirt , $35</p></div>
-        <div class="product-card"><a href="https://buy.stripe.com/aFacN59CWgtag0qaBT5Ne01" target="_blank" rel="noopener noreferrer"><div class="product-box"><img class="product-image" src="../images/lexiconic.shop_pics/question_shirt.jpg" alt='embroidered "question." shirt , $35' loading="lazy"></div></a><p class="item-meta">embroidered "question." shirt , $35</p></div>
-        <div class="product-card"><a href="https://buy.stripe.com/5kQeVdaH0el2dSi6lD5Ne03" target="_blank" rel="noopener noreferrer"><div class="product-box"><img class="product-image" src="../images/lexiconic.shop_pics/torus_shirt.jpg" alt='embroidered "torus." shirt , $35' loading="lazy"></div></a><p class="item-meta">embroidered<br>torus shirt , $35</p></div>
-      </div>
+      <div class="product-grid" id="apparel-grid" aria-label="apparel products"></div>
       <a class="shop-strip shop-strip-link" href="physicalize.html">turn your phrase into a shirt ?</a>
     </section>
   </div>
 
+  <script src="../js/shop_catalog.js"></script>
   <script>
     (function() {
+      var catalog = window.LEXICONIC_SHOP_CATALOG;
       var categoryTabs = Array.prototype.slice.call(document.querySelectorAll('.shop-tab'));
+      var packTabsList = Array.prototype.slice.call(document.querySelectorAll('.pack-tab'));
       var panels = Array.prototype.slice.call(document.querySelectorAll('.shop-panel'));
       var packTabs = document.getElementById('pack-tabs');
       var missionToggle = document.getElementById('mission-toggle');
       var missionContent = document.getElementById('mission-content');
       var stickersGrid = document.getElementById('stickers-grid');
-      var stickerProductsByPack = {
-        // one: [
-        //   'question sticker , $4',
-        //   'cultivate sticker , $4',
-        //   'peace sticker , $4',
-        //   'smile sticker , $4',
-        // ],
-        three: [
-          'question 3pack , $9',
-          'cultivate 3pack , $9',
-          'peace 3pack , $9',
-          'resistance 3pack , $9',
-          'smile 3pack , $9',
-          'torus 3pack , $9',
-          'assorted 3pack "a", $9',
-          'assorted 3pack "b", $9',
-        ],
-        five: [
-          'question 5pack , $14',
-          'cultivate 5pack , $14',
-          'peace 5pack , $14',
-          'resistance 5pack , $14',
-          'smile 5pack , $14',
-          'torus 5pack , $14',
-          'assorted 5pack , $14',
-        ],
-        ten: [
-          'assorted 10pack "a" , $25',
-          'assorted 10pack "b" , $25',
-        ]
+      var apparelGrid = document.getElementById('apparel-grid');
+      var queryParams = new URLSearchParams(window.location.search);
+      var validCategories = {
+        stickers: true,
+        apparel: true
       };
-      var stickerProductLinks = {
-        three: {
-          'question 3pack , $9': 'https://buy.stripe.com/bJe3cv4iCfp68xYfWd5Ne08',
-          'cultivate 3pack , $9': 'https://buy.stripe.com/cNi4gzg1k1yg3dE4dv5Ne0b',
-          'peace 3pack , $9': 'https://buy.stripe.com/8x27sL4iCdgY29AeS95Ne06',
-          'resistance 3pack , $9': 'https://buy.stripe.com/7sY14n5mG3Go01s5hz5Ne0d',
-          'smile 3pack , $9': 'https://buy.stripe.com/3cI5kDeXg4Ks7tU6lD5Ne04',
-          'torus 3pack , $9': 'https://buy.stripe.com/dRm8wPaH04Ksg0qdO55Ne0f',
-          'assorted 3pack "a", $9': 'https://buy.stripe.com/aFadR96qKdgY9C2aBT5Ne0g',
-          'assorted 3pack "b", $9': 'https://buy.stripe.com/14A7sLcP82Ck01s4dv5Ne0h'
-        },
-        five: {
-          'question 5pack , $14': 'https://buy.stripe.com/4gMeVddTc5OwdSi6lD5Ne09',
-          'cultivate 5pack , $14': 'https://buy.stripe.com/9B68wP9CWgta15w39r5Ne0a',
-          'peace 5pack , $14': 'https://buy.stripe.com/3cI5kD7uO0uc6pQ11j5Ne07',
-          'resistance 5pack , $14': 'https://buy.stripe.com/9B63cv5mGgta7tU4dv5Ne0c',
-          'smile 5pack , $14': 'https://buy.stripe.com/7sYfZh02mfp629AbFX5Ne05',
-          'torus 5pack , $14': 'https://buy.stripe.com/cNifZh8ySgta7tUfWd5Ne0e',
-          'assorted 5pack , $14': 'https://buy.stripe.com/00w14nbL41yg3dE11j5Ne0i',
-        },
-        ten: {
-          'assorted 10pack "a" , $25': 'https://buy.stripe.com/14A14n5mGa4M6pQaBT5Ne0j',
-          'assorted 10pack "b" , $25': 'https://buy.stripe.com/00w14n9CW0uccOebFX5Ne0k'
-        }
-      };
-      var stickerProductImages = {
-        three: {
-          'question 3pack , $9': '../images/lexiconic.shop_pics/question 3pack.jpg',
-          'cultivate 3pack , $9': '../images/lexiconic.shop_pics/cultivate 3pack.jpg',
-          'peace 3pack , $9': '../images/lexiconic.shop_pics/peace 3pack.jpg',
-          'resistance 3pack , $9': '../images/lexiconic.shop_pics/resistance 3pack.jpg',
-          'smile 3pack , $9': '../images/lexiconic.shop_pics/smile 3pack.jpg',
-          'torus 3pack , $9': '../images/lexiconic.shop_pics/torus 3pack.jpg',
-          'assorted 3pack "a", $9': '../images/lexiconic.shop_pics/assorted 3pack a.jpg',
-          'assorted 3pack "b", $9': '../images/lexiconic.shop_pics/assorted 3pack b.jpg'
-        },
-        five: {
-          'question 5pack , $14': '../images/lexiconic.shop_pics/question 5pack.jpg',
-          'cultivate 5pack , $14': '../images/lexiconic.shop_pics/cultivate 5pack.jpg',
-          'peace 5pack , $14': '../images/lexiconic.shop_pics/peace 5pack.jpg',
-          'resistance 5pack , $14': '../images/lexiconic.shop_pics/resistance 5pack.jpg',
-          'smile 5pack , $14': '../images/lexiconic.shop_pics/smile 5pack.jpg',
-          'torus 5pack , $14': '../images/lexiconic.shop_pics/torus 5pack.jpg',
-          'assorted 5pack , $14': '../images/lexiconic.shop_pics/assorted 5pack.jpg'
-        },
-        ten: {
-          'assorted 10pack "a" , $25': '../images/lexiconic.shop_pics/assorted 10pack a.jpg',
-          'assorted 10pack "b" , $25': '../images/lexiconic.shop_pics/assorted 10pack b.jpg'
-        }
+      var validPacks = {
+        three: true,
+        five: true,
+        ten: true
       };
 
-      function renderStickerProducts(packKey) {
-        var labels = stickerProductsByPack[packKey] || stickerProductsByPack.three;
-        var linksByLabel = stickerProductLinks[packKey] || {};
-        var imagesByLabel = stickerProductImages[packKey] || {};
-        stickersGrid.innerHTML = '';
+      function buildProductDetailHref(product, currentCategory, currentPack) {
+        var detailParams = new URLSearchParams();
+        detailParams.set('id', product.id);
+        detailParams.set('category', currentCategory);
 
-        labels.forEach(function(label) {
+        if (currentCategory === 'stickers' && validPacks[currentPack]) {
+          detailParams.set('pack', currentPack);
+        }
+
+        return 'product.html?' + detailParams.toString();
+      }
+
+      function renderProducts(products, grid, currentCategory, currentPack) {
+        grid.innerHTML = '';
+
+        products.forEach(function(product) {
           var card = document.createElement('div');
           card.className = 'product-card';
 
+          var anchor = document.createElement('a');
+          anchor.className = 'product-link';
+          anchor.href = buildProductDetailHref(product, currentCategory, currentPack);
+
           var box = document.createElement('div');
           box.className = 'product-box';
-          var link = linksByLabel[label];
-          var imagePath = imagesByLabel[label];
 
-          if (imagePath) {
-            var image = document.createElement('img');
-            image.className = 'product-image';
-            image.src = imagePath;
-            image.alt = label;
-            image.loading = 'lazy';
-            box.appendChild(image);
-          }
+          var image = document.createElement('img');
+          image.className = 'product-image';
+          image.src = product.imageSrc;
+          image.alt = product.label;
+          image.loading = 'lazy';
+          box.appendChild(image);
 
           var meta = document.createElement('p');
           meta.className = 'item-meta';
-          meta.textContent = label;
+          meta.textContent = product.label;
 
-          if (typeof link === 'string' && /^https?:\/\//.test(link)) {
-            var anchor = document.createElement('a');
-            anchor.href = link;
-            anchor.target = '_blank';
-            anchor.rel = 'noopener noreferrer';
-            anchor.appendChild(box);
-            card.appendChild(anchor);
-          } else {
-            card.appendChild(box);
-          }
+          anchor.appendChild(box);
+          card.appendChild(anchor);
           card.appendChild(meta);
-          stickersGrid.appendChild(card);
+          grid.appendChild(card);
+        });
+      }
+
+      function renderStickerProducts(packKey) {
+        var activePack = validPacks[packKey] ? packKey : 'three';
+        renderProducts(catalog.getStickerProductsByPack(activePack), stickersGrid, 'stickers', activePack);
+      }
+
+      function renderApparelProducts() {
+        renderProducts(catalog.getProductsByCategory('apparel'), apparelGrid, 'apparel', null);
+      }
+
+      function setActivePack(packKey) {
+        packTabsList.forEach(function(tab) {
+          var isActive = tab.getAttribute('data-pack') === packKey;
+          tab.classList.toggle('active', isActive);
+          tab.setAttribute('aria-selected', String(isActive));
         });
       }
 
@@ -437,14 +388,11 @@
         });
       });
 
-      Array.prototype.slice.call(document.querySelectorAll('.pack-tab')).forEach(function(tab) {
+      packTabsList.forEach(function(tab) {
         tab.addEventListener('click', function() {
-          Array.prototype.slice.call(document.querySelectorAll('.pack-tab')).forEach(function(otherTab) {
-            var isActive = otherTab === tab;
-            otherTab.classList.toggle('active', isActive);
-            otherTab.setAttribute('aria-selected', String(isActive));
-          });
-          renderStickerProducts(tab.getAttribute('data-pack'));
+          var packKey = tab.getAttribute('data-pack');
+          setActivePack(packKey);
+          renderStickerProducts(packKey);
         });
       });
 
@@ -457,9 +405,16 @@
         }
       });
 
-      setCategory('stickers-panel');
-      var activePackTab = document.querySelector('.pack-tab.active');
-      renderStickerProducts(activePackTab ? activePackTab.getAttribute('data-pack') : 'three');
+      renderApparelProducts();
+
+      var initialCategory = queryParams.get('category');
+      var initialPack = queryParams.get('pack');
+      var selectedCategory = validCategories[initialCategory] ? initialCategory : 'stickers';
+      var selectedPack = validPacks[initialPack] ? initialPack : 'three';
+
+      setCategory(selectedCategory === 'apparel' ? 'apparel-panel' : 'stickers-panel');
+      setActivePack(selectedPack);
+      renderStickerProducts(selectedPack);
     })();
   </script>
 </body>

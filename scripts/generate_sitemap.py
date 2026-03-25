@@ -3,10 +3,16 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "sitemap.xml"
 CNAME_FILE = ROOT / "CNAME"
+EXCLUDED_TOP_LEVEL_DIRS = {"old pages"}
+EXCLUDED_RELATIVE_PATHS = {
+    Path("menu/contribute.html"),
+    Path("menu/physicalize_your_phrase.html"),
+}
 
 
 def base_url() -> str:
@@ -22,7 +28,9 @@ def base_url() -> str:
 def url_for(path: Path, base: str) -> str:
     if path.name == "index.html" and path.parent == ROOT:
         return f"{base}/"
-    return f"{base}/{path.relative_to(ROOT).as_posix()}"
+    relative_path = path.relative_to(ROOT)
+    encoded = "/".join(quote(part) for part in relative_path.parts)
+    return f"{base}/{encoded}"
 
 
 def priority_for(path: Path) -> str:
@@ -47,7 +55,15 @@ def changefreq_for(path: Path) -> str:
 
 def main() -> int:
     base = base_url()
-    html_files = sorted([p for p in ROOT.rglob("*.html") if p.is_file()])
+    html_files = sorted(
+        [
+            p
+            for p in ROOT.rglob("*.html")
+            if p.is_file()
+            and p.relative_to(ROOT).parts[0] not in EXCLUDED_TOP_LEVEL_DIRS
+            and p.relative_to(ROOT) not in EXCLUDED_RELATIVE_PATHS
+        ]
+    )
 
     lines = [
         "<?xml version=\"1.0\" encoding=\"UTF-8\"?>",

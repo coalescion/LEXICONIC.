@@ -855,6 +855,7 @@ button:hover {
 .contact-mailing-field-error {
     display: none;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     margin: -2px 0 0;
     border: 1px solid rgb(249, 247, 247);
@@ -867,6 +868,7 @@ button:hover {
     letter-spacing: calc(var(--ls-sora) + 0.6px);
     font-size: clamp(12px, 2vw, 13px);
     line-height: 1.35;
+    text-align: center;
 }
 
 .contact-mailing-field-error.is-visible {
