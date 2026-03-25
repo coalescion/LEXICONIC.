@@ -41,6 +41,15 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: "Sora";
+    src: url('../fonts/Sora-MediumItalic.woff2') format('woff2'),
+         url('../fonts/Sora-MediumItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
 @media (max-width: 375px) {
     :root {
         --fs-body: 20px;
