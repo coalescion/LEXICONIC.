@@ -3,7 +3,6 @@ const sleeptime = 40;
 
 
 const sentencePauseTime = 300;            // delay after a sentence or m-dash
-const sentencePausePattern = /[:.!?]/;
 const wordPauseMap = {                    // map of phrase for additional delay; case-insensitive
   "process of cultivating yourself,": 1000,
   "learn and grow": 500,
@@ -27,7 +26,6 @@ const buildTypewriter = () => {
       selector: 'p[id^="descrip"]',
       charDelay: sleeptime,
       sentencePauseTime,
-      sentencePausePattern,
       wordPauseMap,
       paragraphDelayDefault: paragraphPauseDefault,
       paragraphDelayMap: paragraphPauseMap,

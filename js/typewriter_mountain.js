@@ -1,17 +1,18 @@
 // ms between each character typed, ADJUST AS NEEDED
 const sleeptime = 40;
 
-
-const sentencePauseTime = 300;            // delay after a sentence or m-dash
-const sentencePausePattern = /[:.,;!?—]/;
-const wordPauseMap = {                    // map of phrase for additional delay; case-insensitive
-  // "process of cultivating yourself,": 1000,
-  // "learn and grow": 500,
-  // "about yourself": 500,
+const sentencePauseTime = 300;
+const wordPauseMap = {
+  // "happiness, love, and success": 600,
+  // "at your own pace": 500,
+  // "unique paths to the top": 700,
 };
 
 const paragraphPauseDefault = 1000;
-const paragraphPauseMap = {};
+const paragraphPauseMap = {
+  descrip1: 1400,
+  descrip2: 1800,
+};
 
 let typewriterInstance;
 
@@ -24,7 +25,6 @@ const buildTypewriter = () => {
       selector: 'p[id^="descrip"]',
       charDelay: sleeptime,
       sentencePauseTime,
-      sentencePausePattern,
       wordPauseMap,
       paragraphDelayDefault: paragraphPauseDefault,
       paragraphDelayMap: paragraphPauseMap,
@@ -33,7 +33,6 @@ const buildTypewriter = () => {
   return typewriterInstance;
 };
 
-// main function to start the typewriter effect on all paragraphs
 window.startTypewriterEffect = function startTypewriterEffect() {
   const instance = buildTypewriter();
   if (!instance) {

@@ -1,5 +1,16 @@
 (() => {
   const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+  const defaultSentencePausePattern = /[:.,!?—()]/;
+  const defaultSentencePauseMultiplierMap = {
+    ".": 1,
+    ",": 0.5,
+    "(": 0.4,
+    ")": 0.4,
+    ":": 0.75,
+    "!": 1,
+    "?": 1,
+    "—": 0.75,
+  };
 
   const collectTextNodes = (element) => {
     const nodes = [];
@@ -90,7 +101,8 @@
       isPreformatted = (element) => element.tagName === "PRE",
       charDelay = 40,
       sentencePauseTime = 300,
-      sentencePausePattern = /[—.!?]/,
+      sentencePausePattern = defaultSentencePausePattern,
+      sentencePauseMultiplierMap = defaultSentencePauseMultiplierMap,
       wordPauseMap = {},
       paragraphDelayDefault = 1000,
       paragraphDelayMap = {},
@@ -143,7 +155,8 @@
 
         const lastChar = fullText.charAt(i - 1);
         if (sentencePausePattern.test(lastChar)) {
-          await delay(sentencePauseTime);
+          const pauseMultiplier = getMapValue(sentencePauseMultiplierMap, lastChar, 1);
+          await delay(sentencePauseTime * pauseMultiplier);
         }
 
         const soFar = fullText.substring(0, i).toLowerCase();
