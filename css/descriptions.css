@@ -81,7 +81,7 @@
 
 @media (min-width: 700px) and (max-width: 1366px) and (min-height: 700px) and (hover: none) and (pointer: coarse) {
     :root {
-        --fs-body: 23px;
+        --fs-body: calc(23px + 5pt);
         --fs-input-field: calc(var(--fs-body) - 3px);
     }
 }
