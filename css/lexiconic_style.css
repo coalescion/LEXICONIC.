@@ -480,8 +480,8 @@ body.home .content a:active {
     }
 
     .menu li a {
-        font-size: 18px;
-        line-height: 2.4;
+        font-size: 30x;
+        line-height: 3;
         letter-spacing: calc(var(--ls-sora) + 1px);
     }
 }
