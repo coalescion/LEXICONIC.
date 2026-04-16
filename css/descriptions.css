@@ -79,6 +79,13 @@
     }
 }
 
+@media (min-width: 700px) and (max-width: 1366px) and (min-height: 700px) and (hover: none) and (pointer: coarse) {
+    :root {
+        --fs-body: 23px;
+        --fs-input-field: calc(var(--fs-body) - 3px);
+    }
+}
+
 body {
     color: rgb(249, 247, 247);
     background-color: black;

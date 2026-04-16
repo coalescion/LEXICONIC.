@@ -468,3 +468,14 @@ body.home .content a:active {
         left: 0;
     }
 }
+
+@media (min-width: 700px) and (max-width: 899px) and (min-height: 700px) and (hover: none) and (pointer: coarse) {
+    body.home .content a,
+    body.home .content p {
+        font-size: 21px;
+    }
+
+    body.home .content .menu-rectangle {
+        font-size: 20px;
+    }
+}
