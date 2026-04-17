@@ -472,15 +472,15 @@ body.home .content a:active {
 @media (min-width: 700px) and (max-width: 899px) and (min-height: 700px) and (hover: none) and (pointer: coarse) {
     body.home .content a,
     body.home .content p {
-        font-size: calc(21px + 4pt);
+        font-size: calc(21px + 2pt);
     }
 
     body.home .content .menu-rectangle {
-        font-size: calc(20px + 4pt);
+        font-size: calc(20px + 2pt);
     }
 
     .menu li a {
-        font-size: 20px;
+        font-size: 27px;
         line-height: 3;
         letter-spacing: calc(var(--ls-sora) + 0.8px);
     }
